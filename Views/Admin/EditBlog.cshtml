@@ -1,0 +1,271 @@
+﻿@model SaiSports.Models.tbl_blog
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Edit Blog";
+    Layout = null;
+}
+<style>
+    .file-upload-browse {
+        cursor: pointer;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        padding: 12px 20px;
+        text-align: center;
+        border-radius: 5px;
+        width: auto;
+        display: inline-block;
+    }
+
+        .file-upload-browse:hover {
+            background-color: #0056b3;
+        }
+
+        .file-upload-browse:active {
+            background-color: #003c74;
+        }
+
+        .file-upload-browse[for="fileUpload"] {
+            cursor: pointer;
+            display: inline-block;
+        }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="~/assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="~/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <!-- End layout styles -->
+    <!-- CKEditor CDN -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+                <a class="sidebar-brand brand-logo" asp-action="Dashboard"><img src="~/assets/images/logo.svg" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" asp-action="Dashboard"><img src="~/assets/images/logo-mini.svg" alt="logo" /></a>
+            </div>
+            <ul class="nav">
+                <li class="nav-item nav-category">
+                    <span class="nav-link">Navigation</span>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Dashboard">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Products">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-playlist-play"></i>
+                        </span>
+                        <span class="menu-title">Products </span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Enquiries">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-table-large"></i>
+                        </span>
+                        <span class="menu-title">Enquiries</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Blog">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-chart-bar"></i>
+                        </span>
+                        <span class="menu-title">Blog</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_navbar.html -->
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo-mini" asp-action="Dashboard"><img src="~/assets/images/logo-mini.svg" alt="logo" /></a>
+                </div>
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                                <div class="navbar-profile">
+                                    <img class="img-xs rounded-circle" src="~/assets/images/faces/face15.jpg" alt="">
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
+                                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-logout text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Log out</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="mdi mdi-format-line-spacing"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="col-12 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Edit Blog Post</h4>
+                                <form class="forms-sample" asp-action="EditBlog" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" asp-for="id" /> <!-- Assuming Id is the primary key -->
+                                    <!-- Blog Title -->
+                                    <div class="form-group">
+                                        <label for="blogTitle">Blog Title</label>
+                                        <input type="text" class="form-control" id="blogTitle" placeholder="Enter Blog Title" asp-for="title">
+                                    </div>
+                                    <!-- Blog Description -->
+                                    <div class="form-group">
+                                        <label for="blogTitle">Blog Description</label>
+                                        <input type="text" class="form-control" id="blogTitle" placeholder="Enter Blog Description" asp-for="description">
+                                    </div>
+
+                                    <!-- Category -->
+                                    <div class="form-group">
+                                        <label for="category">Category</label>
+                                        <select class="form-control" id="category" asp-for="category">
+                                            <option>Technology</option>
+                                            <option>Health</option>
+                                            <option>Business</option>
+                                            <option>Sports</option>
+                                            <option>Entertainment</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Tags -->
+                                    <div class="form-group">
+                                        <label for="tags">Tags</label>
+                                        <input type="text" class="form-control" id="tags" placeholder="Enter Tags (comma separated)" asp-for="tags">
+                                    </div>
+
+                                    <!-- Featured Image Upload -->
+                                    <div class="form-group">
+                                        <label>File upload</label>
+                                        <!-- Hidden file input -->
+                                        <input type="file" name="img" class="file-upload-default" id="fileUpload" style="display: none;">
+
+                                        <!-- Custom file input design -->
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" id="fileInfo" disabled placeholder="Upload Image">
+                                            <label class="file-upload-browse custom-btn" for="fileUpload">Upload</label>
+                                        </div>
+                                    </div>
+                                    <!-- Author Name -->
+                                    <div class="form-group">
+                                        <label for="authorName">Author</label>
+                                        <input type="text" class="form-control" id="authorName" placeholder="Author Name" asp-for="author">
+                                    </div>
+
+                                    <!-- Blog Post Date -->
+                                    <div class="form-group">
+                                        <label for="postDate">Date</label>
+                                        <input type="date" class="form-control" id="postDate" asp-for="date">
+                                    </div>
+
+                                    <!-- Blog Content -->
+                                    <div class="form-group">
+                                        <label for="blogContent">Content</label>
+                                        <textarea class="form-control" id="editor" rows="6" placeholder="Write your blog content here..." asp-for="blog_content"></textarea>
+                                    </div>
+
+                                    <!-- Submit Button -->
+                                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+                                    <button type="reset" class="btn btn-dark">Cancel</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content-wrapper ends -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="~/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="~/assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="~/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="~/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="~/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/assets/js/off-canvas.js"></script>
+    <script src="~/assets/js/hoverable-collapse.js"></script>
+    <script src="~/assets/js/misc.js"></script>
+    <script src="~/assets/js/settings.js"></script>
+    <script src="~/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="~/assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+    <!-- CKEditor Initialization -->
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+    <script>
+        // When a file is selected, update the text box with the file name
+        document.getElementById('fileUpload').addEventListener('change', function() {
+            const filePath = this.value.split('\\').pop();  // Get the file name only
+            document.getElementById('fileInfo').value = filePath;  // Update input field
+        });
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,294 @@
+﻿@model IEnumerable<SaiSports.Models.tbl_products>
+@{
+    ViewData["Title"] = "Products";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Clothing Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+        }
+
+        .ellipsis {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .product-card img {
+        width: 100%;
+        height: 280px;
+        border-radius: 5px;
+        }
+
+        .filter-sidebar {
+        border-right: 1px solid #ddd;
+        padding-right: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding-top: 30px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        }
+
+        .filter-sidebar h5 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        }
+
+        .filter-sidebar ul li {
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 10px 15px;
+        border-radius: 5px;
+        }
+
+        .filter-sidebar ul li:hover {
+        background-color: #f1f1f1;
+        }
+
+        .card-body {
+        text-align: center;
+        padding: 15px;
+        }
+
+        .card-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+        }
+
+        .price {
+        color: #e74c3c;
+        font-size: 1.2rem;
+        font-weight: bold;
+        }
+
+        /* Responsive Product Grid */
+        .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+        gap: 20px;
+        }
+
+        .product-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 300px;
+        margin: 0 auto;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        }
+
+        .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card .card-body {
+        flex-grow: 1;
+        }
+
+        .product-card .card-footer {
+        text-align: center;
+        background-color: #fff;
+        }
+
+        .product-card .btn {
+        background-color: #28a745;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+        transition: background-color 0.3s;
+        }
+
+        .product-card .btn:hover {
+        background-color: #218838;
+        }
+
+        .container-fluid {
+        padding-top: 20px;
+        }
+
+        .filter-sidebar h3 {
+        color: #333;
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 25px;
+        }
+
+        .form-control {
+        border-radius: 5px;
+        }
+
+        .form-group input[type="text"] {
+        margin-bottom: 25px;
+        }
+
+        /* Responsive Design */
+        @@media (max-width: 767px) {
+        .filter-sidebar
+
+        {
+        position: relative;
+        border-right: none;
+        box-shadow: none;
+        }
+
+        .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        }
+    </style>
+</head>
+
+<body class="w-100">
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Filter -->
+            <div class="col-md-3 filter-sidebar">
+                <h3>Filters</h3>
+                <!-- Search Bar -->
+                <div class="form-group">
+                    <input type="text" id="searchQuery" class="form-control bg-white text-dark" placeholder="Search for products">
+                </div>
+
+                <!-- Categories Filter -->
+                <h5>Categories</h5>
+                <ul class="list-group mb-4">
+                    <li class="list-group-item">
+                        <input type="checkbox" class="filter-category" value="Men"> Men
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" class="filter-category" value="Women"> Women
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" class="filter-category" value="Kids"> Kids
+                    </li>
+                </ul>
+
+                <!-- Color Filter -->
+                <h5>Color</h5>
+                <ul class="list-group mb-4">
+                    <li class="list-group-item">
+                        <input type="checkbox" class="filter-color" value="Red"> Red
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" class="filter-color" value="Blue"> Blue
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" class="filter-color" value="Black"> Black
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Product Display Area -->
+            <div class="col-md-9">
+                <div class="product-grid" id="productGrid">
+                    <!-- Product Cards go here -->
+                    @foreach (var data in Model)
+                    {
+                        <div class="card product-card" data-category="@data.pcategory" data-color="Red">
+                            <img class="card-img-top" src="~/upload/@data.img1" alt="Product Name">
+                            <div class="card-body">
+                                <h5 class="card-title ellipsis ">@data.pname</h5>
+                                <p class="price"> &#8377; @data.price</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    }
+                    <div class="card product-card" data-category="Women" data-color="Blue">
+                        <img class="card-img-top" src="https://via.placeholder.com/200" alt="Product Name">
+                        <div class="card-body">
+                            <h5 class="card-title">Running Shoes</h5>
+                            <p class="price">$50</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="card product-card" data-category="Kids" data-color="Black">
+                        <img class="card-img-top" src="https://via.placeholder.com/200" alt="Product Name">
+                        <div class="card-body">
+                            <h5 class="card-title">Yoga Pants</h5>
+                            <p class="price">$40</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- More product cards... -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript code to filter products dynamically
+        document.getElementById('searchQuery').addEventListener('input', filterProducts);
+        document.querySelectorAll('.filter-category').forEach(function (checkbox) {
+            checkbox.addEventListener('change', filterProducts);
+        });
+        document.querySelectorAll('.filter-color').forEach(function (checkbox) {
+            checkbox.addEventListener('change', filterProducts);
+        });
+
+        function filterProducts() {
+            var searchQuery = document.getElementById('searchQuery').value.toLowerCase();
+            var selectedCategories = Array.from(document.querySelectorAll('.filter-category:checked')).map(function (checkbox) {
+                return checkbox.value;
+            });
+            var selectedColors = Array.from(document.querySelectorAll('.filter-color:checked')).map(function (checkbox) {
+                return checkbox.value;
+            });
+
+            var products = document.querySelectorAll('.product-card');
+            products.forEach(function (product) {
+                var productName = product.querySelector('.card-title').textContent.toLowerCase();
+                var productCategory = product.getAttribute('data-category');
+                var productColor = product.getAttribute('data-color');
+
+                var matchesSearch = productName.includes(searchQuery);
+                var matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(productCategory);
+                var matchesColor = selectedColors.length === 0 || selectedColors.includes(productColor);
+
+                if (matchesSearch && matchesCategory && matchesColor) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
