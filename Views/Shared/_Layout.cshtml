@@ -599,13 +599,16 @@
 			gap:0!important;
 			margin-top:0 !important;
 		}
+		.pt-0{
+			padding-top:0px !important;
+		}
 
 		.admin-btn{
 			border: 1px solid #285282;
 			background-color:black !important;
 			width:150px!important;
 		}
-
+		
 		.swiper-slide-image{
 			height:140px;
 			width:210px !important;
@@ -637,16 +640,21 @@
 			width: 100%;
 			padding-bottom: 100px;
 		}
-		.blog-card{
+
+		.blog-card {
 			box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-			background-color: white;
+			background-color:transparent; /* semi-transparent background */
+			backdrop-filter: blur(10px); /* applies blur effect to the background */
+			-webkit-backdrop-filter: blur(10px); /* for Safari */
 			overflow: hidden;
-			border-radius: 5px;
+			border-radius: 10px;
 			display: flex;
-			flex-direction:column;
+			flex-direction: column;
 			height: 500px;
 			width: 300px;
+			border:1px solid  #285282;
 		}
+
 		.blog-card .blog-img{
 			height: 50%;
 			width: 100%;
@@ -720,7 +728,7 @@
 <body class="home page-template page-template-elementor_header_footer page page-id-190 elementor-default elementor-template-full-width elementor-kit-3 elementor-page elementor-page-190">
 	<header id="masthead" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
 		<div data-elementor-type="wp-post" data-elementor-id="757" class="elementor elementor-757">
-			<div style="background-color: #285282; color: white;"
+			<div style="background-color:#12121;"
 				 class="elementor-element elementor-element-8edd626 elementor-hidden-mobile e-flex e-con-boxed e-con e-parent"
 				 data-id="8edd626" data-element_type="container"
 				 data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -799,7 +807,7 @@
 			<div class="elementor-element elementor-element-85375be e-flex e-con-boxed e-con e-parent"
 				 data-id="85375be" data-element_type="container"
 				 data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"
-				 style="background-color: white;">
+				 style="background-color:#121212;">
 				<div class="e-con-inner b-flex">
 					<div class="elementor-element elementor-element-d4cd036 e-con-full e-flex e-con e-child"
 						 data-id="d4cd036" data-element_type="container">
@@ -828,7 +836,7 @@
 										</a>
 									</div>
 									<div class="rkit-navmenu rkit-responsive-menu rkit-responsive-tablet  rkit-navmenu-fullwidth">
-										<ul class="rkit-menu-container">
+										<ul class="rkit-menu-container" style="background-color:#121212;">
 											<li class="rkit-menu-item   ">
 												<a class="rkit-nav-link" asp-action="Index">
 													Home

@@ -7,7 +7,29 @@
 	Layout = "_Layout";
 }
 <style>
+	.video-background-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1; /* Make sure video stays behind other elements */
+		overflow: hidden;
+	}
+
+	.video-background {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* Ensures video covers the container */
+	}
+
+	.e-con-inner {
+		position: relative;
+		z-index: 1; /* Ensures content is above the video */
+	}
 	video {
+		z-index:-10;
+		background-color:#121212;
 		width: 100%; /* 100% width of the parent */
 		height: 100%; /* Maintain aspect ratio */
 		object-fit: cover; /* Ensures the video fills the container */
@@ -23,26 +45,25 @@
 </style>
 <div id="page">
 	<div data-elementor-type="wp-page" data-elementor-id="190" class="elementor elementor-190">
-		<div class="elementor-element elementor-element-6ba541f e-flex e-con-boxed e-con e-parent" data-id="6ba541f"
-			 data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<video fullscreen autoplay loop >
-				<source  src="~/wp-content/intro.mp4" type="video/mp4">
-				Your browser does not support the video tag.
-			</video>
-		@* 	<div class="e-con-inner">
-				<div class="elementor-element elementor-element-29828a0 e-con-full animated-slow e-flex elementor-invisible e-con e-child"
-					 data-id="29828a0" data-element_type="container"
-					 data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;}">
-					<div class="elementor-element elementor-element-99bcc5b elementor-widget elementor-widget-heading"
-						 data-id="99bcc5b" data-element_type="widget" data-widget_type="heading.default">
+		<div class="elementor-element elementor-element-6ba541f e-flex e-con-boxed e-con e-parent" data-id="6ba541f" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<!-- Video Background -->
+			<div class="video-background-container">
+				<video autoplay loop muted playsinline class="video-background" id="video-background">
+					<source src="~/wp-content/intro.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+
+			<div class="e-con-inner">
+				<div class="elementor-element elementor-element-29828a0 e-con-full animated-slow e-flex elementor-invisible e-con e-child" data-id="29828a0" data-element_type="container" data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;}">
+					<div class="elementor-element elementor-element-99bcc5b elementor-widget elementor-widget-heading" data-id="99bcc5b" data-element_type="widget" data-widget_type="heading.default">
 						<div class="elementor-widget-container">
 							<div class="elementor-heading-title elementor-size-default">
 								WELCOME TO SAI SPORTS
 							</div>
 						</div>
 					</div>
-					<div class="elementor-element elementor-element-31a4670 elementor-widget__width-initial elementor-widget elementor-widget-heading"
-						 data-id="31a4670" data-element_type="widget" data-widget_type="heading.default">
+					<div class="elementor-element elementor-element-31a4670 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="31a4670" data-element_type="widget" data-widget_type="heading.default">
 						<div class="elementor-widget-container">
 							<h1 class="elementor-heading-title elementor-size-default">
 								You Can Always Count on
@@ -50,19 +71,15 @@
 							</h1>
 						</div>
 					</div>
-					<div class="elementor-element elementor-element-edfc088 elementor-widget__width-initial elementor-widget elementor-widget-text-editor"
-						 data-id="edfc088" data-element_type="widget" data-widget_type="text-editor.default">
+					<div class="elementor-element elementor-element-edfc088 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="edfc088" data-element_type="widget" data-widget_type="text-editor.default">
 						<div class="elementor-widget-container">
 							<p>
-								Our service ensures top-quality results, blending expertise and innovation. We focus
-								on delivering tailored solutions with precision, efficiency, and reliability.
+								Our service ensures top-quality results, blending expertise and innovation. We focus on delivering tailored solutions with precision, efficiency, and reliability.
 							</p>
 						</div>
 					</div>
-					<div class="elementor-element elementor-element-345529d e-con-full e-flex e-con e-child"
-						 data-id="345529d" data-element_type="container">
-						<div class="elementor-element elementor-element-f1bcde5 elementor-widget elementor-widget-button"
-							 data-id="f1bcde5" data-element_type="widget" data-widget_type="button.default">
+					<div class="elementor-element elementor-element-345529d e-con-full e-flex e-con e-child" data-id="345529d" data-element_type="container">
+						<div class="elementor-element elementor-element-f1bcde5 elementor-widget elementor-widget-button" data-id="f1bcde5" data-element_type="widget" data-widget_type="button.default">
 							<div class="elementor-widget-container">
 								<div class="elementor-button-wrapper">
 									<a class="elementor-button elementor-button-link elementor-size-sm" asp-action="AboutUs">
@@ -73,31 +90,22 @@
 								</div>
 							</div>
 						</div>
-						<div class="elementor-element elementor-element-58d4273 e-con-full e-flex e-con e-child"
-							 data-id="58d4273" data-element_type="container">
-							<div class="elementor-element elementor-element-e8f17a8 elementor-widget elementor-widget-elementskit-video"
-								 data-id="e8f17a8" data-element_type="widget"
-								 data-widget_type="elementskit-video.default">
+						<div class="elementor-element elementor-element-58d4273 e-con-full e-flex e-con e-child" data-id="58d4273" data-element_type="container">
+							<div class="elementor-element elementor-element-e8f17a8 elementor-widget elementor-widget-elementskit-video" data-id="e8f17a8" data-element_type="widget" data-widget_type="elementskit-video.default">
 								<div class="elementor-widget-container">
 									<div class="ekit-wid-con">
-										<div class="video-content" data-video-player="[]"
-											 data-video-setting="{&quot;videoVolume&quot;:&quot;horizontal&quot;,&quot;startVolume&quot;:0.8,&quot;videoType&quot;:&quot;iframe&quot;,&quot;videoClass&quot;:&quot;mfp-fade&quot;}">
-
-											<a class="ekit_icon_button glow-btn ekit-video-popup ekit-video-popup-btn"
-											   href="https://www.youtube.com/embed/VhBl3dHT5SY?feature=oembed?playlist=VhBl3dHT5SY&amp;mute=0&amp;autoplay=0&amp;loop=no&amp;controls=0&amp;start=0&amp;end="
-											   aria-label="video-popup">
+										<div class="video-content" data-video-player="[]" data-video-setting="{&quot;videoVolume&quot;:&quot;horizontal&quot;,&quot;startVolume&quot;:0.8,&quot;videoType&quot;:&quot;iframe&quot;,&quot;videoClass&quot;:&quot;mfp-fade&quot;}">
+											<a class="ekit_icon_button glow-btn ekit-video-popup ekit-video-popup-btn" href="https://www.youtube.com/embed/VhBl3dHT5SY?feature=oembed?playlist=VhBl3dHT5SY&amp;mute=0&amp;autoplay=0&amp;loop=no&amp;controls=0&amp;start=0&amp;end=" aria-label="video-popup">
 												<i aria-hidden="true" class="fas fa-play"></i>
 											</a>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="elementor-element elementor-element-72d16b8 elementor-widget elementor-widget-button"
-								 data-id="72d16b8" data-element_type="widget" data-widget_type="button.default">
+							<div class="elementor-element elementor-element-72d16b8 elementor-widget elementor-widget-button" data-id="72d16b8" data-element_type="widget" data-widget_type="button.default">
 								<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
-										<a class="elementor-button elementor-button-link elementor-size-sm"
-										   href="#">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
 											<span class="elementor-button-content-wrapper">
 												<span class="elementor-button-text">PLAY VIDEO</span>
 											</span>
@@ -108,8 +116,10 @@
 						</div>
 					</div>
 				</div>
-			</div> *@
+			</div>
 		</div>
+
+		
 		<div class="elementor-element elementor-element-11df554 animated-slow e-flex e-con-boxed elementor-invisible e-con e-parent"
 			 data-id="11df554" data-element_type="container"
 			 data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
@@ -195,38 +205,38 @@
 		<div class="elementor-element elementor-element-f66d1d7 e-flex e-con-boxed e-con e-parent" data-id="f66d1d7"
 			 data-element_type="container">
 			<div class="e-con-inner">
-				<div class="elementor-element elementor-element-53754b0 e-con-full animated-slow e-flex elementor-invisible e-con e-child"
-					 data-id="53754b0" data-element_type="container"
-					 data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;}">
-					<div class="elementor-element elementor-element-2a46e71 elementor-widget elementor-widget-image"
-						 data-id="2a46e71" data-element_type="widget" data-widget_type="image.default">
-						<div class="elementor-widget-container">
-							<img loading="lazy" decoding="async" width="700" height="900"
-								src="~/wp-content/uploads/sites/17/2023/01/saleswoman-measures-fabric-in-textile-store-Z5W4B3B.jpg"
-								 class="attachment-full size-full wp-image-54" alt=""
-								 srcset="https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/saleswoman-measures-fabric-in-textile-store-Z5W4B3B.jpg 700w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/saleswoman-measures-fabric-in-textile-store-Z5W4B3B-233x300.jpg 233w"
-								 sizes="(max-width: 700px) 100vw, 700px" />
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-ab2d3ba elementor-widget__width-initial elementor-widget elementor-widget-spacer"
-						 data-id="ab2d3ba" data-element_type="widget" data-widget_type="spacer.default">
-						<div class="elementor-widget-container">
-							<div class="elementor-spacer">
-								<div class="elementor-spacer-inner"></div>
-							</div>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-f59ebae elementor-widget elementor-widget-image"
-						 data-id="f59ebae" data-element_type="widget" data-widget_type="image.default">
-						<div class="elementor-widget-container">
-							<img loading="lazy" decoding="async" width="1920" height="1280"
-								src="~/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP.jpg"
-								 class="attachment-full size-full wp-image-55" alt=""
-								 srcset="https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP.jpg 1920w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP-300x200.jpg 300w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP-1024x683.jpg 1024w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP-768x512.jpg 768w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP-1536x1024.jpg 1536w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP-800x533.jpg 800w"
-								 sizes="(max-width: 1920px) 100vw, 1920px" />
-						</div>
-					</div>
-				</div>
+				@* <div class="elementor-element elementor-element-53754b0 e-con-full animated-slow e-flex elementor-invisible e-con e-child" *@
+				@* 	 data-id="53754b0" data-element_type="container" *@
+				@* 	 data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;}"> *@
+				@* 	<div class="elementor-element elementor-element-2a46e71 elementor-widget elementor-widget-image" *@
+				@* 		 data-id="2a46e71" data-element_type="widget" data-widget_type="image.default"> *@
+				@* 		<div class="elementor-widget-container"> *@
+				@* 			<img loading="lazy" decoding="async" width="700" height="900" *@
+				@* 				src="~/wp-content/uploads/sites/17/2023/01/saleswoman-measures-fabric-in-textile-store-Z5W4B3B.jpg" *@
+				@* 				 class="attachment-full size-full wp-image-54" alt="" *@
+				@* 				 srcset="https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/saleswoman-measures-fabric-in-textile-store-Z5W4B3B.jpg 700w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/saleswoman-measures-fabric-in-textile-store-Z5W4B3B-233x300.jpg 233w" *@
+				@* 				 sizes="(max-width: 700px) 100vw, 700px" /> *@
+				@* 		</div> *@
+				@* 	</div> *@
+				@* 	<div class="elementor-element elementor-element-ab2d3ba elementor-widget__width-initial elementor-widget elementor-widget-spacer" *@
+				@* 		 data-id="ab2d3ba" data-element_type="widget" data-widget_type="spacer.default"> *@
+				@* 		<div class="elementor-widget-container"> *@
+				@* 			<div class="elementor-spacer"> *@
+				@* 				<div class="elementor-spacer-inner"></div> *@
+				@* 			</div> *@
+				@* 		</div> *@
+				@* 	</div> *@
+				@* 	<div class="elementor-element elementor-element-f59ebae elementor-widget elementor-widget-image" *@
+				@* 		 data-id="f59ebae" data-element_type="widget" data-widget_type="image.default"> *@
+				@* 		<div class="elementor-widget-container"> *@
+				@* 			<img loading="lazy" decoding="async" width="1920" height="1280" *@
+				@* 				src="~/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP.jpg" *@
+				@* 				 class="attachment-full size-full wp-image-55" alt="" *@
+				@* 				 srcset="https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP.jpg 1920w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP-300x200.jpg 300w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP-1024x683.jpg 1024w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP-768x512.jpg 768w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP-1536x1024.jpg 1536w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/cropped-image-of-dressmaker-sewing-cloth-with-sewi-WHDDWPP-800x533.jpg 800w" *@
+				@* 				 sizes="(max-width: 1920px) 100vw, 1920px" /> *@
+				@* 		</div> *@
+				@* 	</div> *@
+				@* </div> *@
 				<div class="elementor-element elementor-element-3c30fec e-con-full e-flex e-con e-child"
 					 data-id="3c30fec" data-element_type="container">
 					<div class="elementor-element elementor-element-d194743 elementor-widget elementor-widget-heading"
@@ -256,117 +266,117 @@
 							</p>
 						</div>
 					</div>
-					<div class="elementor-element elementor-element-6d38144 e-con-full e-flex e-con e-child"
-						 data-id="6d38144" data-element_type="container">
-						<div class="elementor-element elementor-element-8a798ee e-con-full e-flex e-con e-child"
-							 data-id="8a798ee" data-element_type="container">
-							<div class="elementor-element elementor-element-5faaf77 elementor-widget elementor-widget-heading"
-								 data-id="5faaf77" data-element_type="widget" data-widget_type="heading.default">
-								<div class="elementor-widget-container">
-									<h4 class="elementor-heading-title elementor-size-default">Our Vision</h4>
-								</div>
-							</div>
-							<div class="elementor-element elementor-element-913b108 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-								 data-id="913b108" data-element_type="widget" data-widget_type="icon-list.default">
-								<div class="elementor-widget-container">
-									<ul class="elementor-icon-list-items">
-										<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-check-circle"></i>
-											</span>
-											<span class="elementor-icon-list-text">
-												Top-Quality Sportswear
-												Design
-											</span>
-										</li>
-										<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-check-circle"></i>
-											</span>
-											<span class="elementor-icon-list-text">
-												Focus on Innovation and
-												Performance
-												sed.
-											</span>
-										</li>
-										<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-check-circle"></i>
-											</span>
-											<span class="elementor-icon-list-text">Strong, Durable Materials</span>
-										</li>
-										<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-check-circle"></i>
-											</span>
-											<span class="elementor-icon-list-text">
-												Support Athletes
-												Everywhere
-											</span>
-										</li>
-										<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-check-circle"></i>
-											</span>
-											<span class="elementor-icon-list-text">Eco-Friendly Manufacturing</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="elementor-element elementor-element-c1f95a1 e-con-full e-flex e-con e-child"
-							 data-id="c1f95a1" data-element_type="container">
-							<div class="elementor-element elementor-element-efb2e17 elementor-widget elementor-widget-heading"
-								 data-id="efb2e17" data-element_type="widget" data-widget_type="heading.default">
-								<div class="elementor-widget-container">
-									<h4 class="elementor-heading-title elementor-size-default">Our Mission</h4>
-								</div>
-							</div>
-							<div class="elementor-element elementor-element-5e9d76e elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-								 data-id="5e9d76e" data-element_type="widget" data-widget_type="icon-list.default">
-								<div class="elementor-widget-container">
-									<ul class="elementor-icon-list-items">
-										<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-check-circle"></i>
-											</span>
-											<span class="elementor-icon-list-text">Make quality sportswear</span>
-										</li>
-										<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-check-circle"></i>
-											</span>
-											<span class="elementor-icon-list-text">
-												Help athletes perform
-												better
-											</span>
-										</li>
-										<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-check-circle"></i>
-											</span>
-											<span class="elementor-icon-list-text">Focus on comfort</span>
-										</li>
-										<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-check-circle"></i>
-											</span>
-											<span class="elementor-icon-list-text">Use durable materials</span>
-										</li>
-										<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-check-circle"></i>
-											</span>
-											<span class="elementor-icon-list-text">
-												Promote eco-friendly
-												practices
-											</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
+					@* <div class="elementor-element elementor-element-6d38144 e-con-full e-flex e-con e-child" *@
+					@* 	 data-id="6d38144" data-element_type="container"> *@
+					@* 	<div class="elementor-element elementor-element-8a798ee e-con-full e-flex e-con e-child" *@
+					@* 		 data-id="8a798ee" data-element_type="container"> *@
+					@* 		<div class="elementor-element elementor-element-5faaf77 elementor-widget elementor-widget-heading" *@
+					@* 			 data-id="5faaf77" data-element_type="widget" data-widget_type="heading.default"> *@
+					@* 			<div class="elementor-widget-container"> *@
+					@* 				<h4 class="elementor-heading-title elementor-size-default">Our Vision</h4> *@
+					@* 			</div> *@
+					@* 		</div> *@
+					@* 		<div class="elementor-element elementor-element-913b108 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" *@
+					@* 			 data-id="913b108" data-element_type="widget" data-widget_type="icon-list.default"> *@
+					@* 			<div class="elementor-widget-container"> *@
+					@* 				<ul class="elementor-icon-list-items"> *@
+					@* 					<li class="elementor-icon-list-item"> *@
+					@* 						<span class="elementor-icon-list-icon"> *@
+					@* 							<i aria-hidden="true" class="far fa-check-circle"></i> *@
+					@* 						</span> *@
+					@* 						<span class="elementor-icon-list-text"> *@
+					@* 							Top-Quality Sportswear *@
+					@* 							Design *@
+					@* 						</span> *@
+					@* 					</li> *@
+					@* 					<li class="elementor-icon-list-item"> *@
+					@* 						<span class="elementor-icon-list-icon"> *@
+					@* 							<i aria-hidden="true" class="far fa-check-circle"></i> *@
+					@* 						</span> *@
+					@* 						<span class="elementor-icon-list-text"> *@
+					@* 							Focus on Innovation and *@
+					@* 							Performance *@
+					@* 							sed. *@
+					@* 						</span> *@
+					@* 					</li> *@
+					@* 					<li class="elementor-icon-list-item"> *@
+					@* 						<span class="elementor-icon-list-icon"> *@
+					@* 							<i aria-hidden="true" class="far fa-check-circle"></i> *@
+					@* 						</span> *@
+					@* 						<span class="elementor-icon-list-text">Strong, Durable Materials</span> *@
+					@* 					</li> *@
+					@* 					<li class="elementor-icon-list-item"> *@
+					@* 						<span class="elementor-icon-list-icon"> *@
+					@* 							<i aria-hidden="true" class="far fa-check-circle"></i> *@
+					@* 						</span> *@
+					@* 						<span class="elementor-icon-list-text"> *@
+					@* 							Support Athletes *@
+					@* 							Everywhere *@
+					@* 						</span> *@
+					@* 					</li> *@
+					@* 					<li class="elementor-icon-list-item"> *@
+					@* 						<span class="elementor-icon-list-icon"> *@
+					@* 							<i aria-hidden="true" class="far fa-check-circle"></i> *@
+					@* 						</span> *@
+					@* 						<span class="elementor-icon-list-text">Eco-Friendly Manufacturing</span> *@
+					@* 					</li> *@
+					@* 				</ul> *@
+					@* 			</div> *@
+					@* 		</div> *@
+					@* 	</div> *@
+					@* 	<div class="elementor-element elementor-element-c1f95a1 e-con-full e-flex e-con e-child" *@
+					@* 		 data-id="c1f95a1" data-element_type="container"> *@
+					@* 		<div class="elementor-element elementor-element-efb2e17 elementor-widget elementor-widget-heading" *@
+					@* 			 data-id="efb2e17" data-element_type="widget" data-widget_type="heading.default"> *@
+					@* 			<div class="elementor-widget-container"> *@
+					@* 				<h4 class="elementor-heading-title elementor-size-default">Our Mission</h4> *@
+					@* 			</div> *@
+					@* 		</div> *@
+					@* 		<div class="elementor-element elementor-element-5e9d76e elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" *@
+					@* 			 data-id="5e9d76e" data-element_type="widget" data-widget_type="icon-list.default"> *@
+					@* 			<div class="elementor-widget-container"> *@
+					@* 				<ul class="elementor-icon-list-items"> *@
+					@* 					<li class="elementor-icon-list-item"> *@
+					@* 						<span class="elementor-icon-list-icon"> *@
+					@* 							<i aria-hidden="true" class="far fa-check-circle"></i> *@
+					@* 						</span> *@
+					@* 						<span class="elementor-icon-list-text">Make quality sportswear</span> *@
+					@* 					</li> *@
+					@* 					<li class="elementor-icon-list-item"> *@
+					@* 						<span class="elementor-icon-list-icon"> *@
+					@* 							<i aria-hidden="true" class="far fa-check-circle"></i> *@
+					@* 						</span> *@
+					@* 						<span class="elementor-icon-list-text"> *@
+					@* 							Help athletes perform *@
+					@* 							better *@
+					@* 						</span> *@
+					@* 					</li> *@
+					@* 					<li class="elementor-icon-list-item"> *@
+					@* 						<span class="elementor-icon-list-icon"> *@
+					@* 							<i aria-hidden="true" class="far fa-check-circle"></i> *@
+					@* 						</span> *@
+					@* 						<span class="elementor-icon-list-text">Focus on comfort</span> *@
+					@* 					</li> *@
+					@* 					<li class="elementor-icon-list-item"> *@
+					@* 						<span class="elementor-icon-list-icon"> *@
+					@* 							<i aria-hidden="true" class="far fa-check-circle"></i> *@
+					@* 						</span> *@
+					@* 						<span class="elementor-icon-list-text">Use durable materials</span> *@
+					@* 					</li> *@
+					@* 					<li class="elementor-icon-list-item"> *@
+					@* 						<span class="elementor-icon-list-icon"> *@
+					@* 							<i aria-hidden="true" class="far fa-check-circle"></i> *@
+					@* 						</span> *@
+					@* 						<span class="elementor-icon-list-text"> *@
+					@* 							Promote eco-friendly *@
+					@* 							practices *@
+					@* 						</span> *@
+					@* 					</li> *@
+					@* 				</ul> *@
+					@* 			</div> *@
+					@* 		</div> *@
+					@* 	</div> *@
+					@* </div> *@
 					<div class="elementor-element elementor-element-22bb3f2 elementor-widget elementor-widget-button"
 						 data-id="22bb3f2" data-element_type="widget" data-widget_type="button.default">
 						<div class="elementor-widget-container">
@@ -694,76 +704,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="elementor-element elementor-element-99675ee e-flex e-con-boxed e-con e-parent" data-id="99675ee"
-			 data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="e-con-inner">
-				<div class="elementor-element elementor-element-e23b8af elementor-widget elementor-widget-image-carousel"
-					 data-id="e23b8af" data-element_type="widget"
-					 data-settings="{&quot;slides_to_show&quot;:&quot;6&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;autoplay_speed&quot;:3500,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:80,&quot;sizes&quot;:[]},&quot;slides_to_show_tablet&quot;:&quot;3&quot;,&quot;slides_to_show_mobile&quot;:&quot;2&quot;,&quot;image_spacing_custom_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:35,&quot;sizes&quot;:[]},&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500,&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}"
-					 data-widget_type="image-carousel.default">
-					<div class="elementor-widget-container">
-						<div class="elementor-image-carousel-wrapper swiper" dir="ltr">
-							<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
-								<div class="swiper-slide" role="group" aria-roledescription="slide"
-									 aria-label="1 of 6">
-									<figure class="swiper-slide-inner">
-										<img decoding="async"
-											 class="swiper-slide-image"
-											src="~/wp-content/uploads/sites/17/2023/02/Election-Commision.png"
-											 alt="Partner-1" />
-									</figure>
-								</div>
-								<div class="swiper-slide" role="group" aria-roledescription="slide"
-									 aria-label="2 of 6">
-									<figure class="swiper-slide-inner">
-										<img decoding="async"
-											 class="swiper-slide-image"
-											src="~/wp-content/uploads/sites/17/2023/02/Indian-Armt.png"
-											 alt="Partner-3" />
-									</figure>
-								</div>
-								<div class="swiper-slide" role="group" aria-roledescription="slide"
-									 aria-label="3 of 6">
-									<figure class="swiper-slide-inner">
-										<img decoding="async"
-											 class="swiper-slide-image"
-											src="~/wp-content/uploads/sites/17/2023/02/Ncc.png" alt="Partner-5" />
-									</figure>
-								</div>
-								<div class="swiper-slide" role="group" aria-roledescription="slide"
-									 aria-label="4 of 6">
-									<figure class="swiper-slide-inner">
-										<img decoding="async"
-											 class="swiper-slide-image"
-											src="~/wp-content/uploads/sites/17/2023/02/Ploice.png" alt="Partner-4" />
-									</figure>
-								</div>
-								<div class="swiper-slide" role="group" aria-roledescription="slide"
-									 aria-label="5 of 6">
-									<figure class="swiper-slide-inner">
-										<img decoding="async"
-											 class="swiper-slide-image"
-											src="~/wp-content/uploads/sites/17/2023/02/Railway.png" alt="Partner-2" />
-									</figure>
-								</div>
-								<div class="swiper-slide" role="group" aria-roledescription="slide"
-									 aria-label="6 of 6">
-									<figure class="swiper-slide-inner">
-										<img decoding="async"
-											 class="swiper-slide-image"
-											src="~/wp-content/uploads/sites/17/2023/02/sai1.webp" alt="Partner-7" />
-									</figure>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="elementor-element elementor-element-bd2b16b e-flex e-con-boxed e-con e-parent" data-id="bd2b16b"
+		
+		<div class="elementor-element elementor-element-bd2b16b e-flex e-con-boxed e-con e-parent pt-0" data-id="bd2b16b"
 			 data-element_type="container">
-			<div class="e-con-inner">
+			<div class="e-con-inner  pt-0">
 				<div class="elementor-element elementor-element-2cd4df2 e-con-full e-flex e-con e-child"
 					 data-id="2cd4df2" data-element_type="container">
 					<div class="elementor-element elementor-element-c85bbab elementor-widget elementor-widget-heading"
@@ -804,106 +748,26 @@
 				<div class="elementor-element elementor-element-1a95ec6 e-con-full animated-slow e-flex elementor-invisible e-con e-child"
 					 data-id="1a95ec6" data-element_type="container"
 					 data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
-					<div class="elementor-element elementor-element-26cab81 elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget elementor-widget-elementskit-piechart"
-						 data-id="26cab81" data-element_type="widget"
-						 data-widget_type="elementskit-piechart.default">
-						<div class="elementor-widget-container">
-							<div class="ekit-wid-con">
-								<div class="ekit-single-piechart withcontent">
+					<img style="border:1px solid #285282; border-radius:10px;" src="https://img.freepik.com/premium-photo/factury-manufacture_1292885-14846.jpg?w=740" alt="Alternate Text" />
+					
+					
+					@* <div class="elementor-element elementor-element-0585d50 elementor-widget__width-initial elementor-widget elementor-widget-elementskit-piechart" *@
+					@* 	 data-id="0585d50" data-element_type="widget" *@
+					@* 	 data-widget_type="elementskit-piechart.default"> *@
+					@* 	<div class="elementor-widget-container"> *@
+					@* 		<div class="ekit-wid-con"> *@
+					@* 			<div class="ekit-single-piechart withcontent"> *@
 
-
-									<div class="colorful-chart piechart" data-pie_color_style="normal"
-										 data-gradientcolor1="" data-gradientcolor2="" data-color="#285282"
-										 data-barbg="#1D2F40" data-size="150" data-linewidth="5" data-percent="95">
-
-
-										<span class="ekit-chart-content">95&#37;</span>
-
-
-
-
-
-
-									</div>
-									<h2 class="ekit-piechart-title">Factory Experience</h2>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-b25d5b1 elementor-widget__width-initial elementor-widget elementor-widget-elementskit-piechart"
-						 data-id="b25d5b1" data-element_type="widget"
-						 data-widget_type="elementskit-piechart.default">
-						<div class="elementor-widget-container">
-							<div class="ekit-wid-con">
-								<div class="ekit-single-piechart withcontent">
-
-
-									<div class="colorful-chart piechart" data-pie_color_style="normal"
-										 data-gradientcolor1="" data-gradientcolor2="" data-color="#285282"
-										 data-barbg="#1D2F40" data-size="150" data-linewidth="5" data-percent="97">
-
-
-										<span class="ekit-chart-content">97&#37;</span>
-
-w
-									</div>
-									<h2 class="ekit-piechart-title">Textile Material</h2>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-356e3b4 elementor-widget__width-initial elementor-widget elementor-widget-elementskit-piechart"
-						 data-id="356e3b4" data-element_type="widget"
-						 data-widget_type="elementskit-piechart.default">
-						<div class="elementor-widget-container">
-							<div class="ekit-wid-con">
-								<div class="ekit-single-piechart withcontent">
-
-
-									<div class="colorful-chart piechart" data-pie_color_style="normal"
-										 data-gradientcolor1="" data-gradientcolor2="" data-color="#285282"
-										 data-barbg="#1D2F40" data-size="150" data-linewidth="5" data-percent="96">
-
-
-										<span class="ekit-chart-content">96&#37;</span>
-
-
-
-
-
-
-									</div>
-									<h2 class="ekit-piechart-title">Worker Skills</h2>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-0585d50 elementor-widget__width-initial elementor-widget elementor-widget-elementskit-piechart"
-						 data-id="0585d50" data-element_type="widget"
-						 data-widget_type="elementskit-piechart.default">
-						<div class="elementor-widget-container">
-							<div class="ekit-wid-con">
-								<div class="ekit-single-piechart withcontent">
-
-
-									<div class="colorful-chart piechart" data-pie_color_style="normal"
-										 data-gradientcolor1="" data-gradientcolor2="" data-color=" #285282"
-										 data-barbg="#1D2F40" data-size="150" data-linewidth="5" data-percent="93">
-
-
-										<span class="ekit-chart-content">93&#37;</span>
-
-
-
-
-
-
-									</div>
-									<h2 class="ekit-piechart-title">Machinery &amp; Equipment</h2>
-								</div>
-							</div>
-						</div>
-					</div>
+					@* 				<div class="colorful-chart piechart" data-pie_color_style="normal" *@
+					@* 					 data-gradientcolor1="" data-gradientcolor2="" data-color=" #285282" *@
+					@* 					 data-barbg="#1D2F40" data-size="150" data-linewidth="5" data-percent="93"> *@
+					@* 					<span class="ekit-chart-content">93&#37;</span> *@
+					@* 				</div> *@
+					@* 				<h2 class="ekit-piechart-title">Machinery &amp; Equipment</h2> *@
+					@* 			</div> *@
+					@* 		</div> *@
+					@* 	</div> *@
+					@* </div> *@
 				</div>
 			</div>
 		</div>
@@ -1351,6 +1215,75 @@ w
 				</div>
 			</div>
 		</div>
+
+		<div class="elementor-element elementor-element-99675ee e-flex e-con-boxed e-con e-parent" data-id="99675ee"
+			 data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="e-con-inner">
+				<div class="elementor-element elementor-element-e23b8af elementor-widget elementor-widget-image-carousel"
+					 data-id="e23b8af" data-element_type="widget"
+					 data-settings="{&quot;slides_to_show&quot;:&quot;6&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;autoplay_speed&quot;:3500,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:80,&quot;sizes&quot;:[]},&quot;slides_to_show_tablet&quot;:&quot;3&quot;,&quot;slides_to_show_mobile&quot;:&quot;2&quot;,&quot;image_spacing_custom_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:35,&quot;sizes&quot;:[]},&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500,&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}"
+					 data-widget_type="image-carousel.default">
+					<div class="elementor-widget-container">
+						<div class="elementor-image-carousel-wrapper swiper" dir="ltr">
+							<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
+								<div class="swiper-slide" role="group" aria-roledescription="slide"
+									 aria-label="1 of 6">
+									<figure class="swiper-slide-inner">
+										<img decoding="async"
+											 class="swiper-slide-image"
+											 src="~/wp-content/uploads/sites/17/2023/02/Election-Commision.png"
+											 alt="Partner-1" />
+									</figure>
+								</div>
+								<div class="swiper-slide" role="group" aria-roledescription="slide"
+									 aria-label="2 of 6">
+									<figure class="swiper-slide-inner">
+										<img decoding="async"
+											 class="swiper-slide-image"
+											 src="~/wp-content/uploads/sites/17/2023/02/Indian-Armt.png"
+											 alt="Partner-3" />
+									</figure>
+								</div>
+								<div class="swiper-slide" role="group" aria-roledescription="slide"
+									 aria-label="3 of 6">
+									<figure class="swiper-slide-inner">
+										<img decoding="async"
+											 class="swiper-slide-image"
+											 src="~/wp-content/uploads/sites/17/2023/02/Ncc.png" alt="Partner-5" />
+									</figure>
+								</div>
+								<div class="swiper-slide" role="group" aria-roledescription="slide"
+									 aria-label="4 of 6">
+									<figure class="swiper-slide-inner">
+										<img decoding="async"
+											 class="swiper-slide-image"
+											 src="~/wp-content/uploads/sites/17/2023/02/Ploice.png" alt="Partner-4" />
+									</figure>
+								</div>
+								<div class="swiper-slide" role="group" aria-roledescription="slide"
+									 aria-label="5 of 6">
+									<figure class="swiper-slide-inner">
+										<img decoding="async"
+											 class="swiper-slide-image"
+											 src="~/wp-content/uploads/sites/17/2023/02/Railway.png" alt="Partner-2" />
+									</figure>
+								</div>
+								<div class="swiper-slide" role="group" aria-roledescription="slide"
+									 aria-label="6 of 6">
+									<figure class="swiper-slide-inner">
+										<img decoding="async"
+											 class="swiper-slide-image"
+											 src="~/wp-content/uploads/sites/17/2023/02/sai1.webp" alt="Partner-7" />
+									</figure>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="elementor-element elementor-element-afcd83c e-flex e-con-boxed e-con e-parent" data-id="afcd83c"
 			 data-element_type="container">
 			<div class="e-con-inner">
@@ -1366,7 +1299,6 @@ w
 											<div class="swiper-slide-inner">
 												<div class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-072e8ce">
 													<div class="elementskit-commentor-bio ">
-
 														<div class="elementskit-commentor-image ekit-testimonial--avatar">
 															<img loading="lazy" decoding="async" width="600"
 																 height="600"
@@ -1388,7 +1320,6 @@ w
 														<span class="elementskit-watermark-icon ekit_watermark_icon_custom_position">
 															<i aria-hidden="true" class="icon icon-quote"></i>
 														</span>
-
 														<p>
 															"Ut et lorem eu enim mollis pharetra sed vel nisl.
 															Suspendisse potenti. Sed pellentesque id ipsum sed
@@ -1477,8 +1408,6 @@ w
 											</div>
 										</div>
 									</div>
-
-
 								</div>
 							</div>
 						</div>
@@ -1554,17 +1483,16 @@ w
 
 				<div class="blog-card">
 					<div class="blog-img">
-						<img src="@Url.Content(data.img)" alt="" srcset="">
-					</div>
+							<img src="@Url.Content(data.img)" alt="@data.title" srcset="">
+					</div>	
 					<div class="blog-content">
-						<div class="category">@data.category</div>
+							<div class="category">@DateTime.Parse(data.date).ToString("dd MMM yyyy")</div>
 							<a asp-action="BlogDetail" asp-route-id="@data.id"><h4 class="ellipsis">@data.title</h4></a>
 						<p class="multiline-ellipsis">@data.description</p>
 						<a asp-action="BlogDetail" asp-route-id="@data.id" class="blog-more-btn">Read More...</a>
 					</div>
 				</div>
 				}
-
 			</div>
 		</div>
 	</section>

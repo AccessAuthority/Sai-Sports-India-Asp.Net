@@ -21,32 +21,24 @@
   .elementor-element.elementor-element-6ba541f
   > .elementor-motion-effects-container
   > .elementor-motion-effects-layer {
-  background-image: url("../../2023/01/workshop-production-of-clothing-sewing-machine-P8XLZ35.jpg");
+/*  background-image: url("../../2023/01/workshop-production-of-clothing-sewing-machine-P8XLZ35.jpg");*/
   background-position: 0px -120px;
   background-size: cover;
 }
-.elementor-190 .elementor-element.elementor-element-6ba541f::before,
-.elementor-190
-  .elementor-element.elementor-element-6ba541f
-  > .elementor-background-video-container::before,
-.elementor-190
-  .elementor-element.elementor-element-6ba541f
-  > .e-con-inner
-  > .elementor-background-video-container::before,
-.elementor-190
-  .elementor-element.elementor-element-6ba541f
-  > .elementor-background-slideshow::before,
-.elementor-190
-  .elementor-element.elementor-element-6ba541f
-  > .e-con-inner
-  > .elementor-background-slideshow::before,
-.elementor-190
-  .elementor-element.elementor-element-6ba541f
-  > .elementor-motion-effects-container
-  > .elementor-motion-effects-layer::before {
-  --background-overlay: "";
-/*  background-color: var(--e-global-color-primary);*/
-}
+    .elementor-190 .elementor-element.elementor-element-6ba541f::before,
+    .elementor-190
+    .elementor-element.elementor-element-6ba541f > .elementor-background-video-container::before,
+    .elementor-190
+    .elementor-element.elementor-element-6ba541f > .e-con-inner > .elementor-background-video-container::before,
+    .elementor-190
+    .elementor-element.elementor-element-6ba541f > .elementor-background-slideshow::before,
+    .elementor-190
+    .elementor-element.elementor-element-6ba541f > .e-con-inner > .elementor-background-slideshow::before,
+    .elementor-190
+    .elementor-element.elementor-element-6ba541f > .elementor-motion-effects-container > .elementor-motion-effects-layer::before {
+        --background-overlay: "";
+        background-color: rgba(18, 18, 18, 0.8);
+    }
 .elementor-190 .elementor-element.elementor-element-6ba541f,
 .elementor-190 .elementor-element.elementor-element-6ba541f::before {
   --border-transition: 0.3s;
@@ -727,28 +719,20 @@ body:not(.rtl)
   background-position: center center;
   background-size: cover;
 }
-.elementor-190 .elementor-element.elementor-element-5425fa5::before,
-.elementor-190
-  .elementor-element.elementor-element-5425fa5
-  > .elementor-background-video-container::before,
-.elementor-190
-  .elementor-element.elementor-element-5425fa5
-  > .e-con-inner
-  > .elementor-background-video-container::before,
-.elementor-190
-  .elementor-element.elementor-element-5425fa5
-  > .elementor-background-slideshow::before,
-.elementor-190
-  .elementor-element.elementor-element-5425fa5
-  > .e-con-inner
-  > .elementor-background-slideshow::before,
-.elementor-190
-  .elementor-element.elementor-element-5425fa5
-  > .elementor-motion-effects-container
-  > .elementor-motion-effects-layer::before {
-  --background-overlay: "";
-  background-color: var(--e-global-color-primary);
-}
+    .elementor-190 .elementor-element.elementor-element-5425fa5::before,
+    .elementor-190
+    .elementor-element.elementor-element-5425fa5 > .elementor-background-video-container::before,
+    .elementor-190
+    .elementor-element.elementor-element-5425fa5 > .e-con-inner > .elementor-background-video-container::before,
+    .elementor-190
+    .elementor-element.elementor-element-5425fa5 > .elementor-background-slideshow::before,
+    .elementor-190
+    .elementor-element.elementor-element-5425fa5 > .e-con-inner > .elementor-background-slideshow::before,
+    .elementor-190
+    .elementor-element.elementor-element-5425fa5 > .elementor-motion-effects-container > .elementor-motion-effects-layer::before {
+        --background-overlay: "";
+        background-color:#000;
+    }
 .elementor-190 .elementor-element.elementor-element-5425fa5,
 .elementor-190 .elementor-element.elementor-element-5425fa5::before {
   --border-transition: 0.3s;
@@ -1674,16 +1658,14 @@ body:not(.rtl)
   --padding-left: 0em;
   --padding-right: 0em;
 }
-.elementor-190
-  .elementor-element.elementor-element-99675ee:not(
-    .elementor-motion-effects-element-type-background
-  ),
-.elementor-190
-  .elementor-element.elementor-element-99675ee
-  > .elementor-motion-effects-container
-  > .elementor-motion-effects-layer {
-  background-color: var(--e-global-color-primary);
-}
+    .elementor-190
+    .elementor-element.elementor-element-99675ee:not( .elementor-motion-effects-element-type-background ),
+    .elementor-190
+    .elementor-element.elementor-element-99675ee > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+        background-image: url("https://img.freepik.com/premium-photo/black-grunge-fabric-texture-background-abstract-material-clothing-decoration-concept_151013-42800.jpg?w=900");
+        background-attachment:fixed;
+        background-size:cover;
+    }
 .elementor-190 .elementor-element.elementor-element-99675ee,
 .elementor-190 .elementor-element.elementor-element-99675ee::before {
   --border-transition: 0.3s;
@@ -2171,7 +2153,7 @@ body:not(.rtl)
   > .elementor-motion-effects-container
   > .elementor-motion-effects-layer::before {
   --background-overlay: "";
-  background-color: var(--e-global-color-primary);
+  background-color:#000;
 }
 .elementor-190 .elementor-element.elementor-element-a423c15,
 .elementor-190 .elementor-element.elementor-element-a423c15::before {
@@ -4299,7 +4281,7 @@ body:not(.rtl)
     --width: 50%;
   }
   .elementor-190 .elementor-element.elementor-element-3c30fec {
-    --width: 50%;
+    --width: 100%;
   }
   .elementor-190 .elementor-element.elementor-element-1faa8d4 {
     --width: 31.8%;
