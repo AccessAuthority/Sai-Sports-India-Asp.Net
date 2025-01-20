@@ -13,6 +13,10 @@ builder.Services.AddDbContext<AppDbContext>(
         builder.Configuration.GetConnectionString("DefaultConnection")
    ));
 
+// Register EmailSender as the IEmailSender service
+builder.Services.AddTransient<EmailSender, EmailSender>();
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

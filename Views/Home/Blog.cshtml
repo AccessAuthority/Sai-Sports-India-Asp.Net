@@ -468,6 +468,10 @@
 	<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embed0719?url=https%3A%2F%2Fgtkit.rometheme.pro%2Fgarmen%2Ftemplate-kit%2Fblog%2F&amp;format=xml" />
 	<meta name="generator" content="Elementor 3.25.10; features: additional_custom_breakpoints, e_optimized_control_loading; settings: css_print_method-external, google_font-enabled, font_display-auto">
 	<style>
+		.blog-cards{
+			padding-bottom:50px;
+			padding-top:50px;
+		}
 		.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
 		.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
 			background-image: none !important;
@@ -508,7 +512,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="elementor-element elementor-element-e436efc e-flex e-con-boxed e-con e-parent" data-id="e436efc" data-element_type="container">
+			@* <div class="elementor-element elementor-element-e436efc e-flex e-con-boxed e-con e-parent" data-id="e436efc" data-element_type="container">
 				<div class="e-con-inner pb-">
 					<div class="elementor-element elementor-element-152ad17 elementor-widget elementor-widget-heading" data-id="152ad17" data-element_type="widget" data-widget_type="heading.default">
 						<div class="elementor-widget-container">
@@ -527,9 +531,9 @@
 					</div>
 				</div>
 			</div>
-		
+		 *@
 		</div>
-		<section style="background-image: url(images/dashed.png);">
+		<section>
 			<div class="blog">
 				<div class="blog-cards">
 					@foreach (var data in Model)
@@ -541,7 +545,7 @@
 							</div>
 							<div class="blog-content">
 								<div class="category">@data.category</div>
-								<h4 class="ellipsis">@data.title</h4>
+								<a asp-action="BlogDetail" asp-route-id="@data.id"><h4 class="ellipsis">@data.title</h4></a>
 								<p class="multiline-ellipsis">@data.description</p>
 								<a asp-action="BlogDetail" asp-route-id="@data.id" class="blog-more-btn">Read More...</a>
 							</div>

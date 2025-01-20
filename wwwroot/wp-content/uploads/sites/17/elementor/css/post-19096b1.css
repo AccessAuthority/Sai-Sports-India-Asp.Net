@@ -45,7 +45,7 @@
   > .elementor-motion-effects-container
   > .elementor-motion-effects-layer::before {
   --background-overlay: "";
-  background-color: var(--e-global-color-primary);
+/*  background-color: var(--e-global-color-primary);*/
 }
 .elementor-190 .elementor-element.elementor-element-6ba541f,
 .elementor-190 .elementor-element.elementor-element-6ba541f::before {

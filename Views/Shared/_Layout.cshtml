@@ -571,6 +571,7 @@
 				color: #285282 !important;
 			}
 			.ellipsis {
+				margin:8px 0 !important;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -589,6 +590,27 @@
 			border:none;
 			border-color:white !important;
 		}
+		.bt-padding{
+			justify-content:center!important;
+			padding-bottom: 50px !important;
+			padding-top: 100px !important;
+		}
+		.mt-0{
+			gap:0!important;
+			margin-top:0 !important;
+		}
+
+		.admin-btn{
+			border: 1px solid #285282;
+			background-color:black !important;
+			width:150px!important;
+		}
+
+		.swiper-slide-image{
+			height:140px;
+			width:210px !important;
+		}
+
 		/* Blog section  */
 		.blog{
 			gap: 10px;
@@ -661,9 +683,17 @@
 		}
 
 			.blog-more-btn:hover{
-				color:green !important;
+				color: #399051 !important;
+			}
+			.top-header{
+				height:0.4em !important;
+			}
+
+		.rkit-nav-link{
+				font-weight:600 !important;
 			}
 		/* Blog section  */
+	
 
 		@@media screen and (max-height: 1024px) {
 
@@ -694,7 +724,7 @@
 				 class="elementor-element elementor-element-8edd626 elementor-hidden-mobile e-flex e-con-boxed e-con e-parent"
 				 data-id="8edd626" data-element_type="container"
 				 data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-				<div class="e-con-inner">
+				<div class="e-con-inner top-header">
 					<div class="elementor-element elementor-element-34c9aa8 elementor-icon-list--layout-inline elementor-mobile-align-center elementor-widget-tablet__width-initial elementor-tablet-align-center elementor-hidden-mobile elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
 						 data-id="34c9aa8" data-element_type="widget" data-widget_type="icon-list.default">
 						<div class="elementor-widget-container">
@@ -770,7 +800,7 @@
 				 data-id="85375be" data-element_type="container"
 				 data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"
 				 style="background-color: white;">
-				<div class="e-con-inner">
+				<div class="e-con-inner b-flex">
 					<div class="elementor-element elementor-element-d4cd036 e-con-full e-flex e-con e-child"
 						 data-id="d4cd036" data-element_type="container">
 						<div class="elementor-element elementor-element-0ae426b elementor-widget elementor-widget-image"
@@ -821,6 +851,11 @@
 												</a>
 											</li>
 											<li class="rkit-menu-item   ">
+												<a class="rkit-nav-link" asp-action="Testimonial">
+													Testimonials
+												</a>
+											</li>
+											<li class="rkit-menu-item   ">
 												<a class="rkit-nav-link" asp-action="ContactUs">
 													Contact Us
 												</a>
@@ -857,13 +892,13 @@
         </main>
     </div>
 
-	<footer itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+	<footer itemscope="itemscope">
 		<div data-elementor-type="wp-post" data-elementor-id="732" class="elementor elementor-732">
 			<div class="elementor-element elementor-element-e09fdef e-flex e-con-boxed e-con e-parent"
-				 data-id="e09fdef" data-element_type="container"
+				 data-id="e09fdef" data-element_type="container" style="background-color:#000000;"
 				 data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-				<div class="e-con-inner">
-					<div class="elementor-element elementor-element-63c983c e-con-full e-flex e-con e-child"
+				<div class="e-con-inner bt-padding">
+				@* 	<div class="elementor-element elementor-element-63c983c e-con-full e-flex e-con e-child"
 						 data-id="63c983c" data-element_type="container">
 						<div class="elementor-element elementor-element-5a2e7bb elementor-widget elementor-widget-image"
 							 data-id="5a2e7bb" data-element_type="widget" data-widget_type="image.default">
@@ -914,13 +949,13 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> *@
 					<div class="elementor-element elementor-element-e2f444e e-con-full e-flex e-con e-child"
 						 data-id="e2f444e" data-element_type="container">
 						<div class="elementor-element elementor-element-1e9a16d elementor-widget elementor-widget-heading"
 							 data-id="1e9a16d" data-element_type="widget" data-widget_type="heading.default">
 							<div class="elementor-widget-container">
-								<h4 class="elementor-heading-title elementor-size-default">Quick Links</h4>
+								<h4 class="elementor-heading-title elementor-size-default">Company</h4>
 							</div>
 						</div>
 						<div class="elementor-element elementor-element-7e393d0 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
@@ -928,21 +963,20 @@
 							<div class="elementor-widget-container">
 								<ul class="elementor-icon-list-items">
 									<li class="elementor-icon-list-item">
-										<a asp-action="Index">
+										<a asp-action="AboutUs">
 
 											<span class="elementor-icon-list-icon">
 												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
 											</span>
-											<span class="elementor-icon-list-text">Home</span>
+											<span class="elementor-icon-list-text white">About Us</span>
 										</a>
 									</li>
 									<li class="elementor-icon-list-item">
-										<a asp-action="Blog">
-
+										<a href="~/wp-content/Desperation clothes catelogue.pdf" download="Brochure" target="_blank">
 											<span class="elementor-icon-list-icon">
 												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
 											</span>
-											<span class="elementor-icon-list-text">Blog</span>
+											<span class="elementor-icon-list-text white">Brochure</span>
 										</a>
 									</li>
 									@* <li class="elementor-icon-list-item">
@@ -956,33 +990,30 @@
 									</li> *@
 
 									<li class="elementor-icon-list-item">
-										<a asp-action="AboutUs">
-
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
-											</span>
-											<span class="elementor-icon-list-text">About Us</span>
-										</a>
-									</li>
-
-									<li class="elementor-icon-list-item">
-										<a asp-action="Products">
-
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
-											</span>
-											<span class="elementor-icon-list-text">Products</span>
-										</a>
-									</li>
-									<li class="elementor-icon-list-item">
 										<a asp-action="ContactUs">
 
 											<span class="elementor-icon-list-icon">
 												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
 											</span>
-											<span class="elementor-icon-list-text">Contact Us</span>
+											<span class="elementor-icon-list-text white">Contact Us</span>
 										</a>
 									</li>
+									<li class="elementor-icon-list-item">
+										<a asp-action="Career">
+
+											<span class="elementor-icon-list-icon">
+												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
+											</span>
+											<span class="elementor-icon-list-text white">Career</span>
+										</a>
+									</li>
+									<div class="elementor-button-wrapper">
+										<a class="elementor-button elementor-button-link admin-btn" asp-action="">
+											<span class="elementor-button-content-wrapper">
+												<span class="elementor-button-text bg-none">Admin Login</span>
+											</span>
+										</a>
+									</div>
 								</ul>
 							</div>
 						</div>
@@ -992,7 +1023,7 @@
 						<div class="elementor-element elementor-element-587f704 elementor-widget elementor-widget-heading"
 							 data-id="587f704" data-element_type="widget" data-widget_type="heading.default">
 							<div class="elementor-widget-container">
-								<h4 class="elementor-heading-title elementor-size-default">Services</h4>
+								<h4 class="elementor-heading-title elementor-size-default">Our Services</h4>
 							</div>
 						</div>
 						<div class="elementor-element elementor-element-bfa02e4 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
@@ -1006,7 +1037,7 @@
 											<span class="elementor-icon-list-icon">
 												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
 											</span>
-											<span class="elementor-icon-list-text">Custom Apparel</span>
+											<span class="elementor-icon-list-text white">Custom Apparel</span>
 										</a>
 									</li>
 									<li class="elementor-icon-list-item">
@@ -1015,7 +1046,7 @@
 											<span class="elementor-icon-list-icon">
 												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
 											</span>
-											<span class="elementor-icon-list-text">Garment Stitching</span>
+											<span class="elementor-icon-list-text white">Garment Stitching</span>
 										</a>
 									</li>
 									<li class="elementor-icon-list-item">
@@ -1024,7 +1055,7 @@
 											<span class="elementor-icon-list-icon">
 												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
 											</span>
-											<span class="elementor-icon-list-text">Clothing Manufacturing</span>
+											<span class="elementor-icon-list-text white">Clothing Manufacturing</span>
 										</a>
 									</li>
 
@@ -1034,7 +1065,7 @@
 											<span class="elementor-icon-list-icon">
 												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
 											</span>
-											<span class="elementor-icon-list-text">Fabric Sourcing and Supply</span>
+											<span class="elementor-icon-list-text white">Bulk Clothing Production</span>
 										</a>
 									</li>
 									<li class="elementor-icon-list-item">
@@ -1043,16 +1074,7 @@
 											<span class="elementor-icon-list-icon">
 												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
 											</span>
-											<span class="elementor-icon-list-text">Bulk Clothing Production</span>
-										</a>
-									</li>
-									<li class="elementor-icon-list-item">
-										<a href="#">
-
-											<span class="elementor-icon-list-icon">
-												<i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
-											</span>
-											<span class="elementor-icon-list-text">Private Label Manufacturing</span>
+											<span class="elementor-icon-list-text white">Private Label Manufacturing</span>
 										</a>
 									</li>
 
@@ -1065,7 +1087,7 @@
 						<div class="elementor-element elementor-element-5d9192d elementor-widget elementor-widget-heading"
 							 data-id="5d9192d" data-element_type="widget" data-widget_type="heading.default">
 							<div class="elementor-widget-container">
-								<h4 class="elementor-heading-title elementor-size-default">Information</h4>
+								<h4 class="elementor-heading-title elementor-size-default">Support</h4>
 							</div>
 						</div>
 						<div class="elementor-element elementor-element-c3a46c1 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
@@ -1094,8 +1116,25 @@
 										<span class="elementor-icon-list-icon">
 											<i aria-hidden="true" class="icon icon-location"></i>
 										</span>
-										<a href="https://maps.app.goo.gl/pf14AemagT6P9hFZ8" class="elementor-icon-list-text">2nd floor, K.B. Plaza, Love Lane, hazratganj, Lucknow,226001</a>
+										<a href="https://maps.app.goo.gl/pf14AemagT6P9hFZ8" target="_blank" class="elementor-icon-list-text">2nd floor, K.B. Plaza, Love Lane, hazratganj, Lucknow,226001</a>
 									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-e2f444e e-con-full e-flex e-con e-child"
+						 data-id="e2f444e" data-element_type="container">
+						<div class="elementor-element elementor-element-1e9a16d elementor-widget elementor-widget-heading"
+							 data-id="1e9a16d" data-element_type="widget" data-widget_type="heading.default">
+							<div class="elementor-widget-container">
+								<h4 class="elementor-heading-title elementor-size-default">Our Location</h4>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-7e393d0 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+							 data-id="7e393d0" data-element_type="widget" data-widget_type="icon-list.default">
+							<div class="elementor-widget-container">
+								<ul class="elementor-icon-list-items">
+									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.6201681947655!2d80.94429699999999!3d26.852030799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd09eaaaaaab%3A0xa9ed2493543f497!2sSai%20Sports!5e0!3m2!1sen!2sin!4v1733907164572!5m2!1sen!2sin" width="100%" height="210px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 								</ul>
 							</div>
 						</div>
@@ -1103,9 +1142,9 @@
 				</div>
 			</div>
 			<div class="elementor-element elementor-element-2b32bf3 e-flex e-con-boxed e-con e-parent"
-				 data-id="2b32bf3" data-element_type="container"
+				 data-id="2b32bf3" data-element_type="container" style="background-color:#000000;"
 				 data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-				<div class="e-con-inner">
+				<div class="e-con-inner mt-0">
 					<div class="elementor-element elementor-element-b3024fc elementor-widget-divider--view-line elementor-widget elementor-widget-divider"
 						 data-id="b3024fc" data-element_type="widget" data-widget_type="divider.default">
 						<div class="elementor-widget-container">

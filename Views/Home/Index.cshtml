@@ -6,11 +6,30 @@
 	ViewData["Title"] = "Home";
 	Layout = "_Layout";
 }
+<style>
+	video {
+		width: 100%; /* 100% width of the parent */
+		height: 100%; /* Maintain aspect ratio */
+		object-fit: cover; /* Ensures the video fills the container */
+	}
+
+	@@media screen and (max-width: 768px) {
+		video {
+			width: 100%; /* 100% width of the parent */
+			height: 100vh; /* Maintain aspect ratio */
+			object-fit: cover; /* Ensures the video fills the container */
+		}
+	}
+</style>
 <div id="page">
 	<div data-elementor-type="wp-page" data-elementor-id="190" class="elementor elementor-190">
 		<div class="elementor-element elementor-element-6ba541f e-flex e-con-boxed e-con e-parent" data-id="6ba541f"
 			 data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="e-con-inner">
+			<video fullscreen autoplay loop >
+				<source  src="~/wp-content/intro.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		@* 	<div class="e-con-inner">
 				<div class="elementor-element elementor-element-29828a0 e-con-full animated-slow e-flex elementor-invisible e-con e-child"
 					 data-id="29828a0" data-element_type="container"
 					 data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;}">
@@ -89,7 +108,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> *@
 		</div>
 		<div class="elementor-element elementor-element-11df554 animated-slow e-flex e-con-boxed elementor-invisible e-con e-parent"
 			 data-id="11df554" data-element_type="container"
@@ -222,8 +241,7 @@
 						 data-widget_type="heading.default">
 						<div class="elementor-widget-container">
 							<h3 class="elementor-heading-title elementor-size-default">
-								You Can Find All Kinds of
-								Sports Cloth Here
+								Find sports clothing and uniforms.
 							</h3>
 						</div>
 					</div>
@@ -795,7 +813,7 @@
 
 
 									<div class="colorful-chart piechart" data-pie_color_style="normal"
-										 data-gradientcolor1="" data-gradientcolor2="" data-color="#A6587C"
+										 data-gradientcolor1="" data-gradientcolor2="" data-color="#285282"
 										 data-barbg="#1D2F40" data-size="150" data-linewidth="5" data-percent="95">
 
 
@@ -821,17 +839,13 @@
 
 
 									<div class="colorful-chart piechart" data-pie_color_style="normal"
-										 data-gradientcolor1="" data-gradientcolor2="" data-color="#A6587C"
+										 data-gradientcolor1="" data-gradientcolor2="" data-color="#285282"
 										 data-barbg="#1D2F40" data-size="150" data-linewidth="5" data-percent="97">
 
 
 										<span class="ekit-chart-content">97&#37;</span>
 
-
-
-
-
-
+w
 									</div>
 									<h2 class="ekit-piechart-title">Textile Material</h2>
 								</div>
@@ -847,7 +861,7 @@
 
 
 									<div class="colorful-chart piechart" data-pie_color_style="normal"
-										 data-gradientcolor1="" data-gradientcolor2="" data-color="#A6587C"
+										 data-gradientcolor1="" data-gradientcolor2="" data-color="#285282"
 										 data-barbg="#1D2F40" data-size="150" data-linewidth="5" data-percent="96">
 
 
@@ -873,7 +887,7 @@
 
 
 									<div class="colorful-chart piechart" data-pie_color_style="normal"
-										 data-gradientcolor1="" data-gradientcolor2="" data-color="#A6587C"
+										 data-gradientcolor1="" data-gradientcolor2="" data-color=" #285282"
 										 data-barbg="#1D2F40" data-size="150" data-linewidth="5" data-percent="93">
 
 
@@ -893,176 +907,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="elementor-element elementor-element-afcd83c e-flex e-con-boxed e-con e-parent" data-id="afcd83c"
-			 data-element_type="container">
-			<div class="e-con-inner">
-				<div class="elementor-element elementor-element-2dc7019 elementor-widget elementor-widget-elementskit-testimonial"
-					 data-id="2dc7019" data-element_type="widget" data-widget_type="elementskit-testimonial.default">
-					<div class="elementor-widget-container">
-						<div class="ekit-wid-con">
-							<div class="elementskit-testimonial-slider ekit-testimonia-style-4 arrow_inside "
-								 data-config="{&quot;rtl&quot;:false,&quot;arrows&quot;:false,&quot;dots&quot;:false,&quot;pauseOnHover&quot;:true,&quot;autoplay&quot;:true,&quot;speed&quot;:1000,&quot;slidesPerGroup&quot;:1,&quot;slidesPerView&quot;:1,&quot;loop&quot;:false,&quot;spaceBetween&quot;:30,&quot;breakpoints&quot;:{&quot;320&quot;:{&quot;slidesPerView&quot;:1,&quot;slidesPerGroup&quot;:1,&quot;spaceBetween&quot;:30},&quot;768&quot;:{&quot;slidesPerView&quot;:1,&quot;slidesPerGroup&quot;:1,&quot;spaceBetween&quot;:30},&quot;1024&quot;:{&quot;slidesPerView&quot;:1,&quot;slidesPerGroup&quot;:1,&quot;spaceBetween&quot;:30}}}">
-								<div class="ekit-main-swiper swiper">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide">
-											<div class="swiper-slide-inner">
-												<div class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-072e8ce">
-													<div class="elementskit-commentor-bio ">
-
-														<div class="elementskit-commentor-image ekit-testimonial--avatar">
-															<img loading="lazy" decoding="async" width="600"
-																 height="600"
-																src="~/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg"
-																 class="attachment-full size-full" alt=""
-																 srcset="https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg 600w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-300x300.jpg 300w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-150x150.jpg 150w"
-																 sizes="(max-width: 600px) 100vw, 600px" />
-														</div>
-														<span class="elementskit-profile-info">
-															<strong class="elementskit-author-name">
-																Monica
-																James
-															</strong>
-															<span class="elementskit-author-des">Entrepreneur</span>
-														</span>
-													</div>
-													<div class="elementskit-commentor-content">
-
-														<span class="elementskit-watermark-icon ekit_watermark_icon_custom_position">
-															<i aria-hidden="true" class="icon icon-quote"></i>
-														</span>
-
-														<p>
-															"Ut et lorem eu enim mollis pharetra sed vel nisl.
-															Suspendisse potenti. Sed pellentesque id ipsum sed
-															egestas. Vestibulum auctor porttitor lectus sit amet
-															consequat. Pellentesque rutrum risus sed sapien
-															ullamcorper tincidunt."
-														</p>
-													</div><!-- .commentor-content END -->
-												</div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="swiper-slide-inner">
-												<div class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-037ce1a">
-													<div class="elementskit-commentor-bio ">
-
-														<div class="elementskit-commentor-image ekit-testimonial--avatar">
-															<img loading="lazy" decoding="async" width="600"
-																 height="600"
-																src="~/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg"
-																 class="attachment-full size-full" alt=""
-																 srcset="https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg 600w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-300x300.jpg 300w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-150x150.jpg 150w"
-																 sizes="(max-width: 600px) 100vw, 600px" />
-														</div>
-														<span class="elementskit-profile-info">
-															<strong class="elementskit-author-name">
-																Monica
-																James
-															</strong>
-															<span class="elementskit-author-des">Entrepreneur</span>
-														</span>
-													</div>
-													<div class="elementskit-commentor-content">
-
-														<span class="elementskit-watermark-icon ekit_watermark_icon_custom_position">
-															<i aria-hidden="true" class="icon icon-quote"></i>
-														</span>
-
-														<p>
-															"Ut et lorem eu enim mollis pharetra sed vel nisl.
-															Suspendisse potenti. Sed pellentesque id ipsum sed
-															egestas. Vestibulum auctor porttitor lectus sit amet
-															consequat. Pellentesque rutrum risus sed sapien
-															ullamcorper tincidunt."
-														</p>
-													</div><!-- .commentor-content END -->
-												</div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="swiper-slide-inner">
-												<div class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-34bc6cc">
-													<div class="elementskit-commentor-bio ">
-
-														<div class="elementskit-commentor-image ekit-testimonial--avatar">
-															<img loading="lazy" decoding="async" width="600"
-																 height="600"
-																src="~/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg"
-																 class="attachment-full size-full" alt=""
-																 srcset="https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg 600w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-300x300.jpg 300w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-150x150.jpg 150w"
-																 sizes="(max-width: 600px) 100vw, 600px" />
-														</div>
-														<span class="elementskit-profile-info">
-															<strong class="elementskit-author-name">
-																Monica
-																James
-															</strong>
-															<span class="elementskit-author-des">Entrepreneur</span>
-														</span>
-													</div>
-													<div class="elementskit-commentor-content">
-
-														<span class="elementskit-watermark-icon ekit_watermark_icon_custom_position">
-															<i aria-hidden="true" class="icon icon-quote"></i>
-														</span>
-
-														<p>
-															"Ut et lorem eu enim mollis pharetra sed vel nisl.
-															Suspendisse potenti. Sed pellentesque id ipsum sed
-															egestas. Vestibulum auctor porttitor lectus sit amet
-															consequat. Pellentesque rutrum risus sed sapien
-															ullamcorper tincidunt."
-														</p>
-													</div><!-- .commentor-content END -->
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="elementor-element elementor-element-a423c15 e-flex e-con-boxed e-con e-parent" data-id="a423c15"
-			 data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="e-con-inner">
-				<div class="elementor-element elementor-element-d6c4c0a elementor-widget elementor-widget-heading"
-					 data-id="d6c4c0a" data-element_type="widget" data-widget_type="heading.default">
-					<div class="elementor-widget-container">
-						<h3 class="elementor-heading-title elementor-size-default">
-							Consult With Us The Suitable
-							Material for Your Project
-						</h3>
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-d443894 elementor-widget__width-initial elementor-widget elementor-widget-text-editor"
-					 data-id="d443894" data-element_type="widget" data-widget_type="text-editor.default">
-					<div class="elementor-widget-container">
-						<p>
-							Our experts guide you through options, ensuring the best quality, durability, and
-							performance to meet your specific needs and requirements.
-						</p>
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-a4ff994 elementor-align-center elementor-widget elementor-widget-button"
-					 data-id="a4ff994" data-element_type="widget" data-widget_type="button.default">
-					<div class="elementor-widget-container">
-						<div class="elementor-button-wrapper">
-							<a class="elementor-button elementor-button-link elementor-size-sm" asp-action="ContactUs">
-								<span class="elementor-button-content-wrapper">
-									<span class="elementor-button-text">CONTACT US</span>
-								</span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 		<div class="elementor-element elementor-element-b09d321 e-flex e-con-boxed e-con e-parent" data-id="b09d321"
 			 data-element_type="container">
 			<div class="e-con-inner">
@@ -1506,322 +1351,171 @@
 				</div>
 			</div>
 		</div>
-		<div class="elementor-element elementor-element-8a929e1 e-flex e-con-boxed e-con e-parent" data-id="8a929e1"
-			 data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-afcd83c e-flex e-con-boxed e-con e-parent" data-id="afcd83c"
+			 data-element_type="container">
 			<div class="e-con-inner">
-				<div class="elementor-element elementor-element-f30da63 e-con-full e-flex e-con e-child"
-					 data-id="f30da63" data-element_type="container">
-					<div class="elementor-element elementor-element-20454cb e-con-full e-flex e-con e-child"
-						 data-id="20454cb" data-element_type="container">
-						<div class="elementor-element elementor-element-66d53b6 elementor-widget elementor-widget-heading"
-							 data-id="66d53b6" data-element_type="widget" data-widget_type="heading.default">
-							<div class="elementor-widget-container">
-								<div class="elementor-heading-title elementor-size-default">FAQ</div>
-							</div>
-						</div>
-						<div class="elementor-element elementor-element-86a2218 animated-slow elementor-invisible elementor-widget elementor-widget-heading"
-							 data-id="86a2218" data-element_type="widget"
-							 data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}"
-							 data-widget_type="heading.default">
-							<div class="elementor-widget-container">
-								<h3 class="elementor-heading-title elementor-size-default">
-									Most Favorite Question
-								</h3>
-							</div>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-08f65fd e-con-full e-flex e-con e-child"
-						 data-id="08f65fd" data-element_type="container">
-						<div class="elementor-element elementor-element-f388acf elementor-widget elementor-widget-text-editor"
-							 data-id="f388acf" data-element_type="widget" data-widget_type="text-editor.default">
-							<div class="elementor-widget-container">
-								<p>We provide a wide range of sportswear and custom apparel designed for comfort, durability, and performance. Each product is crafted with attention to detail, ensuring a perfect fit for every athlete.</p>
+				<div class="elementor-element elementor-element-2dc7019 elementor-widget elementor-widget-elementskit-testimonial"
+					 data-id="2dc7019" data-element_type="widget" data-widget_type="elementskit-testimonial.default">
+					<div class="elementor-widget-container">
+						<div class="ekit-wid-con">
+							<div class="elementskit-testimonial-slider ekit-testimonia-style-4 arrow_inside "
+								 data-config="{&quot;rtl&quot;:false,&quot;arrows&quot;:false,&quot;dots&quot;:false,&quot;pauseOnHover&quot;:true,&quot;autoplay&quot;:true,&quot;speed&quot;:1000,&quot;slidesPerGroup&quot;:1,&quot;slidesPerView&quot;:1,&quot;loop&quot;:false,&quot;spaceBetween&quot;:30,&quot;breakpoints&quot;:{&quot;320&quot;:{&quot;slidesPerView&quot;:1,&quot;slidesPerGroup&quot;:1,&quot;spaceBetween&quot;:30},&quot;768&quot;:{&quot;slidesPerView&quot;:1,&quot;slidesPerGroup&quot;:1,&quot;spaceBetween&quot;:30},&quot;1024&quot;:{&quot;slidesPerView&quot;:1,&quot;slidesPerGroup&quot;:1,&quot;spaceBetween&quot;:30}}}">
+								<div class="ekit-main-swiper swiper">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<div class="swiper-slide-inner">
+												<div class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-072e8ce">
+													<div class="elementskit-commentor-bio ">
+
+														<div class="elementskit-commentor-image ekit-testimonial--avatar">
+															<img loading="lazy" decoding="async" width="600"
+																 height="600"
+																 src="~/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg"
+																 class="attachment-full size-full" alt=""
+																 srcset="https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg 600w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-300x300.jpg 300w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-150x150.jpg 150w"
+																 sizes="(max-width: 600px) 100vw, 600px" />
+														</div>
+														<span class="elementskit-profile-info">
+															<strong class="elementskit-author-name">
+																Monica
+																James
+															</strong>
+															<span class="elementskit-author-des">Entrepreneur</span>
+														</span>
+													</div>
+													<div class="elementskit-commentor-content">
+
+														<span class="elementskit-watermark-icon ekit_watermark_icon_custom_position">
+															<i aria-hidden="true" class="icon icon-quote"></i>
+														</span>
+
+														<p>
+															"Ut et lorem eu enim mollis pharetra sed vel nisl.
+															Suspendisse potenti. Sed pellentesque id ipsum sed
+															egestas. Vestibulum auctor porttitor lectus sit amet
+															consequat. Pellentesque rutrum risus sed sapien
+															ullamcorper tincidunt."
+														</p>
+													</div><!-- .commentor-content END -->
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="swiper-slide-inner">
+												<div class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-037ce1a">
+													<div class="elementskit-commentor-bio ">
+
+														<div class="elementskit-commentor-image ekit-testimonial--avatar">
+															<img loading="lazy" decoding="async" width="600"
+																 height="600"
+																 src="~/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg"
+																 class="attachment-full size-full" alt=""
+																 srcset="https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg 600w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-300x300.jpg 300w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-150x150.jpg 150w"
+																 sizes="(max-width: 600px) 100vw, 600px" />
+														</div>
+														<span class="elementskit-profile-info">
+															<strong class="elementskit-author-name">
+																Monica
+																James
+															</strong>
+															<span class="elementskit-author-des">Entrepreneur</span>
+														</span>
+													</div>
+													<div class="elementskit-commentor-content">
+
+														<span class="elementskit-watermark-icon ekit_watermark_icon_custom_position">
+															<i aria-hidden="true" class="icon icon-quote"></i>
+														</span>
+
+														<p>
+															"Ut et lorem eu enim mollis pharetra sed vel nisl.
+															Suspendisse potenti. Sed pellentesque id ipsum sed
+															egestas. Vestibulum auctor porttitor lectus sit amet
+															consequat. Pellentesque rutrum risus sed sapien
+															ullamcorper tincidunt."
+														</p>
+													</div><!-- .commentor-content END -->
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="swiper-slide-inner">
+												<div class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-34bc6cc">
+													<div class="elementskit-commentor-bio ">
+
+														<div class="elementskit-commentor-image ekit-testimonial--avatar">
+															<img loading="lazy" decoding="async" width="600"
+																 height="600"
+																 src="~/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg"
+																 class="attachment-full size-full" alt=""
+																 srcset="https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X.jpg 600w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-300x300.jpg 300w, https://gtkit.rometheme.pro/garmen/wp-content/uploads/sites/17/2023/01/portrait-of-a-young-designer-standing-in-an-office-MX6TE8X-150x150.jpg 150w"
+																 sizes="(max-width: 600px) 100vw, 600px" />
+														</div>
+														<span class="elementskit-profile-info">
+															<strong class="elementskit-author-name">
+																Monica
+																James
+															</strong>
+															<span class="elementskit-author-des">Entrepreneur</span>
+														</span>
+													</div>
+													<div class="elementskit-commentor-content">
+
+														<span class="elementskit-watermark-icon ekit_watermark_icon_custom_position">
+															<i aria-hidden="true" class="icon icon-quote"></i>
+														</span>
+
+														<p>
+															"Ut et lorem eu enim mollis pharetra sed vel nisl.
+															Suspendisse potenti. Sed pellentesque id ipsum sed
+															egestas. Vestibulum auctor porttitor lectus sit amet
+															consequat. Pellentesque rutrum risus sed sapien
+															ullamcorper tincidunt."
+														</p>
+													</div><!-- .commentor-content END -->
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="elementor-element elementor-element-12d291d e-con-full e-flex e-con e-child"
-					 data-id="12d291d" data-element_type="container">
-					<div class="elementor-element elementor-element-9edb077 animated-slow elementor-invisible elementor-widget elementor-widget-elementskit-accordion"
-						 data-id="9edb077" data-element_type="widget"
-						 data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}"
-						 data-widget_type="elementskit-accordion.default">
-						<div class="elementor-widget-container">
-							<div class="ekit-wid-con">
-								<div class="elementskit-accordion accoedion-primary" id="accordion-6752d942e2f0b">
-
-
-									<div class="elementskit-card active">
-										<div class="elementskit-card-header" id="primaryHeading-0-9edb077">
-											<a href="#collapse-07fb1396752d942e2f0b"
-											   class="ekit-accordion--toggler elementskit-btn-link collapsed"
-											   data-ekit-toggle="collapse"
-											   data-target="#Collapse-07fb1396752d942e2f0b" aria-expanded="true"
-											   aria-controls="Collapse-07fb1396752d942e2f0b">
-
-												<span class="ekit-accordion-title"> What materials do you use for your products?</span>
-
-
-												<div class="ekit_accordion_icon_group">
-													<div class="ekit_accordion_normal_icon">
-														<!-- Normal Icon -->
-														<i aria-hidden="true"
-														   class="icon-open icon-right far fa-arrow-alt-circle-down"></i>
-													</div>
-
-													<div class="ekit_accordion_active_icon">
-														<!-- Active Icon -->
-														<i aria-hidden="true"
-														   class="icon-closed icon-right far fa-arrow-alt-circle-up"></i>
-													</div>
-
-												</div>
-
-
-											</a>
-										</div>
-
-										<div id="Collapse-07fb1396752d942e2f0b" class=" show collapse"
-											 aria-labelledby="primaryHeading-0-9edb077"
-											 data-parent="#accordion-6752d942e2f0b">
-
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>We carefully select high-quality fabrics that provide durability, comfort, and optimal performance for all types of sportswear.</p>
-											</div>
-
-										</div>
-
-									</div><!-- .elementskit-card END -->
-
-
-									<div class="elementskit-card ">
-										<div class="elementskit-card-header" id="primaryHeading-1-9edb077">
-											<a href="#collapse-2e004256752d942e2f0b"
-											   class="ekit-accordion--toggler elementskit-btn-link collapsed"
-											   data-ekit-toggle="collapse"
-											   data-target="#Collapse-2e004256752d942e2f0b" aria-expanded="false"
-											   aria-controls="Collapse-2e004256752d942e2f0b">
-
-												<span class="ekit-accordion-title">Can I customize my order?	</span>
-
-
-												<div class="ekit_accordion_icon_group">
-													<div class="ekit_accordion_normal_icon">
-														<!-- Normal Icon -->
-														<i aria-hidden="true"
-														   class="icon-open icon-right far fa-arrow-alt-circle-down"></i>
-													</div>
-
-													<div class="ekit_accordion_active_icon">
-														<!-- Active Icon -->
-														<i aria-hidden="true"
-														   class="icon-closed icon-right far fa-arrow-alt-circle-up"></i>
-													</div>
-
-												</div>
-
-
-											</a>
-										</div>
-
-										<div id="Collapse-2e004256752d942e2f0b" class=" collapse"
-											 aria-labelledby="primaryHeading-1-9edb077"
-											 data-parent="#accordion-6752d942e2f0b">
-
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>Yes, we offer a variety of customization options to ensure your products meet your specific needs and preferences.</p>
-											</div>
-
-										</div>
-
-									</div><!-- .elementskit-card END -->
-
-
-									<div class="elementskit-card ">
-										<div class="elementskit-card-header" id="primaryHeading-2-9edb077">
-											<a href="#collapse-041b3c96752d942e2f0b"
-											   class="ekit-accordion--toggler elementskit-btn-link collapsed"
-											   data-ekit-toggle="collapse"
-											   data-target="#Collapse-041b3c96752d942e2f0b" aria-expanded="false"
-											   aria-controls="Collapse-041b3c96752d942e2f0b">
-
-												<span class="ekit-accordion-title">How do you ensure product quality?</span>
-
-
-												<div class="ekit_accordion_icon_group">
-													<div class="ekit_accordion_normal_icon">
-														<!-- Normal Icon -->
-														<i aria-hidden="true"
-														   class="icon-open icon-right far fa-arrow-alt-circle-down"></i>
-													</div>
-
-													<div class="ekit_accordion_active_icon">
-														<!-- Active Icon -->
-														<i aria-hidden="true"
-														   class="icon-closed icon-right far fa-arrow-alt-circle-up"></i>
-													</div>
-
-												</div>
-
-
-											</a>
-										</div>
-
-										<div id="Collapse-041b3c96752d942e2f0b" class=" collapse"
-											 aria-labelledby="primaryHeading-2-9edb077"
-											 data-parent="#accordion-6752d942e2f0b">
-
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>Our team follows strict quality control procedures from fabric selection to final production, ensuring the highest standards in every piece.</p>
-											</div>
-
-										</div>
-
-									</div><!-- .elementskit-card END -->
-
-								</div>
-							</div>
-						</div>
+			</div>
+		</div>
+		<div class="elementor-element elementor-element-a423c15 e-flex e-con-boxed e-con e-parent" data-id="a423c15"
+			 data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d6c4c0a elementor-widget elementor-widget-heading"
+					 data-id="d6c4c0a" data-element_type="widget" data-widget_type="heading.default">
+					<div class="elementor-widget-container">
+						<h3 class="elementor-heading-title elementor-size-default">
+							Consult With Us The Suitable
+							Material for Your Project
+						</h3>
 					</div>
-					<div class="elementor-element elementor-element-5e7e1bb animated-slow elementor-invisible elementor-widget elementor-widget-elementskit-accordion"
-						 data-id="5e7e1bb" data-element_type="widget"
-						 data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}"
-						 data-widget_type="elementskit-accordion.default">
-						<div class="elementor-widget-container">
-							<div class="ekit-wid-con">
-								<div class="elementskit-accordion accoedion-primary" id="accordion-6752d942e3392">
-
-
-									<div class="elementskit-card ">
-										<div class="elementskit-card-header" id="primaryHeading-0-5e7e1bb">
-											<a href="#collapse-041b3c96752d942e3392"
-											   class="ekit-accordion--toggler elementskit-btn-link collapsed"
-											   data-ekit-toggle="collapse"
-											   data-target="#Collapse-041b3c96752d942e3392" aria-expanded="false"
-											   aria-controls="Collapse-041b3c96752d942e3392">
-
-												<span class="ekit-accordion-title"> What is your delivery time?</span>
-
-
-												<div class="ekit_accordion_icon_group">
-													<div class="ekit_accordion_normal_icon">
-														<!-- Normal Icon -->
-														<i aria-hidden="true"
-														   class="icon-open icon-right far fa-arrow-alt-circle-down"></i>
-													</div>
-
-													<div class="ekit_accordion_active_icon">
-														<!-- Active Icon -->
-														<i aria-hidden="true"
-														   class="icon-closed icon-right far fa-arrow-alt-circle-up"></i>
-													</div>
-
-												</div>
-
-
-											</a>
-										</div>
-
-										<div id="Collapse-041b3c96752d942e3392" class=" collapse"
-											 aria-labelledby="primaryHeading-0-5e7e1bb"
-											 data-parent="#accordion-6752d942e3392">
-
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>We strive to deliver all orders promptly, with production times tailored to your specific needs and order size.</p>
-											</div>
-
-										</div>
-
-									</div><!-- .elementskit-card END -->
-
-
-									<div class="elementskit-card ">
-										<div class="elementskit-card-header" id="primaryHeading-1-5e7e1bb">
-											<a href="#collapse-07fb1396752d942e3392"
-											   class="ekit-accordion--toggler elementskit-btn-link collapsed"
-											   data-ekit-toggle="collapse"
-											   data-target="#Collapse-07fb1396752d942e3392" aria-expanded="false"
-											   aria-controls="Collapse-07fb1396752d942e3392">
-
-												<span class="ekit-accordion-title">How can I contact customer support?</span>
-
-
-												<div class="ekit_accordion_icon_group">
-													<div class="ekit_accordion_normal_icon">
-														<!-- Normal Icon -->
-														<i aria-hidden="true"
-														   class="icon-open icon-right far fa-arrow-alt-circle-down"></i>
-													</div>
-
-													<div class="ekit_accordion_active_icon">
-														<!-- Active Icon -->
-														<i aria-hidden="true"
-														   class="icon-closed icon-right far fa-arrow-alt-circle-up"></i>
-													</div>
-
-												</div>
-
-
-											</a>
-										</div>
-
-										<div id="Collapse-07fb1396752d942e3392" class=" collapse"
-											 aria-labelledby="primaryHeading-1-5e7e1bb"
-											 data-parent="#accordion-6752d942e3392">
-
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>You can reach our customer support team by email, phone, or via our website’s live chat feature. We’re here to assist you with any questions or concerns you may have.</p>
-											</div>
-
-										</div>
-
-									</div><!-- .elementskit-card END -->
-
-
-									<div class="elementskit-card active">
-										<div class="elementskit-card-header" id="primaryHeading-2-5e7e1bb">
-											<a href="#collapse-2e004256752d942e3392"
-											   class="ekit-accordion--toggler elementskit-btn-link collapsed"
-											   data-ekit-toggle="collapse"
-											   data-target="#Collapse-2e004256752d942e3392" aria-expanded="true"
-											   aria-controls="Collapse-2e004256752d942e3392">
-
-												<span class="ekit-accordion-title">Do you offer bulk discounts?</span>
-
-
-												<div class="ekit_accordion_icon_group">
-													<div class="ekit_accordion_normal_icon">
-														<!-- Normal Icon -->
-														<i aria-hidden="true"
-														   class="icon-open icon-right far fa-arrow-alt-circle-down"></i>
-													</div>
-
-													<div class="ekit_accordion_active_icon">
-														<!-- Active Icon -->
-														<i aria-hidden="true"
-														   class="icon-closed icon-right far fa-arrow-alt-circle-up"></i>
-													</div>
-
-												</div>
-
-
-											</a>
-										</div>
-
-										<div id="Collapse-2e004256752d942e3392" class=" show collapse"
-											 aria-labelledby="primaryHeading-2-5e7e1bb"
-											 data-parent="#accordion-6752d942e3392">
-
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>Yes! We offer competitive pricing for bulk orders. The more you order, the more you save. Contact our sales team for pricing details and to discuss your specific needs.</p>
-											</div>
-
-										</div>
-
-									</div><!-- .elementskit-card END -->
-
-								</div>
-							</div>
+				</div>
+				<div class="elementor-element elementor-element-d443894 elementor-widget__width-initial elementor-widget elementor-widget-text-editor"
+					 data-id="d443894" data-element_type="widget" data-widget_type="text-editor.default">
+					<div class="elementor-widget-container">
+						<p>
+							Our experts guide you through options, ensuring the best quality, durability, and
+							performance to meet your specific needs and requirements.
+						</p>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-a4ff994 elementor-align-center elementor-widget elementor-widget-button"
+					 data-id="a4ff994" data-element_type="widget" data-widget_type="button.default">
+					<div class="elementor-widget-container">
+						<div class="elementor-button-wrapper">
+							<a class="elementor-button elementor-button-link elementor-size-sm" asp-action="ContactUs">
+								<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">CONTACT US</span>
+								</span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -1864,7 +1558,7 @@
 					</div>
 					<div class="blog-content">
 						<div class="category">@data.category</div>
-						<h4 class="ellipsis">@data.title</h4>
+							<a asp-action="BlogDetail" asp-route-id="@data.id"><h4 class="ellipsis">@data.title</h4></a>
 						<p class="multiline-ellipsis">@data.description</p>
 						<a asp-action="BlogDetail" asp-route-id="@data.id" class="blog-more-btn">Read More...</a>
 					</div>

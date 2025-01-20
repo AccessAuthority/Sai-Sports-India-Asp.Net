@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc;
 using SaiSports.Models;
 using System.Reflection.Metadata;
 
@@ -8,11 +10,13 @@ namespace SaiSports.Controllers
     {
         public AppDbContext _context;
         public IWebHostEnvironment _environment;
+        private readonly EmailSender _emailSender;
 
-        public HomeController(AppDbContext context, IWebHostEnvironment environment)
+        public HomeController(AppDbContext context, IWebHostEnvironment environment, EmailSender emailSender)
         {
             _context = context;
             _environment = environment;
+            _emailSender = emailSender;
 
         }
         public IActionResult Index()
@@ -29,6 +33,12 @@ namespace SaiSports.Controllers
         public IActionResult Products()
         {
             var data = _context.tbl_products.ToList();
+            return View(data);
+        }
+
+        public IActionResult ProductDetails(int id)
+        {
+            var data = _context.tbl_products.Find(id);
             return View(data);
         }
 
@@ -50,7 +60,7 @@ namespace SaiSports.Controllers
             var relatedBlogs = _context.tbl_blog
                                        .Where(b => b.id != id) // Exclude the current blog post
                                        .OrderBy(r => Guid.NewGuid()) // Randomize the results
-                                       .Take(4) // Limit to 4 blogs
+                                       .Take(8) // Limit to 4 blogs
                                        .ToList();
 
             // Create the ViewModel and pass it to the view
@@ -67,13 +77,30 @@ namespace SaiSports.Controllers
         {
             return View();
         }
-
+        public IActionResult Testimonial()
+        {
+            return View();
+        }
+        public IActionResult Career()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult EnquiryForm(tbl_enquiries e)
         {
+            // Compose the email content
+            string subject = $"New Contact Form Submission from {e.name}";
+            string body = $"<h3>Contact Details:</h3>" +
+                          $"<p><strong>Subject:</strong> {e.subject}</p>" +
+                          $"<p><strong>Name:</strong> {e.name}</p>" +
+                          $"<p><strong>Phone:</strong> {e.phone}</p>" +
+                          $"<p><strong>Email:</strong> {e.email}</p>" +
+                          $"<p><strong>Message:</strong><br/>{e.msg}</p>";
+
+            // Use the EmailSender service to send the email
+            _emailSender.SendEmailAsync("puri.saisports@gmail.com", subject, body);
             _context.tbl_enquiries.Add(e);
             _context.SaveChanges();
-            TempData["msg"] = "Form Submitted";
             return RedirectToAction("ContactUs");
         }
     }
