@@ -1,0 +1,170 @@
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .garment-image, .garment-content{
+        width:100% !important;
+    }
+    .garment-content {
+        padding: 0px !important;
+        padding-top: 10px !important;
+    }
+    .garment-container, .garment-container-1 {
+        flex-direction: column !important;
+    }
+    .d-name {
+        margin-left: -80px;
+    }
+    .main-content {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .sidebar {
+        display: none;
+    }
+    .product {
+        width: 100%;
+        /* display: none; */
+    }
+    .p-cards{
+        gap:0px;
+    }
+    .p-card {
+        width: 320px;
+    }
+    .next-btn {
+        right: 0px;
+    }
+
+    .quote-btn {
+        margin-left: -160px;
+        width:150px;
+    }
+    .-pqt-btn{
+        margin-left:-160px !important;
+        width:130px !important;
+    }
+    nav {
+        padding: 10px;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+/*        padding: 10px;*/
+        width: 100%;
+        display: block;
+    }
+
+    /* Show menu toggle on mobile */
+    .menu-toggle {
+        display: flex;
+    }
+
+    #nav-links.active {
+        display: flex;
+    }
+
+    .unique-card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    .section-content {
+        padding: 10px;
+    }
+
+    .cta-link, button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+    }
+    .light-section{
+        padding: 20px 10px;
+        flex-direction: column;
+    }
+    .exe, .quality, .trust{
+        width: 100%;
+    } 
+    .section-content > h1{
+        font-size: 28px;
+    }
+    .about{
+        padding: 20px 15px;
+    }
+    .service-cards {
+        width:90%;
+    }
+        .service-card{
+        height: 280px;
+    }
+    .statistics{
+  padding:0px;
+        margin: 20px 0;
+    }
+    .stat-item h2 {
+        padding-top: 15px;
+        font-size: 20px;
+    }
+    .stat-item p{
+        margin-top: 5px;
+        font-size: 15px;
+    }
+   .director{
+    flex-direction: column;
+   }
+   .director-msg{
+    width: 100%;
+   }
+   .director >.img{
+    width: 100%;
+   }
+   .why-choose-us{
+    padding: 20px 10px;
+    flex-direction: column;
+   }
+   .image-section, .content-section{
+    width: 100%;
+   }
+   .feature{
+    flex-direction: column;
+    width: 100%;
+   }
+   .content-section{
+    width: 100% !important;
+   }
+   .unique-card-container, .unique-card{
+    padding: 0;
+    width: 100%;
+   }
+ 
+   .dark-section >h2{
+    text-align: center !important;
+   }
+   .green{
+    text-align: center !important;
+    width: 100%;
+   }
+   .director-msg >h2{
+    text-align: center;
+   }
+   .footer{
+    flex-direction:column;
+    gap: 20px;   
+  }
+  .b-footer {
+    padding: 5px 0;
+    flex-direction: column;
+   }
+}

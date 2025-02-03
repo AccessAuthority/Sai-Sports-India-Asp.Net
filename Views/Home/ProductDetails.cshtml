@@ -1,543 +1,408 @@
 ﻿@model SaiSports.Models.tbl_products
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
-	ViewData["Title"] = "Products";
-	Layout = "_Layout";
+    ViewData["Title"] = "Products";
+    Layout = "_Layout";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<meta name='robots' content='max-image-preview:large' />
-	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
-	<link rel='dns-prefetch' href='http://cdnjs.cloudflare.com/' />
-	<link rel="alternate" type="application/rss+xml" title="Garmen &raquo; Feed" href="../../feed/index.html" />
-	<link rel="alternate" type="application/rss+xml" title="Garmen &raquo; Comments Feed" href="../../comments/feed/index.html" />
-	<script>
-		window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/gtkit.rometheme.pro\/garmen\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.1"}};
-		/*! This file is auto-generated */
-		!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
-	</script>
-	<style id='wp-emoji-styles-inline-css'>
 
-		img.wp-smiley, img.emoji {
-		display: inline !important;
-		border: none !important;
-		box-shadow: none !important;
-		height: 1em !important;
-		width: 1em !important;
-		margin: 0 0.07em !important;
-		vertical-align: -0.1em !important;
-		background: none !important;
-		padding: 0 !important;
-		}
-	</style>
-	<style id='classic-theme-styles-inline-css'>
-		/*! This file is auto-generated */
-		.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
-	</style>
-	<style id='global-styles-inline-css'>
-		:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
-		:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
-		:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
-		:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
-	</style>
-	<link rel='stylesheet' id='template-kit-export-css' href='../../wp-content/plugins/template-kit-export/assets/public/template-kit-export-public982a.css?ver=1.0.23' media='all' />
-	<link rel='stylesheet' id='rkit-offcanvas-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/offcanvas6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-navmenu-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/navmenu6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-headerinfo-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/headerinfo6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='navmenu-rkit-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/rkit-navmenu6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-search-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/search6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-sitelogo-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/site_logo6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-post-grid-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/rkit-blog-post6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-post-block-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/rkit-post-block6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-cta-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/cta6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-blockquote-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/blockquote6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-social-share-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/social_share6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-team-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/rkit_team6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-running_text-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/running_text6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-animated_heading-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/animated_heading6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-card_slider-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/card_slider6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-accordion-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/accordion6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-testimonial_carousel-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/testimonial_carousel6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-swiper-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/swiper-bundle.min6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-tabs-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/tabs6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-progress-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/progress-bar6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='counter-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/counter6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='countdown-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/countdown6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-pricelist-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/pricelist6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='advanced_heading-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/advanced_heading6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='image_comparison-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/image_comparison6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='postlist-style-css' href='../../wp-content/plugins/rometheme-for-elementor/widgets/assets/css/postlist6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='elementor-icons-rtmicon-css' href='../../wp-content/plugins/rometheme-for-elementor/assets/css/rtmicons6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rkit-widget-style-css' href='../../wp-content/plugins/rometheme-for-elementor/assets/css/rkit6bc5.css?ver=1.5.2' media='all' />
-	<link rel='stylesheet' id='rtform-text-style-css' href='../../wp-content/plugins/romethemeform/widgets/assets/css/rtform_text7359.css?ver=1.2.0' media='all' />
-	<link rel='stylesheet' id='rform-style-css' href='../../wp-content/plugins/romethemeform/widgets/assets/css/rform7359.css?ver=1.2.0' media='all' />
-	<link rel='stylesheet' id='spinner-style-css' href='../../wp-content/plugins/romethemeform/widgets/assets/css/spinner-loading7359.css?ver=1.2.0' media='all' />
-	<link rel='stylesheet' id='rform-btn-style-css' href='../../wp-content/plugins/romethemeform/widgets/assets/css/rform-button7359.css?ver=1.2.0' media='all' />
-	<link rel='stylesheet' id='rform-select-style-css' href='../../wp-content/plugins/romethemeform/widgets/assets/css/rform-select7359.css?ver=1.2.0' media='all' />
-	<link rel='stylesheet' id='rform-radiobutton-style-css' href='../../wp-content/plugins/romethemeform/widgets/assets/css/rform-radiobutton7359.css?ver=1.2.0' media='all' />
-	<link rel='stylesheet' id='rform-checkbox-style-css' href='../../wp-content/plugins/romethemeform/widgets/assets/css/rform-checkbox7359.css?ver=1.2.0' media='all' />
-	<link rel='stylesheet' id='intlTelInput-css' href='../../wp-content/plugins/romethemeform/widgets/assets/css/intlTelInput7359.css?ver=1.2.0' media='all' />
-	<link rel='stylesheet' id='hello-elementor-css' href='../../wp-content/themes/hello-elementor/style.minb12b.css?ver=3.1.1' media='all' />
-	<link rel='stylesheet' id='hello-elementor-theme-style-css' href='../../wp-content/themes/hello-elementor/theme.minb12b.css?ver=3.1.1' media='all' />
-	<link rel='stylesheet' id='hello-elementor-header-footer-css' href='../../wp-content/themes/hello-elementor/header-footer.minb12b.css?ver=3.1.1' media='all' />
-	<link rel='stylesheet' id='elementor-frontend-css' href='../../wp-content/plugins/elementor/assets/css/frontend.min18be.css?ver=3.25.10' media='all' />
-	<link rel='stylesheet' id='elementor-post-3-css' href='../../wp-content/uploads/sites/17/elementor/css/post-3e12a.css?ver=1713774813' media='all' />
-	<link rel='stylesheet' id='elementor-icons-ekiticons-css' href='../../wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/css/ekiticonsd617.css?ver=3.3.2' media='all' />
-	<link rel='stylesheet' id='elementor-icons-css' href='../../wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min444a.css?ver=5.32.0' media='all' />
-	<link rel='stylesheet' id='swiper-css' href='../../wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min94a4.css?ver=8.4.5' media='all' />
-	<link rel='stylesheet' id='e-swiper-css' href='../../wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min18be.css?ver=3.25.10' media='all' />
-	<link rel='stylesheet' id='e-animations-css' href='../../wp-content/plugins/elementor/assets/lib/animations/animations.min18be.css?ver=3.25.10' media='all' />
-	<link rel='stylesheet' id='elementor-post-490-css' href='../../wp-content/uploads/sites/17/elementor/css/post-490d142.css?ver=1713954168' media='all' />
-	<link rel='stylesheet' id='ekit-widget-styles-css' href='../../wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-stylesd617.css?ver=3.3.2' media='all' />
-	<link rel='stylesheet' id='ekit-responsive-css' href='../../wp-content/plugins/elementskit-lite/widgets/init/assets/css/responsived617.css?ver=3.3.2' media='all' />
-	<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Fira+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CYantramanav%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=6.7.1' media='all' />
-	<link rel='stylesheet' id='elementor-icons-shared-0-css' href='../../wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min52d5.css?ver=5.15.3' media='all' />
-	<link rel='stylesheet' id='elementor-icons-fa-regular-css' href='../../wp-content/plugins/elementor/assets/lib/font-awesome/css/regular.min52d5.css?ver=5.15.3' media='all' />
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><script src="../../wp-includes/js/jquery/jquery.minf43b.js?ver=3.7.1" id="jquery-core-js"></script>
-	<script src="../../wp-includes/js/jquery/jquery-migrate.min5589.js?ver=3.4.1" id="jquery-migrate-js"></script>
-	<script src="../../wp-content/plugins/rometheme-for-elementor/widgets/assets/js/card_slider6bc5.js?ver=1.5.2" id="card-slider-script-js"></script>
-	<script src="../../wp-content/plugins/rometheme-for-elementor/widgets/assets/js/animated_heading6bc5.js?ver=1.5.2" id="animated-heading-script-js"></script>
-	<script src="../../wp-content/plugins/rometheme-for-elementor/widgets/assets/js/accordion6bc5.js?ver=1.5.2" id="accordion-script-js"></script>
-	<script src="../../wp-content/plugins/rometheme-for-elementor/widgets/assets/js/bar_chart6bc5.js?ver=1.5.2" id="bar_chart-script-js"></script>
-	<script src="../../wp-content/plugins/rometheme-for-elementor/widgets/assets/js/line_chart6bc5.js?ver=1.5.2" id="line_chart-script-js"></script>
-	<script src="../../wp-content/plugins/rometheme-for-elementor/widgets/assets/js/pie_chart6bc5.js?ver=1.5.2" id="pie_chart-script-js"></script>
-	<script src="../../wp-content/plugins/rometheme-for-elementor/widgets/assets/js/swiper-bundle.min6bc5.js?ver=1.5.2" id="swiperjs-js"></script>
-	<script src="../../wp-content/plugins/romethemeform/widgets/assets/js/rtform_text7359.js?ver=1.2.0" id="rtform-text-js-js"></script>
-	<script src="../../wp-content/plugins/romethemeform/widgets/assets/js/rform_select7359.js?ver=1.2.0" id="rform-select-js-js"></script>
-	<script src="../../wp-content/plugins/romethemeform/widgets/assets/js/rform_tel_input7359.js?ver=1.2.0" id="rform-phone-js-js"></script>
-	<script id="rform-script-js-extra">
-		var romethemeform_ajax_url = {"ajax_url":"https:\/\/gtkit.rometheme.pro\/garmen\/wp-admin\/admin-ajax.php","nonce":"e6f22dc9c0"};
-	</script>
-	<script src="../../wp-content/plugins/romethemeform/widgets/assets/js/rform7359.js?ver=1.2.0" id="rform-script-js"></script>
-	<script id="intl-tel-input-js-extra">
-		var intl_tel_input_script = {"url":"https:\/\/gtkit.rometheme.pro\/garmen\/wp-content\/plugins\/romethemeform\/widgets\/assets\/js\/intl_tel_input_utils.js"};
-	</script>
-	<script src="../../wp-content/plugins/romethemeform/widgets/assets/js/intl_tel_input.min7359.js?ver=1.2.0" id="intl-tel-input-js"></script>
-	<script src="../../wp-content/plugins/template-kit-export/assets/public/template-kit-export-public982a.js?ver=1.0.23" id="template-kit-export-js"></script>
-	<link rel="https://api.w.org/" href="../../wp-json/index.html" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc0db0.php?rsd" />
-	<meta name="generator" content="WordPress 6.7.1" />
-	<link rel="canonical" href="index.html" />
-	<link rel='shortlink' href='../../indexb015.html?p=490' />
-	<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="../../wp-json/oembed/1.0/embed618b.json?url=https%3A%2F%2Fgtkit.rometheme.pro%2Fgarmen%2Ftemplate-kit%2FProducts%2F" />
-	<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embed692e?url=https%3A%2F%2Fgtkit.rometheme.pro%2Fgarmen%2Ftemplate-kit%2FProducts%2F&amp;format=xml" />
-	<meta name="generator" content="Elementor 3.25.10; features: additional_custom_breakpoints, e_optimized_control_loading; settings: css_print_method-external, google_font-enabled, font_display-auto">
-    <style>
-     /* Modal  */
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-        }
+<style>
+    .dark-section{
+        text-align:start;
+    }
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .modal-content {
-            background: #fff !important;
-            padding: 20px;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 8px;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    .modal-content {
+        border: 1px solid #ddd;
+        text-align:center;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 8px;
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: #aaa;
-            cursor: pointer;
-        }
+    input, .submit-btn {
+        font-size: 14px;
+        width: 100%;
+        height:40px;
+        margin-top:10px;
+        background-color:transparent;
+        color: white;
+        padding-left: 10px;
+        border: 1px solid #ddd;
+    }
 
-            .close-btn:hover {
-                color: #333;
-            }
+    textarea {
+        font-size: 16px;
+        border: 1px solid #ddd;
+        padding-left: 10px;
+        padding-top: 10px;
+        width: 100%;
+        margin-top: 10px;
+        background-color: transparent;
+        color: white;
+    }
 
-        .modal h2 {
-            margin-bottom: 20px;
-        }
+    ::placeholder {
+        color: white;
+    }
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 1.5rem;
+        color: #ddd;
+        cursor: pointer;
+    }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-            .form-group label {
-                display: block;
-                margin-bottom: 5px;
-                font-weight: bold;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                width: 100%;
-                padding: 10px;
-                font-size: 1rem;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-            }
-
-                .form-group input:focus,
-                .form-group textarea:focus {
-                    border-color: #007bff;
-                    outline: none;
-                }
-
-        .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 10px 15px;
-            font-size: 1rem;
+        .close-btn:hover {
             color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
         }
 
-            .submit-btn:hover {
-                background-color: #0056b3;
-            }
+    /* Product Card styles */
+    .product-card {
+        color:white;
+        display: flex;
+        padding-top:0;
+        padding:20px 40px 40px 40px;
+        background-color:transparent;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 1340px;
+        border-radius: 8px;
+    }
 
-        .product-card {
-            display: flex;
-            justify-content: center;
-            margin: 20px auto;
-            padding: 40px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 1340px;
-            border-radius: 8px;
-        }
+    .product-info {
+        flex: 1 1 40%;
+        margin-right: 20px;
+    }
 
-        .product-info {
-            flex: 1 1 40%;
-            margin-right: 20px;
-        }
-
-            .product-info h1 {
-                font-size: 1.8rem;
-                color: #343a40;
-            }
-
-        .price {
-            font-size: 1.2rem;
-            color: #dc3545;
-            margin-bottom: 20px;
-        }
-
-        .product-image {
-            position: relative;
-            width: 100%;
-            height:auto;
-            overflow: hidden; /* Hide images outside the carousel container */
-        }
-
-        .carousel-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out; /* Smooth transition for slide movement */
-        }
-
-        .carousel-item {
-            flex: 1 0 100%; /* Make each image take up 100% width */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-            .carousel-item img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border: 1px solid #ddd;
-                border-radius: 8px;
-            }
-
-        .carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 30px;
-            background-color: rgba(0, 0, 0, 0.5);
+        .product-info h1 {
+            font-size: 24px;
             color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
         }
 
-            .carousel-control.prev {
-                left: 10px;
+    .price {
+        border: 1px solid #ddd;
+        font-size: 1.2rem;
+        color: transparent;
+        margin-bottom: 20px;
+    }
+
+    /* Carousel styles */
+    .product-image {
+        margin-top:10px;
+        position: relative;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .carousel {
+        width: 100%;
+        max-width: 600px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel img {
+        object-fit:cover;
+        width: 100%;
+        height:500px;
+        flex-shrink: 0;
+    }
+
+    .carousel-buttons {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+    }
+
+    .carousel-button {
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+        .carousel-button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+    .product-details {
+        flex: 1 1 60%;
+    }
+
+        .product-details h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+
+    table {
+        border-radius:5px;
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+        table td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+        }
+
+            table td:first-child {
+                font-weight: bold;
+                color: #ddd;
             }
 
-            .carousel-control.next {
-                right: 10px;
-            }
+    .quot-btn {
+        padding: 10px 20px;
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        border: 1px solid #fff;
+    }
+   
 
-        .product-details {
-            flex: 1 1 60%;
-        }
+    .pcontent {
+        padding: 20px;
+        text-align: justify;
+        margin: 0 auto;
+        background-color:transparent;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 94%;
+        border-radius: 8px;
+        color: #fff;
+        border:1px solid #fff;
+    }
 
-            .product-details h2 {
-                font-size: 1.5rem;
-                margin-bottom: 10px;
-                color: #343a40;
-            }
+    .next-btn {
+        right: 0px;
+    }
+    @@media (max-width: 768px) {
+        .product-card
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
+    {
+        padding:20px 10px;
+        flex-direction: column;
+        text-align: center;
+    }
 
-            table td {
-                padding: 8px 12px;
-                border: 1px solid #ddd;
-            }
+    .product-info {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 
-                table td:first-child {
-                    font-weight: bold;
-                    color: #495057;
-                }
+    .product-image img {
+        margin: 0 auto;
+    }
 
-        .pcontent {
-            padding:20px;
-            text-align:justify;
-            margin: 0 auto;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 1340px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            color: #495057;
-        }
-
-        .quote-btn {
-            padding: 10px 20px;
-            background-color: #dc3545;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-            .quote-btn:hover {
-                background-color: #c82333;
-            }
-
-        @@media (max-width: 768px) {
-            .product-card
-
-        {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .product-info {
-            margin-right: 0;
-            margin-bottom: 20px;
-        }
-
-        .product-image img {
-            margin: 0 auto;
-        }
-
-        }
-    </style>
-</head>
-<body class="envato_tk_templates-template envato_tk_templates-template-elementor_header_footer single single-envato_tk_templates postid-490 elementor-default elementor-template-full-width elementor-kit-3 elementor-page elementor-page-490">
-    <div id="page">
-        <header id="masthead" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
-            <div data-elementor-type="wp-post" data-elementor-id="490" class="elementor elementor-490">
-                <div class="elementor-element elementor-element-0e14ae7 e-flex e-con-boxed e-con e-parent" data-id="0e14ae7" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-                    <div class="e-con-inner">
-                        <div class="elementor-element elementor-element-3851081 elementor-widget elementor-widget-heading" data-id="3851081" data-element_type="widget" data-widget_type="heading.default">
-                            <div class="elementor-widget-container">
-                                <h2 class="elementor-heading-title elementor-size-default">Product Details</h2>
-                            </div>
+    }
+</style>
+<section class="dark-section">
+    <div class="section-content">
+        <div class="breadcrumb">
+            <h2>@Model.pname</h2>
+            <a asp-action="Index">Home</a> <span>></span> <a asp-action="Products">Products</a> <span>></span> <a>@Model.pname</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="product-card">
+            <div class="product-info">
+                <h1>@Model.pname</h1>
+                <!-- Carousel container with multiple images -->
+                <div class="product-image">
+                    <div class="carousel">
+                        <div class="carousel-track">
+                            <img src="~/upload/@Model.img1" alt="T-shirt Design 1">
+                            <img src="~/upload/@Model.img2" alt="T-shirt Design 2">
+                            <img src="~/upload/@Model.img3" alt="T-shirt Design 3">
+                            <img src="~/upload/@Model.img4" alt="T-shirt Design 4">
+                            <img src="~/upload/@Model.img5" alt="T-shirt Design 5">
                         </div>
-                        <div class="elementor-element elementor-element-ce4e3df elementor-widget elementor-widget-text-editor" data-id="ce4e3df" data-element_type="widget" data-widget_type="text-editor.default">
-                            <div class="elementor-widget-container">
-                                <p><a asp-action="Index" class="white">Home</a> / <a asp-action="Products" class="white">Products</a>  / @Model.pname</p>
-                            </div>
+                        <div class="carousel-buttons">
+                            <button class="carousel-button" id="prev">&#10094;</button>
+                            <button class="carousel-button" id="next">&#10095;</button>
                         </div>
                     </div>
                 </div>
-                <div class="main-container">
-                <div class="product-card">
-        <div class="product-info">
-            <h1>@Model.pname</h1>
-           @*  <p class="price">Approx. Price: Rs @Model.price / Piece</p> *@
-                            <!-- Carousel container with multiple images -->
-                            <div class="product-image">
-                                <div class="carousel-container">
-                                    <div class="carousel-item active">
-                                        <img src="~/upload/@Model.img1" alt="Printer Image">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="~/upload/@Model.img2" alt="Printer Image">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="~/upload/@Model.img3" alt="Printer Image">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="~/upload/@Model.img4" alt="Printer Image">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="~/upload/@Model.img5" alt="Printer Image">
-                                    </div>
-                                </div>
-
-                                <!-- Carousel Controls -->
-                                <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
-                                <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
-                            </div>
-
+            </div>
+            <div class="product-details">
+                <h2>Product Details:</h2>
+                <!-- Table with product details -->
+                <table>
+                    <tr>
+                        <td>Fabric Type</td>
+                        <td>@Model.fabric</td>
+                    </tr>
+                    <tr>
+                        <td>Fabric Weight</td>
+                        <td>@Model.fabric_weight</td>
+                    </tr>
+                    <tr>
+                        <td>Weave Type</td>
+                        <td>@Model.weave_type</td>
+                    </tr>
+                    <tr>
+                        <td>Color/Pattern</td>
+                        <td>@Model.color_pattern</td>
+                    </tr>
+                    <tr>
+                        <td>Size Options</td>
+                        <td>@Model.size</td>
+                    </tr>
+                    <tr>
+                        <td>Fit Type</td>
+                        <td>@Model.fit_type</td>
+                    </tr>
+                    <tr>
+                        <td>Thread Count</td>
+                        <td>@Model.thread_count</td>
+                    </tr>
+                    <tr>
+                        <td>Stretchability</td>
+                        <td>@Model.stretchability</td>
+                    </tr>
+                    <tr>
+                        <td>Wash Care Instructions</td>
+                        <td>@Model.wash_care</td>
+                    </tr>
+                    <tr>
+                        <td>Closure Type</td>
+                        <td>@Model.closure_type</td>
+                    </tr>
+                    <tr>
+                        <td>Special Features</td>
+                        <td>@Model.special_features</td>
+                    </tr>
+                    <tr>
+                        <td>Season Suitability</td>
+                        <td>@Model.season_suitability</td>
+                    </tr>
+                </table>
+                <button class="quot-btn" onclick="openModal()">Request A Quote</button>
+            </div>
         </div>
-        <div class="product-details">
-            <h2>Product Details:</h2>
-            <table>
-                <tr>
-                    <td>Fabric Type</td>
-                    <td>80% Cotton, 20% Polyester</td>
-                </tr>
-                <tr>
-                    <td>Fabric Weight</td>
-                    <td>GSM - Grams per Square Meter</td>
-                </tr>
-                <tr>
-                    <td>Weave Type</td>
-                    <td>
-                        Plain Weave, Twill, Satin, Poplin
-                    </td>
-                </tr>
-                <tr>
-                    <td>Color/Pattern</td>
-                    <td>Solid, Striped, Checked, Floral, Abstract</td>
-                </tr>
-                <tr>
-                    <td>Size Options</td>
-                    <td>S, M, L, XL, XXL</td>
-                </tr>
-                <tr>
-                    <td>Fit Type</td>
-                    <td>Regular Fit, Slim Fit, Loose Fit</td>
-                </tr>
-                <tr>
-                    <td>Thread Count</td>
-                    <td>luxury fabrics</td>
-                </tr>
-                <tr>
-                    <td>Stretchability</td>
-                    <td>4-Way Stretch, Non-Stretchable</td>
-                </tr>
-                <tr>
-                    <td>Wash Care Instructions</td>
-                    <td>Machine Wash, Dry Clean Only, Hand Wash</td>
-                </tr>
-                <tr>
-                    <td>Closure Type</td>
-                    <td>Buttons, Zipper, Elastic Waistband</td>
-                </tr>
-                <tr>
-                    <td>Special Features</td>
-                    <td>Wrinkle-Resistant, Breathable, Quick-Dry, UV Protection</td>
-                </tr>
-                <tr>
-                    <td>Season Suitability</td>
-                    <td> Summer Wear, Winter Wear, All-Season</td>
-                </tr>
-            </table>
-            <button class="quote-btn" onclick="openModal()">Request A Quote</button>
-        </div>
+
         <!-- Modal -->
         <div class="modal" id="quoteModal">
             <div class="modal-content">
                 <span class="close-btn" onclick="closeModal()">&times;</span>
                 <h4>Request A Quote</h4>
-                <form id="quoteForm" asp-action="EnquiryForm">
+
+                <!-- Success Message (hidden initially) -->
+                <div id="successMessage" style="display:none; color: green; text-align: center;">
+                    <p>Thank you! Your request has been successfully submitted.</p>
+                </div>
+
+                <form id="quoteForm" asp-action="EnquiryForm" method="post">
                     <div class="form-group">
-                        <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" placeholder="Enter your email" required>
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required maxlength="10">
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
+                        <input type="text" id="sub" name="subject" placeholder="Enter Subject" required>
+                    </div>
+                    <div class="form-group">
                         <textarea id="message" name="msg" rows="4" placeholder="Enter your message"></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Submit</button>
                 </form>
             </div>
         </div>
+        <div class="pcontent">
+            @Html.Raw(Model.pcontent)
+        </div>
     </div>
-                    <div class="pcontent">
-                     @Html.Raw(Model.pcontent)
-                    </div>
-                </div>
-    <script>
-                function openModal() {
-          document.getElementById('quoteModal').style.display = 'flex';
-        }
 
-        function closeModal() {
-          document.getElementById('quoteModal').style.display = 'none';
-        }
+</section>
+<script>
+    function openModal() {
+        document.getElementById('quoteModal').style.display = 'flex';
+    }
 
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-          const modal = document.getElementById('quoteModal');
-          if (event.target === modal) {
+    function closeModal() {
+        document.getElementById('quoteModal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('quoteModal');
+        if (event.target === modal) {
             modal.style.display = 'none';
-          }
-        };
+        }
+    };
+
+     // Handle form submission
+    document.getElementById("quoteForm").addEventListener("submit", function(event) {
+        // Assuming the form submission is handled by ASP.NET on the server
+        // event.preventDefault();  Prevent the default form submission
+
+        // Simulate a successful form submission (replace this with actual form submission)
+        setTimeout(function() {
+            // Hide the form and show the success message
+            document.querySelector("form").style.display = "none";
+            document.getElementById("successMessage").style.display = "block";
+        }, 300); // Simulated delay, replace with actual server-side handling
+    });
 
 
-                            let currentIndex = 0;
-                    const slides = document.querySelectorAll('.carousel-item');
-                    const totalSlides = slides.length;
 
-                    function showSlide(index) {
-                        if (index >= totalSlides) {
-                            currentIndex = 0; // Wrap around to the first image
-                        } else if (index < 0) {
-                            currentIndex = totalSlides - 1; // Wrap around to the last image
-                        } else {
-                            currentIndex = index;
-                        }
-                        updateCarousel();
-                    }
+     const track = document.querySelector('.carousel-track');
+    const images = Array.from(track.children);
+    const nextButton = document.getElementById('next');
+    const prevButton = document.getElementById('prev');
+    const imageWidth = images[0].getBoundingClientRect().width;
 
-                    function updateCarousel() {
-                        const carouselContainer = document.querySelector('.carousel-container');
-                        const offset = -currentIndex * 100; // Move to the corresponding slide
+    let currentIndex = 0;
 
-                        carouselContainer.style.transform = `translateX(${offset}%)`;
-                    }
+    const updateCarousel = () => {
+        track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+    };
 
-                    function moveSlide(step) {
-                        showSlide(currentIndex + step);
-                    }
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < images.length - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
 
-                    // Initialize the carousel to the first slide
-                    showSlide(currentIndex);
-
-    </script>
-</body>
-</html>
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+</script>

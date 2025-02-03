@@ -16,18 +16,50 @@ namespace SaiSports.Controllers
         }
         public IActionResult Dashboard()
         {
+            // Check if the user is logged in
+            if (HttpContext.Session.GetString("admin") == null)
+            {
+                return RedirectToAction("SSAdmin", "Home");
+            }
+            // Count total enquiries
+            int totalEnquiries = _context.tbl_enquiries.Count();
+
+            // Count total blogs
+            int totalBlogs = _context.tbl_blog.Count();
+
+            // Count total listed products
+            int totalProducts = _context.tbl_products.Count();
+
+            // Pass the counts to the ViewBag or ViewData to send data to the view
+            ViewBag.TotalEnquiries = totalEnquiries;
+            ViewBag.TotalBlogs = totalBlogs;
+            ViewBag.TotalProducts = totalProducts;
+
+            // Pass all enquiries to the view if required
             var data = _context.tbl_enquiries.ToList();
+
             return View(data);
         }
 
+
         public IActionResult Products()
         {
+            // Check if the user is logged in
+            if (HttpContext.Session.GetString("admin") == null)
+            {
+                return RedirectToAction("SSAdmin", "Home");
+            }
             var data = _context.tbl_products.ToList();
             return View(data);
         }
 
         public IActionResult ProductForm()
         {
+            // Check if the user is logged in
+            if (HttpContext.Session.GetString("admin") == null)
+            {
+                return RedirectToAction("SSAdmin", "Home");
+            }
             return View();
         }
         //Insertion of products Property Data 
@@ -87,7 +119,12 @@ namespace SaiSports.Controllers
         [HttpGet]
         public async Task<IActionResult> EditProduct(int id)
         {
-          
+            // Check if the user is logged in
+            if (HttpContext.Session.GetString("admin") == null)
+            {
+                return RedirectToAction("SSAdmin", "Home");
+            }
+
             var products = await _context.tbl_products.FindAsync(id);
             if (products == null)
             {
@@ -109,17 +146,23 @@ namespace SaiSports.Controllers
             // Update property fields
             existingproducts.pname = products.pname;
             existingproducts.pcategory = products.pcategory;
-            existingproducts.ptags = products.ptags;
-            existingproducts.price = products.price;
-            existingproducts.quantity = products.quantity;
-            existingproducts.black = products.black;
-            existingproducts.red = products.red;
-            existingproducts.blue = products.blue;
-            existingproducts.green = products.green; // Example field
-            existingproducts.white = products.white; // Example field
-            existingproducts.author = products.author; // Example field
-            existingproducts.date = products.date; // Example field
-            existingproducts.pcontent = products.pcontent; // Example field
+            existingproducts.author = products.author;
+            existingproducts.date = products.date;
+            existingproducts.pcontent = products.pcontent;
+            existingproducts.pdesc = products.pdesc;
+            existingproducts.stretchability = products.stretchability;
+            existingproducts.wash_care = products.wash_care;
+            existingproducts.closure_type = products.closure_type;
+            existingproducts.special_features = products.special_features;
+            existingproducts.season_suitability = products.season_suitability;
+            existingproducts.fabric = products.fabric;
+            existingproducts.fabric_weight = products.fabric_weight;
+            existingproducts.weave_type = products.weave_type;
+            existingproducts.color_pattern = products.color_pattern;
+            existingproducts.size = products.size;
+            existingproducts.fit_type = products.fit_type;
+            existingproducts.thread_count = products.thread_count;
+            existingproducts.style = products.style;
 
             // Process new images if provided
             if (img1 != null && img1.Length > 0)
@@ -207,11 +250,21 @@ namespace SaiSports.Controllers
 
         public IActionResult Blog()
         {
+            // Check if the user is logged in
+            if (HttpContext.Session.GetString("admin") == null)
+            {
+                return RedirectToAction("SSAdmin", "Home");
+            }
             var data = _context.tbl_blog.ToList();
             return View(data);
         }
         public IActionResult BlogForm()
         {
+            // Check if the user is logged in
+            if (HttpContext.Session.GetString("admin") == null)
+            {
+                return RedirectToAction("SSAdmin", "Home");
+            }
             return View();
         }
         [HttpPost]
@@ -274,6 +327,11 @@ namespace SaiSports.Controllers
         [HttpGet]
         public async Task<IActionResult> EditBlog(int id)
         {
+            // Check if the user is logged in
+            if (HttpContext.Session.GetString("admin") == null)
+            {
+                return RedirectToAction("SSAdmin", "Home");
+            }
             var blogPost = await _context.tbl_blog.FindAsync(id);
             if (blogPost == null)
             {
@@ -289,6 +347,11 @@ namespace SaiSports.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditBlog(tbl_blog blogPost, IFormFile img)
         {
+            // Check if the user is logged in
+            if (HttpContext.Session.GetString("admin") == null)
+            {
+                return RedirectToAction("SSAdmin", "Home");
+            }
 
             var existingBlogPost = await _context.tbl_blog.FindAsync(blogPost.id); // Assuming Id is the primary key
 
@@ -330,6 +393,11 @@ namespace SaiSports.Controllers
 
         public IActionResult Enquiries()
         {
+            // Check if the user is logged in
+            if (HttpContext.Session.GetString("admin") == null)
+            {
+                return RedirectToAction("SSAdmin", "Home");
+            }
             var data = _context.tbl_enquiries.ToList();
             return View(data);
         }
@@ -343,5 +411,10 @@ namespace SaiSports.Controllers
             return RedirectToAction("Enquiries", "Admin");
         }
 
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear(); // Clears the session
+            return RedirectToAction("Index", "Home"); // Redirect to login page
+        }
     }
 }

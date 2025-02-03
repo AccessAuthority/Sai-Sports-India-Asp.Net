@@ -5,7 +5,8 @@ namespace SaiSports.Models
     public class CombineViewModel
     {
 
-        public tbl_blog CurrentBlog { get; set; }
-        public List<tbl_blog> RelatedBlogs { get; set; }
+        public List<tbl_blog> tbl_blog { get; set; }
+        public List<Service> Service { get; set; }
+        public List<tbl_products> tbl_products { get; set; }
     }
 }
