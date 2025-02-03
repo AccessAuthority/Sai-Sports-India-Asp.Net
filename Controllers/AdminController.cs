@@ -62,16 +62,11 @@ namespace SaiSports.Controllers
             }
             return View();
         }
-        //Insertion of products Property Data 
+        // Insertion of products Property Data 
         [HttpPost]
         public async Task<IActionResult> ProductForm(tbl_products products, IFormFile img1, IFormFile img2, IFormFile img3, IFormFile img4, IFormFile img5)
         {
-            if (!ModelState.IsValid)
-            {
-
-                return View(products);
-            }
-
+            // Save images with unique names
             if (img1 != null && img1.Length > 0)
             {
                 products.img1 = await Saveimgc(img1);
@@ -86,10 +81,12 @@ namespace SaiSports.Controllers
             {
                 products.img3 = await Saveimgc(img3);
             }
+
             if (img4 != null && img4.Length > 0)
             {
                 products.img4 = await Saveimgc(img4);
             }
+
             if (img5 != null && img5.Length > 0)
             {
                 products.img5 = await Saveimgc(img5);
@@ -98,20 +95,36 @@ namespace SaiSports.Controllers
             // Add to the database
             _context.tbl_products.Add(products);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Products");
+
+            return RedirectToAction("ProductForm");
         }
 
+        // Helper method to save image with a unique name
         private async Task<string> Saveimgc(IFormFile img)
         {
-            var folderPath = Path.Combine(_environment.WebRootPath, "upload"); // Ensure this folder exists
-            var fileName = Path.GetFileName(img.FileName);
+            // Generate a unique file name using GUID and file extension
+            var fileExtension = Path.GetExtension(img.FileName);
+            var fileName = Guid.NewGuid().ToString() + fileExtension;
+
+            // Define the folder path for saving the image
+            var folderPath = Path.Combine(_environment.WebRootPath, "upload");
+
+            // Ensure the directory exists
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            // Define the file path for saving the image
             var filePath = Path.Combine(folderPath, fileName);
 
+            // Save the image to the folder
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await img.CopyToAsync(stream);
             }
 
+            // Return the unique file name to store in the database
             return fileName;
         }
 
