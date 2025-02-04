@@ -433,6 +433,57 @@ namespace SaiSports.Controllers
         {
             return View();
         }
+
+        // POST: CareerForm
+        [HttpPost]
+        public async Task<IActionResult> CareerForm(tbl_career model, IFormFile resume, IFormFile coverLetter)
+        {
+            // Handle file upload (for resume and cover letter)
+            var resumeFilePath = await SaveFileAsync(resume);
+            var coverLetterFilePath = coverLetter != null ? await SaveFileAsync(coverLetter) : null;
+
+            // Save career data in the database
+            model.resume = resumeFilePath;
+            model.coverLetter = coverLetterFilePath;
+
+            _context.tbl_career.Add(model);
+            await _context.SaveChangesAsync();
+
+            // Send email to admin
+            string adminEmail = "accessauthority.business@gmail.com"; // Replace with admin email address
+            string subject = "New Career Application";
+            string body = $"A new career application has been submitted by {model.fullName}. " +
+                          $"Resume: {model.resume}, Cover Letter: {model.coverLetter}";
+
+            await _emailSender.SendEmailAsync(adminEmail, subject, body);
+
+            return RedirectToAction("ThankYou"); // Redirect to a thank you page
+        }
+
+        // Utility method to save file
+        private async Task<string> SaveFileAsync(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return null;
+
+            // Generate a unique file name using GUID and preserve the file extension
+            var fileExtension = Path.GetExtension(file.FileName);
+            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+
+            // Define the file path to save the file
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", uniqueFileName);
+
+            // Save the file to the server
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(fileStream);
+            }
+
+            // Return the file path relative to the root directory for saving in the database
+            return "/uploads/" + uniqueFileName;
+        }
+
+
         [HttpPost]
         public IActionResult EnquiryForm(tbl_enquiries e)
         {
@@ -467,7 +518,6 @@ namespace SaiSports.Controllers
         </table>
         <p style='margin-top: 20px;'>Best Regards,<br/>Sai Sports India, Lucknow<br/><a href='mailto:support@saisportsindia.com'>support@saisportsindia.com</a></p>
     </div>";
-
 
             // Use the EmailSender service to send the email
             // puri.saisports@gmail.com
