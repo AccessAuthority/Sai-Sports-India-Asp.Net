@@ -1,6 +1,6 @@
-﻿
+﻿@model IEnumerable<SaiSports.Models.tbl_career>
 @{
-    ViewData["Title"] = "Career Enquiries";
+    ViewData["Title"] = "Enquiries";
     Layout = null;
 }
 
@@ -182,7 +182,7 @@
                                                     <th>User Name </th>
                                                     <th> Email</th>
                                                     <th>Number</th>
-                                                    <th> Subject</th>
+                                                    <th> Resume</th>
                                                     <th> Action </th>
                                                 </tr>
                                             </thead>
@@ -199,37 +199,18 @@
                                                                 serialNo++;
                                                             } <!-- Increment the serial number -->
                                                         </td>
-                                                        <td> @data.name </td>
+                                                        <td> @data.fullName </td>
                                                         <td> @data.email </td>
                                                         <td> @data.phone </td>
-                                                        <td> @data.subject </td>
+                                                        <td> <a target="_blank" href="@data.resume">Resume</a></td>
                                                         <td>
-                                                            <a href="#" class="badge badge-outline-success btn" data-toggle="modal" data-target="#viewModal" data-message="@data.msg">View</a>
+                                                            <a href="#" class="badge badge-outline-success btn" data-toggle="modal" data-target="#viewModal" data-message="@data.address">View</a>
                                                             <div data-id="@data.id" class="badge badge-outline-danger delete-btn btn">Delete</div>
                                                         </td>
                                                     </tr>
                                                 }
                                             </tbody>
-                                            <!-- Modal Structure -->
-                                            <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="viewModalLabel">Full Message</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <p id="fullMessage"></p> <!-- Placeholder for the full message -->
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                          
                                         </table>
                                     </div>
                                 </div>
@@ -239,6 +220,27 @@
                 </div>
                 <!-- content-wrapper ends -->
             </div>
+
+            <!-- Modal Structure -->
+            <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="viewModalLabel">Full Message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="fullMessage"></p> <!-- Placeholder for the full message -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- main-panel ends -->
         </div>
         <!-- page-body-wrapper ends -->
@@ -277,30 +279,51 @@
             var modal = $(this);
             modal.find('.modal-body #fullMessage').text(message); // Set the full message inside the modal body
         });
-    </script>
-    <script>
+
+
+        // When the "Delete" button is clicked
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent the default action
+                event.preventDefault(); // Prevent the default action (button click)
 
                 const postId = this.getAttribute('data-id'); // Get the ID from the data attribute
 
                 Swal.fire({
                     title: 'Are you sure?',
-                    text: 'Do you really want to delete this enquiry?',
+                    text: 'Do you really want to delete this Career enquiry?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonText: 'Yes, delete it!',
                     cancelButtonText: 'No, keep it'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // If confirmed, redirect to the delete action
-                        window.location.href = '@Url.Action("DeleteEnquiry", "Admin")/' + postId; // Adjust as needed
+                        // Create a hidden form to send the POST request
+                        const form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = '@Url.Action("DeleteCareer", "Admin")'; // Action for deletion
+
+                        // Create an input field to send the ID (this is the career ID to be deleted)
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = 'id';  // This matches the parameter in the controller
+                        input.value = postId; // ID of the career entry
+
+                        // Append the input to the form
+                        form.appendChild(input);
+
+                        // Append the form to the body
+                        document.body.appendChild(form);
+
+                        // Submit the form to trigger the POST request
+                        form.submit();
                     }
                 });
             });
         });
+
+
     </script>
+
 </body>
 
 

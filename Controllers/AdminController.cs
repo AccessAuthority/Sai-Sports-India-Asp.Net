@@ -424,6 +424,52 @@ namespace SaiSports.Controllers
             return RedirectToAction("Enquiries", "Admin");
         }
 
+
+        public IActionResult CareerEnquiries()
+        {
+            // Check if the user is logged in
+            if (HttpContext.Session.GetString("admin") == null)
+            {
+                return RedirectToAction("SSAdmin", "Home");
+            }
+            var data = _context.tbl_career.ToList();
+            return View(data);
+        }
+
+        // POST: Delete Career
+        [HttpPost]
+        public async Task<IActionResult> DeleteCareer(int id)
+        {
+            // Find the career entry by id
+            var career = await _context.tbl_career.FindAsync(id);
+
+            // Check if resume and cover letter files exist, and delete them
+            if (!string.IsNullOrEmpty(career.resume))
+            {
+                var resumePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", career.resume.TrimStart('/'));
+                if (System.IO.File.Exists(resumePath))
+                {
+                    System.IO.File.Delete(resumePath); // Delete the file
+                }
+            }
+
+            if (!string.IsNullOrEmpty(career.coverLetter))
+            {
+                var coverLetterPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", career.coverLetter.TrimStart('/'));
+                if (System.IO.File.Exists(coverLetterPath))
+                {
+                    System.IO.File.Delete(coverLetterPath); // Delete the file
+                }
+            }
+
+            // Remove the career entry from the database
+            _context.tbl_career.Remove(career);
+            await _context.SaveChangesAsync();
+
+            // Redirect to the career list or confirmation page after deletion
+            return RedirectToAction("CareerEnquiries"); // Adjust to your desired action after deletion
+        }
+
         public IActionResult Logout()
         {
             HttpContext.Session.Clear(); // Clears the session

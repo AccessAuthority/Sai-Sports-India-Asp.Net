@@ -452,12 +452,40 @@ namespace SaiSports.Controllers
             // Send email to admin
             string adminEmail = "accessauthority.business@gmail.com"; // Replace with admin email address
             string subject = "New Career Application";
-            string body = $"A new career application has been submitted by {model.fullName}. " +
-                          $"Resume: {model.resume}, Cover Letter: {model.coverLetter}";
+
+            string body = $@"
+    <html>
+    <body>
+        <h2>New Career Application Submitted</h2>
+        <table border='1' cellpadding='5'>
+            <tr>
+                <td><strong>Full Name</strong></td>
+                <td>{model.fullName}</td>
+            </tr>
+            <tr>
+                <td><strong>Email</strong></td>
+                <td>{model.email}</td>
+            </tr>
+            <tr>
+                <td><strong>Phone Number</strong></td>
+                <td>{model.phone}</td>
+            </tr>
+            <tr>
+                <td><strong>Resume</strong></td>
+                <td><a href='{model.resume}' target='_blank'>Click to View Resume</a></td>
+            </tr>
+            <tr>
+                <td><strong>Cover Letter</strong></td>
+                <td><a href='{model.coverLetter}' target='_blank'>Click to View Cover Letter</a></td>
+            </tr>
+        </table>
+    </body>
+    </html>";
 
             await _emailSender.SendEmailAsync(adminEmail, subject, body);
 
-            return RedirectToAction("ThankYou"); // Redirect to a thank you page
+
+            return RedirectToAction("Career"); // Redirect to a thank you page
         }
 
         // Utility method to save file
