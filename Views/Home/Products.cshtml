@@ -4,7 +4,11 @@
 	Layout = "_Layout";
 }
 <style>
+    .p-content > p{
+        font-size:14px;
+    }
     .view{
+        margin-top:10px;
         font-size: 14px;
         padding: 5px;
         width:fit-content;
@@ -200,8 +204,6 @@
         </div>
     </div>
     <div class="section-content">
-        @* <h2>Our Products</h2> *@
-        @* <p>Explore Our Premium Sportswear and Athletic Apparel Collection</p> *@
         <div class="main-content">
             <div class="sidebar">
                 <div class="searchbar">
@@ -266,12 +268,13 @@
                         </div>
                         <div class="p-content">
                             <a href="@Url.Action("ProductDetails", "Home", new { id = product.id })"><h3 class="text-white ellipsis-2">@product.pname</h3></a>
-                            <p>Style: @product.style</p>
-                            <p>Size: @product.size</p>
+                            <p><strong>Fabric:</strong> @product.fabric</p>
+                            <p><strong>Style:</strong>  @product.style</p>
+                            <p><strong>Size:</strong>  @product.size</p>
                             <p class="text-white ellipsis-4">@product.pdesc</p>
                             <a href="@Url.Action("ProductDetails", "Home", new { id = product.id })" class="view">View More..</a>
                         </div>
-                        <button class="cta-link-dark quote-btn" onclick="openModal()">Get Quote</button>
+                        @* <button class="cta-link-dark quote-btn" onclick="openModal()">Get Quote</button> *@
                     </div>
                 }
             </div>

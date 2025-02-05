@@ -34,7 +34,7 @@
     .container {
         padding-top:20px;
         padding-bottom: 50px;
-        width: 90%;
+        width: 93%;
         margin: 0 auto;
     }
 
@@ -80,12 +80,13 @@
     }
 
         .blog-content h1 {
+            font-size: 25px;
             margin-bottom: 5px;
         }
 
     .date {
         color: white;
-        font-size: 13px;
+        font-size: 15px;
         margin-bottom: 10px;
     }
     .blog-image{
@@ -94,8 +95,8 @@
     }
     .blog-image img {
         object-fit:cover;
-        width: 40%;
-        height: 300px;
+        width: 100%;
+        height: 400px;
         margin-bottom: 20px;
     }
 
@@ -105,9 +106,9 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 60%;
+        width: 100%;
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .content {
@@ -227,14 +228,11 @@
         <div class="blog-content">
             <div class="blog-image">
                 <img src="@blog.img" alt="@blog.title" />
-                <div class="desc">
-                    <h1>@blog.title</h1>
-                    <p class="date">Published on @DateTime.Parse(blog.date).ToString("MMMM dd, yyyy") | By @blog.author | Category: @blog.category</p>
-                  
-                    <p class="ellipsis-8"> @blog.description</p>
-                </div>
             </div>
-
+            <div class="desc">
+                <h1>@blog.title</h1>
+                <p class="date">Published on @DateTime.Parse(blog.date).ToString("MMMM dd, yyyy") | By @blog.author | Category: @blog.category</p>
+            </div>
             <div class="content">
                 @Html.Raw(blog.blog_content)
             </div>

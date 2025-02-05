@@ -172,7 +172,7 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="card-title">All Enquiries</h4>
+                                    <h4 class="card-title">All Career Enquiries</h4>
 
                                     <div class="table-responsive">
                                         <table class="table mydatatable2">
@@ -183,6 +183,7 @@
                                                     <th> Email</th>
                                                     <th>Number</th>
                                                     <th> Resume</th>
+                                                    <th> Cover Letter</th>
                                                     <th> Action </th>
                                                 </tr>
                                             </thead>
@@ -202,9 +203,10 @@
                                                         <td> @data.fullName </td>
                                                         <td> @data.email </td>
                                                         <td> @data.phone </td>
-                                                        <td> <a target="_blank" href="@data.resume">Resume</a></td>
+                                                        <td> <a target="_blank" href="@data.resume">View Resume</a></td>
+                                                        <td> <a target="_blank" href="@data.coverLetter">View Cover Letter</a></td>
                                                         <td>
-                                                            <a href="#" class="badge badge-outline-success btn" data-toggle="modal" data-target="#viewModal" data-message="@data.address">View</a>
+                                                            <a href="#" class="badge badge-outline-success btn" data-toggle="modal" data-target="#viewModal" data-message="@data.address">View Address</a>
                                                             <div data-id="@data.id" class="badge badge-outline-danger delete-btn btn">Delete</div>
                                                         </td>
                                                     </tr>
@@ -226,7 +228,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="viewModalLabel">Full Message</h5>
+                            <h5 class="modal-title" id="viewModalLabel">Candidate Address</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

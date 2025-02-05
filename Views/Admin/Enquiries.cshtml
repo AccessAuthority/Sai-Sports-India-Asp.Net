@@ -69,6 +69,11 @@
 
     </script>
     <!---->
+    <style>
+        .bg-ce{
+            background-color:transparent !important;
+        }
+    </style>
 </head>
 <body>
     <div class="container-scroller">
@@ -115,8 +120,8 @@
                         <span class="menu-title">Blog</span>
                     </a>
                 </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" asp-action="CareerEnquiries">
+                <li class="nav-item menu-items bg-ce">
+                    <a class="nav-link bg-ce" asp-action="CareerEnquiries">
                         <span class="menu-icon">
                             <i class="mdi mdi-table-large"></i>
                         </span>
@@ -204,7 +209,7 @@
                                                         <td> @data.phone </td>
                                                         <td> @data.subject </td>
                                                         <td>
-                                                            <a href="#" class="badge badge-outline-success btn" data-toggle="modal" data-target="#viewModal" data-message="@data.msg">View</a>
+                                                            <a href="#" class="badge badge-outline-success btn" data-toggle="modal" data-target="#viewModal" data-message="@data.msg">View Message</a>
                                                             <div data-id="@data.id" class="badge badge-outline-danger delete-btn btn">Delete</div>
                                                         </td>
                                                     </tr>

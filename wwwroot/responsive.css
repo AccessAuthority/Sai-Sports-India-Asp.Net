@@ -91,7 +91,7 @@
         padding: 0.6rem 1.5rem;
     }
     .light-section{
-        padding: 20px 10px;
+        padding: 20px 0px;
         flex-direction: column;
     }
     .exe, .quality, .trust{
@@ -101,7 +101,7 @@
         font-size: 28px;
     }
     .about{
-        padding: 20px 15px;
+        padding: 20px 10px;
     }
     .service-cards {
         width:90%;
@@ -131,7 +131,7 @@
     width: 100%;
    }
    .why-choose-us{
-    padding: 20px 10px;
+    padding: 20px 0px;
     flex-direction: column;
    }
    .image-section, .content-section{

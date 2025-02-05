@@ -142,7 +142,9 @@ a {
   transition: background-color 0.3s ease;
 }
 #features {
-  background-color: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: transparent;
 }
 /* Light Section */
 .light-section {
