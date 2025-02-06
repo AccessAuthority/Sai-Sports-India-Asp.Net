@@ -220,7 +220,7 @@
 
                                     <!-- Submit Button -->
                                     <button type="submit" class="btn btn-primary mr-2">Update</button>
-                                    <button type="reset" class="btn btn-dark">Cancel</button>
+                                    @* <button type="reset" class="btn btn-dark">Cancel</button> *@
                                 </form>
 
                             </div>
@@ -256,19 +256,44 @@
     <!-- End custom js for this page -->
     <!-- CKEditor Initialization -->
     <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
-
-    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+             ClassicEditor
+                 .create(document.querySelector('#editor'), {
+                     toolbar: [
+                         'undo', 'redo',  // Undo and Redo
+                         'bold', 'italic', 'underline', 'strikethrough', // Text formatting
+                         'link', 'image', 'blockQuote', 'code', // Links, Images, Blockquote
+                         'bulletedList', 'numberedList', // List formatting
+                         'outdent', 'indent', // Indentation
+                         'alignment', // Text alignment
+                         'insertTable', 'tableColumn', 'tableRow', 'mergeTableCells', // Table options
+                         'fontSize', 'fontFamily', 'fontColor', // Font options
+                         'highlight', // Text highlight
+                         'subscript', 'superscript', // Subscript and superscript
+                         'specialCharacters', // Special characters
+                         'horizontalLine', // Horizontal line
+                         'removeFormat' // Remove formatting
+                     ],
+                     language: 'en' // Set the language to English
+                 })
+                 .catch(error => {
+                     console.error('Error initializing CKEditor:', error);
+                 });
+         });
+   
         // When a file is selected, update the text box with the file name
         document.getElementById('fileUpload').addEventListener('change', function() {
             const filePath = this.value.split('\\').pop();  // Get the file name only
             document.getElementById('fileInfo').value = filePath;  // Update input field
         });
+
+          function cancelAction() {
+            // Action to perform when Cancel button is clicked
+            alert("Action has been cancelled!");
+
+            // Redirect to another page (you can replace 'your-page.html' with the desired URL)
+            window.location.href = "Blog"; // Redirect to your desired URL
+        }
     </script>
 </body>
 
