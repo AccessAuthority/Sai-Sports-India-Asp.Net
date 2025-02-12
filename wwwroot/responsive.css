@@ -1,8 +1,19 @@
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    .garment-image, .garment-content{
-        width:100% !important;
+    header{
+        height:40vh;
     }
+    .video-bg{
+        height:50%;
+    }
+    .garment-image, .garment-content {
+        width: 100% !important;
+    }
+    .garment-image{
+        display:flex;
+        justify-content:center;
+    }
+
     .garment-content {
         padding: 0px !important;
         padding-top: 10px !important;
@@ -28,6 +39,7 @@
         gap:0px;
     }
     .p-card {
+        margin-bottom: 30px;
         width: 320px;
     }
     .next-btn {

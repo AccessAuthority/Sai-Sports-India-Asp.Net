@@ -15,6 +15,10 @@
   --button-text-color: white;
   --secondary-dark: #0b0c10;
 }
+::placeholder {
+    color: white;
+    text-transform: capitalize;
+}
 .text-black {
   color: var(--tertiary-color);
 }
@@ -365,7 +369,6 @@ nav a:hover {
 }
 
 .p-card {
-    margin-bottom: 30px;
   border: 1px solid var(--primary-color);
   overflow: hidden;
   border-radius: 10px;
