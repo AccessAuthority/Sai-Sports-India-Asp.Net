@@ -35,7 +35,7 @@
             text-align: center;
             border: 1px solid #fff;
         }
-        h6{
+        h4{
             color:red;
         }
         .logo {
@@ -84,7 +84,7 @@
     <div class="login-container">
         <img src="~/images/Group 10.png" alt="Logo" class="logo">
         <h2>Admin Login</h2>
-        <h6 class="text-danger text-center">@TempData["msg"]</h6>
+        <h4 class="text-danger text-center">@TempData["msg"]</h4>
         <form asp-action="Login" method="post">
             <input type="email" name="email" class="input-field" placeholder="Email" required>
             <input type="password" name="password" class="input-field" placeholder="Password" required>
