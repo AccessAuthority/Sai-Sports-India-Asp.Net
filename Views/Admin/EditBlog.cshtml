@@ -1,7 +1,4 @@
 ﻿@model SaiSports.Models.tbl_blog
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
     ViewData["Title"] = "Edit Blog";
     Layout = null;
@@ -132,7 +129,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-                                <a asp-action="Logout" class="dropdown-item preview-item">
+                                <a asp-action="Logout" class="dropdown-item preview-item" id="logoutBtn">
                                     <div class="preview-thumbnail">
                                         <div class="preview-icon bg-dark rounded-circle">
                                             <i class="mdi mdi-logout text-danger"></i>
@@ -294,6 +291,25 @@
             // Redirect to another page (you can replace 'your-page.html' with the desired URL)
             window.location.href = "Blog"; // Redirect to your desired URL
         }
+
+             document.getElementById('logoutBtn').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default logout action
+
+            // Show SweetAlert confirmation
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You are about to log out!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, log me out!',
+                cancelButtonText: 'Cancel',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If confirmed, proceed with the logout
+                    window.location.href = '/Admin/Logout'; // Adjust the URL to match your logout route
+                }
+            });
+        });
     </script>
 </body>
 

@@ -194,3 +194,15 @@
     </div>
 </section>
 <!--End  Section -->
+<!-- Display SweetAlert if TempData has a message -->
+@if (TempData["message"] != null)
+{
+    <script>
+        Swal.fire({
+            title: 'Notification',
+            text: '@TempData["message"]',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        });
+    </script>
+}

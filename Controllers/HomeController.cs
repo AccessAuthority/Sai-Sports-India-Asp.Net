@@ -450,7 +450,7 @@ namespace SaiSports.Controllers
             await _context.SaveChangesAsync();
 
             // Send email to admin
-            string adminEmail = "puri.saisports@gmail.com"; // Replace with admin email address
+            string adminEmail = "accessauthority.business@gmail.com"; // Replace with admin email address
             string subject = "New Career Application";
 
             string body = $@"
@@ -484,6 +484,7 @@ namespace SaiSports.Controllers
 
             await _emailSender.SendEmailAsync(adminEmail, subject, body);
 
+            TempData["Message"] = $"Your Form Submitted Successfully!";
 
             return RedirectToAction("Career"); // Redirect to a thank you page
         }
@@ -511,17 +512,20 @@ namespace SaiSports.Controllers
             return "/uploads/" + uniqueFileName;
         }
 
-
         [HttpPost]
         public IActionResult EnquiryForm(tbl_enquiries e)
         {
-            // Compose the email content
+            // Add the enquiry to the database
+            _context.tbl_enquiries.Add(e);
+            _context.SaveChanges();
+
+            // Compose the email content after saving the form
             string subject = $"New Form Submission from {e.name} - Sai Sports India";
             string body = $@"
     <div style='font-family: Arial, sans-serif; color: #333; line-height: 1.6;'>
         <h2 style='color: #007BFF;'>Sai Sports India, Lucknow</h2>
         <p>Dear Team,</p>
-        <p>You have received a new form submission. Here are the details:</p>
+        <p>You have received a new Contact Form submission. Here are the details:</p>
         <table style='border-collapse: collapse; width: 100%;'>
             <tr>
                 <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Subject</td>
@@ -547,15 +551,16 @@ namespace SaiSports.Controllers
         <p style='margin-top: 20px;'>Best Regards,<br/>Sai Sports India, Lucknow<br/><a href='mailto:support@saisportsindia.com'>support@saisportsindia.com</a></p>
     </div>";
 
-            // Use the EmailSender service to send the email
-            // puri.saisports@gmail.com
-            _emailSender.SendEmailAsync("puri.saisports@gmail.com", subject, body);
-            _context.tbl_enquiries.Add(e);
-            _context.SaveChanges();
-            TempData["SuccessMessage"] = "Thank you! Your request has been successfully submitted.";
-            return RedirectToAction("Index");
+            // Send the email
+            _emailSender.SendEmailAsync("accessauthority.business@gmail.com", subject, body);
+
+            // Set a success message to display to the user
+            TempData["message"] = "Your form was submitted successfully!";
+
+            // Redirect to the Index page (or the desired page)
+            return RedirectToAction("ContactUs");
         }
-    
+
         public IActionResult SSAdmin()
         {
             return View();

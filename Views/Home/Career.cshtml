@@ -119,7 +119,6 @@
         <!-- Form Column -->
        <div class="form">
             <form asp-action="CareerForm" method="post" enctype="multipart/form-data">
-
                 <!-- Personal Information Section -->
                 <div class="personal-info">
                     <h3>Personal Information</h3>
@@ -162,4 +161,15 @@
        </div>
     </div>
 </div>
-
+<!-- Display SweetAlert if TempData has a message -->
+@if (TempData["Message"] != null)
+{
+    <script>
+        Swal.fire({
+            title: 'Notification',
+            text: '@TempData["Message"]',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        });
+    </script>
+}
