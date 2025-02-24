@@ -97,10 +97,12 @@
     }
 
     .unique-card-container {
+        margin-bottom:20px;
         flex-direction: column;
         align-items: center;
       }
     .section-content {
+        width:100%;
         padding: 10px;
     }
 

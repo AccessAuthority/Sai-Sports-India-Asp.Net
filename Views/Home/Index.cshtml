@@ -4,99 +4,33 @@
     ViewData["Title"] = "Home";
     Layout = "_Layout";
 }
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 <style>
     .hero{
         display:none;
     }
-    /* Modal styles */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 10;
-        left: 0;
-        top: 100px;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        background-color: rgba(0, 0, 0, 0.4);
+    /* Style the images within the carousel */
+    .owl-carousel .item {
+        width: auto; /* Set the width to 150px */
+        height: 150px; /* Set the height to 80px */
     }
 
-    .modal-content {
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.9);
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 500px;
-        position: relative;
+    .owl-carousel .item img {
+        width: 100%; /* Set the width to 150px */
+        height: 100%; /* Set the height to 80px */
+        object-fit: cover; /* Ensure images fit nicely within the specified dimensions */
     }
 
-        .modal-content > h2 {
-            margin-bottom: 15px;
-        }
-
-    .close {
-        color: #aaa;
-        font-size: 28px;
-        font-weight: bold;
-        position: absolute;
-        top: 10px;
-        right: 25px;
+    /* Ensure the section content is responsive */
+    .section-content {
+        overflow: hidden; /* Hide any overflow from the images */
     }
 
-        .close:hover,
-        .close:focus {
-            color: white;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-
-    /* Style for the bottom close button */
-    .close-btn {
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
-        width: 100%;
-    }
-
-    input,
-    .qt-btn {
-        color: #fff;
-        border: 1px solid #dddd;
-        padding: 5px;
-        border-radius: 5px;
-        outline: none;
-        height: 40px;
-        width: 100%;
-        font-size: 16px;
-        background-color: transparent;
-    }
-    .title{
-        font-size: 18.72px;
-        font-weight:700;
-    }
-    .-pqt-btn{
-        margin-left: -204px;
-        margin-top: 300px;
-        font-family: "Montserrat", sans-serif;
-        font-size: 1rem;
-        color: var(--button-text-color);
-        background-color: transparent;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        background-color: var(--secondary-dark);
-        position: absolute;
-        width: 180px;
-        padding: 10px;
-        border: none;
-        border: 1px solid var(--primary-color);
-    }
 </style>
 <header>
     <div class="video-bg">
@@ -155,96 +89,15 @@
         <a asp-action="AboutUs" class="cta-link-light">Know More</a>
     </div>
 </section>
-<!-- Products Section -->
- <section class="light-section product"> 
-    <div data-aos="fade-up" class="section-content  product"> 
-        <h2>Our Products </h2> 
-       <p> 
-           Explore Our Premium Sportswear and Athletic Apparel Collection</p> 
-       <div class="carousel-container"> 
-           <div class="p-cards"> 
-               @foreach (var data in Model.tbl_products) 
-               { 
-                   <div class="p-card"> 
-                       <div class="img"> 
-                           <img src="~/upload/@data.img1" 
-                           alt="Sai Sports India Lucknow"> 
-                       </div> 
-                       <div class="p-content"> 
-                           <a asp-action="ProductDetails" asp-route-id="@data.id" class="text-white ellipsis-1 title">@data.pname</a> 
-                           <p class="text-white ellipsis-7"> 
-                               @data.pdesc 
-                           </p> 
-                           <a asp-action="Products">View More</a> 
-                       </div> 
-                       <button class="cta-link-dark -pqt-btn" onclick="openModal()">Get Quote</button> 
-                     
-                   </div> 
-               } 
-               
-           </div> 
-           <button class="prev-btn">&#10094;</button> 
-           <button class="next-btn">&#10095;</button> 
-       </div> 
-   </div> 
-   <!-- The Modal --> 
-   <div id="quoteModal" class="modal"> 
-       <div class="modal-content"> 
-           <span class="close" onclick="closeModal()">&times;</span> 
-           <h2>Get Your Quote</h2> 
-
-           <!-- Success Message (hidden initially) --> 
-           <div id="successMessage" style="display:none; color: green; text-align: center;"> 
-               <p>Thank you! Your request has been successfully submitted.</p> 
-           </div> 
-
-           <form id="quoteForm" asp-action="EnquiryForm" method="post"> 
-               <input type="text" id="name" name="name" required placeholder="Enter Your Name"> 
-               <br><br> 
-               <input type="text" id="name" name="phone" required placeholder="Enter Your Number" maxlength="10"> 
-               <br><br> 
-               <input type="email" id="email" name="email" required placeholder="Enter Your Email"> 
-               <br><br> 
-               <input type="text" id="sub" name="subject" required placeholder="Enter Subject"> 
-               <br><br> 
-               <input id="quoteDetails" name="msg" required 
-                      placeholder="Enter Quote Details"> 
-               <br><br> 
-               <button type="submit" class="qt-btn">Submit</button> 
-           </form> 
-       </div> 
-   </div> 
- </section> 
-<!-- Services Section -->
- <section class="dark-section services">
-    <div data-aos="fade-up" class="section-content ">
-        <h2>What We Do</h2>
-        <p>Premium Sportswear Manufacturing Services for Performance and Comfort </p>
-        <div class="service-cards">
-            @foreach (var service in Model.Service)
-            {
-                <div class="service-card">
-                    <img data-aos="flip-left"
-                         data-aos-easing="ease-out-cubic"
-                         data-aos-duration="1500" class="ico-img" src="~/images/@service.ImageUrl" alt="@service.Title">
-                    <a asp-action="ServiceDetail" asp-route-title="@service.Title">
-                        <h1 class="ellipsis-1">@service.Title</h1>
-                    </a>
-                    <p class="ellipsis-3">@service.short_dsec</p>
-                </div>
-            }
-        </div>
-    </div>
-</section>
 <!-- About  Section -->
-
 <section class="dark-section">
     <div data-aos="fade-up" class="section-content  gallery">
             <div class="garment-container">
                 <div class="garment-image">
-                <video autoplay muted loop>
-                    <source src="~/images/menufacture.mp4" type="video/mp4" />
-</video>
+                    <img src="~/images/menu.webp" alt="Sai Sports">
+@*                 <video autoplay muted loop> *@
+@*                     <source src="~/images/menufacture.mp4" type="video/mp4" /> *@
+@* </video> *@
                 </div>
                 <div class="garment-content">
                 <h2>Manufacturing Capacity</h2>
@@ -255,7 +108,7 @@
         </div>
         <div class="garment-container-1">
             <div class="garment-image">
-                <img src="~/images/Partners.png" alt="Colorful Thread Spools">
+                <img src="~/images/logistic.webp" alt="Sai Sports">
             </div>
             <div class="garment-content">
                 <h2>Target Sectors</h2>
@@ -346,12 +199,12 @@
     </div>
 </section>
 <!-- Why Choose us Section -->
-<section class="dark-section">
+<section class="dark-section pb-0">
     <div data-aos="fade-up" class="section-content ">
         <section class="why-choose-us">
             <div class="image-section">
                 <img src="https://img.freepik.com/free-photo/woman-customer-looking-beautiful-fabric-drapery-shop_1157-37455.jpg?t=st=1737458231~exp=1737461831~hmac=70fc6bebb75f714c75beeef662b1b67bb76e308813bd020c64222cb3f22b8eb6&w=740"
-                alt="Modern Building">
+                alt="Why Choose Sai Sports">
             </div>
             <div class="content-section">
                 <p>Why Choose Us</p>
@@ -391,9 +244,26 @@
         </section>
     </div>
 </section>
+
+<section class="light-section pb-0 pt-0">
+    <div class="section-content">
+        <div class="owl-carousel owl-theme">
+            <!-- Add your images here -->
+            <div class="item"><img src="~/clients/sai1.webp" alt="Image 1"></div>
+            <div class="item"><img src="~/clients/Railway.png" alt="Image 2"></div>
+            <div class="item"><img src="~/clients/thumb.webp" alt="Image 1"></div>
+            <div class="item"><img src="~/clients/UP Govt.png" alt="Image 2"></div>
+            <div class="item"><img src="~/clients/Election-Commision.png" alt="Image 1"></div>
+            <div class="item"><img src="~/clients/Indian-Armt.png" alt="Image 2"></div>
+            <div class="item"><img src="~/clients/Ncc.png" alt="Image 1"></div>
+            <div class="item"><img src="~/clients/nvs-faq-img-1024x576.webp" alt="Image 2"></div>
+        </div>
+    </div>
+</section>
+
 <!-- Blog Section -->
-<section class="light-section">
-    <div data-aos="fade-up" class="section-content ">
+<section class="light-section pb-0">
+    <div data-aos="fade-up" class="section-content">
         <h2>Latest Blog & Article</h2>
         <p>Check out our newest blogs, articles, and in-depth discussions</p>
         <div class="unique-card-container">
@@ -415,59 +285,6 @@
 </section>
 <!-- Blog Section -->
 <script>
-
-    let currentIndex = 0;
-    const cards = document.querySelectorAll('.p-card');
-    const totalCards = cards.length;
-    const pCardsContainer = document.querySelector('.p-cards');
-    let visibleCards = window.innerWidth < 768 ? 1 : 3; // Show 1 card on small screens, 3 cards on larger screens
-    let cardWidth = window.innerWidth < 768 ? 320 : 420; // Default to 300px on small screens, 420px on larger screens
-
-    const updateCarouselPosition = () => {
-        pCardsContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-    };
-
-    // Function to handle the "Previous" button click
-    const prevSlide = () => {
-        if (currentIndex === 0) {
-            currentIndex = totalCards - visibleCards; // Go to the last card if it's at the first one
-        } else {
-            currentIndex--;
-        }
-        updateCarouselPosition();
-    };
-
-    // Function to handle the "Next" button click
-    const nextSlide = () => {
-        if (currentIndex === totalCards - visibleCards) {
-            currentIndex = 0; // Reset to the first card if it's at the last one
-        } else {
-            currentIndex++;
-        }
-        updateCarouselPosition();
-    };
-
-    // Add event listeners to the buttons
-    document.querySelector('.prev-btn').addEventListener('click', prevSlide);
-    document.querySelector('.next-btn').addEventListener('click', nextSlide);
-
-    // Optional: Auto slide every 3 seconds
-    setInterval(nextSlide, 3000); // Slide every 3 seconds
-
-    // Adjust carousel behavior on screen resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth < 768) {
-            visibleCards = 1; // Show 1 card on small screens
-            cardWidth = 320;  // 300px card width on small devices
-        } else {
-            visibleCards = 3; // Show 3 cards on large screens
-            cardWidth = 420;  // 420px card width on large devices
-        }
-        updateCarouselPosition();  // Update carousel position based on the new width and number of visible cards
-    });
-
-
-
         // Function to animate the counters
     const counters = document.querySelectorAll('.counter');
 
@@ -502,38 +319,28 @@
         }
       });
     }, options);
-
     observer.observe(section);
 
-
-     // Function to open the modal
-    function openModal() {
-        document.getElementById("quoteModal").style.display = "block";
-    }
-
-    // Function to close the modal
-    function closeModal() {
-        document.getElementById("quoteModal").style.display = "none";
-    }
-
-    // Close the modal if the user clicks outside of it
-    window.onclick = function(event) {
-        if (event.target === document.getElementById("quoteModal")) {
-            closeModal();
-        }
-    }
-
-    // Handle form submission
-    document.getElementById("quoteForm").addEventListener("submit", function(event) {
-        // Assuming the form submission is handled by ASP.NET on the server
-        // event.preventDefault();  Prevent the default form submission
-
-        // Simulate a successful form submission (replace this with actual form submission)
-        setTimeout(function() {
-            // Hide the form and show the success message
-            document.querySelector("form").style.display = "none";
-            document.getElementById("successMessage").style.display = "block";
-        }, 300); // Simulated delay, replace with actual server-side handling
+    // Owl Carousel for Partenrs
+        $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            items: 5, // Number of items to display (adjust as needed)
+            loop: true, // Enable infinite loop
+            margin: 10, // Space between items
+            autoplay: true, // Enable autoplay
+            autoplayTimeout: 2000, // Time between slides
+            autoplayHoverPause: true, // Pause on hover
+            responsive: {
+                0: {
+                    items: 1 // 1 item on small screens
+                },
+                768: {
+                    items: 2 // 2 items on medium screens
+                },
+                1000: {
+                    items: 5 // 5 items on larger screens
+                }
+            }
+        });
     });
-
 </script>

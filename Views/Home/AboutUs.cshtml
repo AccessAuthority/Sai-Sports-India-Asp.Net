@@ -2,6 +2,30 @@
 	ViewData["Title"] = "About Us";
 	Layout = "_Layout";
 }
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<style>
+    /* Style the images within the carousel */
+    .owl-carousel .item {
+        width: auto; /* Set the width to 150px */
+        height: 150px; /* Set the height to 80px */
+    }
+
+    .owl-carousel .item img {
+        width: 100%; /* Set the width to 150px */
+        height: 100%; /* Set the height to 80px */
+        object-fit: cover; /* Ensure images fit nicely within the specified dimensions */
+    }
+
+    /* Ensure the section content is responsive */
+    .section-content {
+        overflow: hidden; /* Hide any overflow from the images */
+    }
+
+</style>
 <!-- About Section -->
 <section class="dark-section pb-0">
     <div class="section-content">
@@ -41,9 +65,7 @@
     <div data-aos="fade-up" class="section-content  gallery">
         <div class="garment-container">
             <div class="garment-image">
-                <video autoplay muted loop>
-                    <source src="~/images/menufacture.mp4" type="video/mp4" />
-                </video>
+                <img src="~/images/menu.webp" alt="Sai Sports">
             </div>
             <div class="garment-content">
                 <h2>Manufacturing Capacity</h2>
@@ -54,7 +76,7 @@
         </div>
         <div class="garment-container-1">
             <div class="garment-image">
-                <img src="~/images/Partners.png" alt="Colorful Thread Spools">
+                <img src="~/images/logistic.webp" alt="Sai Sports">
             </div>
             <div class="garment-content">
                 <h2>Target Sectors</h2>
@@ -144,6 +166,22 @@
         </div>
     </div>
 </section>
+<section class="light-section pb-0 pt-0">
+    <div class="section-content">
+        <div class="owl-carousel owl-theme">
+            <!-- Add your images here -->
+            <div class="item"><img src="~/clients/sai1.webp" alt="Image 1"></div>
+            <div class="item"><img src="~/clients/Railway.png" alt="Image 2"></div>
+            <div class="item"><img src="~/clients/thumb.webp" alt="Image 1"></div>
+            <div class="item"><img src="~/clients/UP Govt.png" alt="Image 2"></div>
+            <div class="item"><img src="~/clients/Election-Commision.png" alt="Image 1"></div>
+            <div class="item"><img src="~/clients/Indian-Armt.png" alt="Image 2"></div>
+            <div class="item"><img src="~/clients/Ncc.png" alt="Image 1"></div>
+            <div class="item"><img src="~/clients/nvs-faq-img-1024x576.webp" alt="Image 2"></div>
+        </div>
+    </div>
+</section>
+
 <script>
             document.addEventListener('DOMContentLoaded', () => {
       const counters = document.querySelectorAll('.counter');
@@ -176,6 +214,29 @@
 
       window.addEventListener('scroll', onScroll);
       onScroll(); // Call once when the page loads
+    });
+
+    // Owl Carousel for Partenrs
+        $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            items: 5, // Number of items to display (adjust as needed)
+            loop: true, // Enable infinite loop
+            margin: 10, // Space between items
+            autoplay: true, // Enable autoplay
+            autoplayTimeout: 2000, // Time between slides
+            autoplayHoverPause: true, // Pause on hover
+            responsive: {
+                0: {
+                    items: 1 // 1 item on small screens
+                },
+                768: {
+                    items: 2 // 2 items on medium screens
+                },
+                1000: {
+                    items: 5 // 5 items on larger screens
+                }
+            }
+        });
     });
 
 </script>

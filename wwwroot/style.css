@@ -163,7 +163,7 @@ a {
   align-items: center;
   background-color: var(--secondary-dark);
   color: var(--tertiary-light);
-  padding:0px 40px 40px 40px;
+  padding:0px 0px 40px 0px;
   text-align: center;
 }
 
@@ -309,6 +309,7 @@ nav a:hover {
 
 .exe,
 .trust {
+    text-align:center;
   padding: 10px;
   gap: 10px;
   color: var(--secondary-light);
@@ -328,6 +329,7 @@ nav a:hover {
   border: 1px solid var(--secondary-light);
 }
 .quality {
+    text-align:center;
   padding: 10px;
   gap: 10px;
   display: flex;
