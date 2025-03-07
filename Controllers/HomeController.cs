@@ -342,8 +342,6 @@ namespace SaiSports.Controllers
 
             return View(viewModel);
         }
-
-
         public IActionResult AboutUs()
         {
             return View();
@@ -368,6 +366,10 @@ namespace SaiSports.Controllers
             return View(service); // Pass the service details to the view
         }
 
+        public IActionResult Director()
+        {
+            return View();
+        }
 
         public IActionResult Products()
         {

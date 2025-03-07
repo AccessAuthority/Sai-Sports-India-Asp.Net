@@ -1,4 +1,57 @@
-﻿<nav>
+﻿<style>
+    /* General styles for the navigation */
+    #nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Styling for the dropdown container */
+    .dropdown {
+        position: relative; /* Ensures the submenu is positioned relative to this container */
+    }
+
+    /* Initially hide the submenu */
+    .submenu {
+        border-radius:5px;
+        width:200px;
+        border:1px solid white;
+        display: none;
+        position: absolute; /* Positions the submenu below the About Us link */
+        left: -50px;
+        top:50px;
+        background-color: rgba(0, 0, 0, 0.5); /* White background for the submenu */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        z-index: 10; /* Ensures the submenu is above other elements */
+    }
+
+        /* Styling for submenu items */
+        .submenu li a {
+            display: block;
+            text-decoration: none;
+            color: white; /* Optional: Change color for submenu links */
+        }
+
+    /* Display submenu when the parent dropdown is clicked */
+    .dropdown.show .submenu {
+        display: block; /* Show the submenu when the parent has the 'show' class */
+    }
+
+    /* Dropdown icon rotation */
+    .dropdown-icon {
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Rotate the icon when the submenu is shown */
+    .dropdown.show .dropdown-icon {
+        transform: rotate(180deg);
+    }
+
+</style>
+<nav>
     <a asp-action="Index" class="logo">
         <img src="~/images/Group 10.png" alt="Sports Clothing Company">
     </a>
@@ -9,7 +62,13 @@
     </div>
     <ul id="nav-links">
         <li><a asp-action="Index">Home</a></li>
-        <li><a asp-action="AboutUs">About Us</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" id="about-us" onclick="toggleSubMenu()">About Us <span class="dropdown-icon">▼</span></a>
+            <ul class="submenu" id="about-us-submenu">
+                <li><a asp-action="Director">Director's Message</a></li>
+                <li><a asp-action="AboutUs">About Us</a></li>
+            </ul>
+        </li>
         <li><a asp-action="Services">Products Overview</a></li>
         <li><a asp-action="Products">Products</a></li>
         <li><a asp-action="Blog">Blog</a></li>
@@ -17,3 +76,15 @@
         <li><a asp-action="ContactUs">Contact Us</a></li>
     </ul>
 </nav>
+<script>
+        function toggleSubMenu() {
+        const submenu = document.getElementById('about-us-submenu');
+        const dropdown = document.getElementById('about-us');
+
+        // Toggle the submenu visibility
+        submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+
+        // Toggle the dropdown icon rotation
+        dropdown.classList.toggle('show');
+    }
+</script>

@@ -35,7 +35,7 @@
 <header>
     <div class="video-bg">
         <video autoplay muted loop id="header-video">
-            <source src="~/images/hero-video.mp4" type="video/mp4">
+            <source src="~/images/Sai Sports Website.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="overlay"></div>
@@ -74,140 +74,253 @@
 </section>
 
 <!-- About Section -->
-<section class="dark-section pb-0">
+<section class="bg-black">
     <div data-aos="fade-up" class="section-content  about">
         <p class="green">About Sai Sports</p>
-        <h2>Trusted Manufacturer of Premium Sportswear</h2>
-        <p class="justify">
-            Sai Sports for every individual is the urge to complete their vocation because it's the duty and responsibility for an individual entity to respond to their vocation.
-            We, as a company, help every individual person to realize their dreams, which we are passionate about.
+        <h2>Manufacturers of Premium Sports and Uniform Wear</h2>
+        <p>
+            Sai Sports believes that for every individual, pursuing their vocation is essential, as it is both a duty and responsibility. We, as a company, help individuals realize their dreams, which we are deeply passionate about. Our organization exists for the vocation, from the vocation, and by the vocation of every soul on this planet.
+                As a leading manufacturer of high-quality sportswear and uniforms, we serve sports teams, schools, corporate businesses, and industries. We provide durable, stylish, and performance-enhancing apparel customized to meet our clients' specific needs. Our product range includes team jerseys, training gear, corporate uniforms, industrial safety workwear, and hospitality apparel.
+                <br />
+            <br />
+            With advanced manufacturing facilities and eco-friendly processes, we ensure top-tier craftsmanship, innovative designs, and sustainable production. We offer custom branding solutions, including embroidery, screen printing, and sublimation, to enhance brand identity. Our commitment to quality, competitive pricing, and timely delivery makes us a trusted choice in the industry.
+            Partner with Sai Sports for premium sports and uniform wear tailored to your brand's requirements. Contact us today to discuss your needs.
         </p>
-        <p class="justify">
-            We will be, and we should be, passionate to achieve nature’s calling.
-            The organization is for the vocation, from the vocation, and by the vocation of every soul on this planet.
-        </p>
-        <a asp-action="AboutUs" class="cta-link-light">Know More</a>
+        <a asp-action="ContactUS" class="cta-link-light">Know More</a>
     </div>
 </section>
-<!-- About  Section -->
-<section class="dark-section">
+<!-- Service Section -->
+<section class="dark-section pb-0">
+    <div class="cta-overla">
+        <div data-aos="fade-up" class="section-content">
+            <div class="garment-container service-container">
+                <div class="ser-img">
+                        <img src="~/images/service-bg.jpg"
+                             alt="Services Sai Sports">
+                </div>
+                <div class="ser-con">
+                    <h1 class="text-white service-title">It’s not about brand, it’s about style.</h1>
+                    <p>Transform your ideas into high-quality, custom garments with our expert manufacturing services. We specialize in creating unique, well-crafted pieces designed to meet your exact needs and market trends.</p>
+                    <div class="statistics">
+                        <div class="stat-item">
+                            <img data-aos="flip-left"
+                                 data-aos-easing="ease-out-cubic"
+                                 data-aos-duration="1500" class="ico-img" src="~/images/state-ico (1).png" alt="Sai Sports">
+                            <h2 class="counter" data-target="500">0</h2>
+                            <p>Clients Served</p>
+                        </div>
+                        <div class="stat-item">
+                            <img data-aos="flip-left"
+                                 data-aos-easing="ease-out-cubic"
+                                 data-aos-duration="1500" class="ico-img" src="~/images/state-ico (2).png" alt="Sai Sports">
+                            <h2 class="counter" data-target="200">0</h2>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <img data-aos="flip-left"
+                                 data-aos-easing="ease-out-cubic"
+                                 data-aos-duration="1500" class="ico-img" src="~/images/state-ico (3).png" alt="Sai Sports">
+                            <h2 class="counter" data-target="4.8">0</h2>
+                            <p>Customer Reviews</p>
+                        </div>
+                        <div class="stat-item">
+                            <img data-aos="flip-left"
+                                 data-aos-easing="ease-out-cubic"
+                                 data-aos-duration="1500" class="ico-img" src="~/images/state-ico (4).png" alt="Sai Sports">
+                            <h2 class="counter" data-target="50">0</h2>
+                            <p>Product Variety</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-ab">
+                    <h1 class="counter" data-target="15">0</h1>
+                    <p>Year Of Experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="light-section pb-0" style="position: relative;">
+    <!-- Black Overlay -->
+    <div class="video-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); display: flex; justify-content: center; align-items: center; flex-direction:column;">
+        <!-- Play Button -->
+        <button id="playBtn" class="play-btn" style="font-size: 50px; color: white; background: transparent; border: none; cursor: pointer;">
+            <i class="fa-solid fa-circle-play"></i>
+        </button>
+        <h1>Premium Clothing Manufacturing <br /> for a Stylish Future</h1>
+        <p>We deliver high-quality, custom clothing manufacturing  solutions that bring <br /> your fashion vision to life with precision and craftsmanship</p>
+    </div>
+
+    <!-- Video Element -->
+    <video id="heroVideo" style="width: 100%; height: 450px; object-fit: cover;" autoplay muted loop>
+        <source src="/images/SAi Sport Website 02.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+<!-- Product  Section -->
+<section class="dark-section pb-0">
     <div data-aos="fade-up" class="section-content  gallery">
-            <div class="garment-container">
-                <div class="garment-image">
-                    <img src="~/images/menu.webp" alt="Sai Sports">
-@*                 <video autoplay muted loop> *@
-@*                     <source src="~/images/menufacture.mp4" type="video/mp4" /> *@
-@* </video> *@
-                </div>
-                <div class="garment-content">
-                <h2>Manufacturing Capacity</h2>
-                    <p><em>Variety, quality, and sustainability!</em></p>
-                <p>Our manufacturing facility is equipped with cutting-edge machinery and staffed by highly skilled professionals, allowing us to produce up to 5,000 tracksuits and 10,000 t-shirts per month. This manufacturing capacity not only ensures that we can meet large-scale demand but also offers us the flexibility to handle custom orders, ensuring that clients get exactly what they need when they need it.</p>
-                <p>Our production process is efficient and quality-driven, ensuring that every item that leaves our facility is crafted to meet international standards. We continually invest in the latest technology to enhance our manufacturing processes, improving both speed and quality, while also minimizing waste and ensuring sustainability.</p>
-                </div>
+        <div class="garment-container-1">
+            <div class="garment-image">
+                <img src="~/images/pdct.png" alt="Colorful Thread Spools">
+            </div>
+            <div class="garment-content PRO">
+                <h2>Our Products</h2>
+                <p><em>Wide Range, Commitment , and Tailored!</em></p>
+                <p class="sub-title">Complete your look with our exclusive Collection, designed to elevate both style and functionality for sports, casual wear, and promotional branding. Crafted from high-quality materials, these clothes are built for long-lasting durability and maximum comfort, making them ideal for everyday wear or active use.</p>
+                <i class="fa-solid fa-chevron-down dwn-arw"></i>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="dark-section pb-0">
+    <div data-aos="fade-up" class="section-content  gallery">
+        <div class="garment-container">
+            <div class="garment-image">
+                <img src="~/images/medical.jpg" alt="Health Unforms">
+            </div>
+            <div class="garment-content">
+                <h2>Medical Uniforms</h2>
+                <p>
+                    Our Premium Medical Uniforms are designed for healthcare professionals who prioritize both comfort and professionalism. Crafted from high-quality, breathable fabrics, these uniforms offer exceptional durability, comfort, and a polished appearance. Whether you're outfitting doctors, nurses, or support staff, our medical uniforms ensure a refined and functional look for every healthcare setting. Available in a variety of colors, sizes, and styles, they can be customized to meet your specific needs. We offer several personalization options, including embroidery, screen printing, and sublimation, enabling you to create a distinctive and professional identity for your medical practice, hospital, or clinic.
+                </p>
+            </div>
         </div>
         <div class="garment-container-1">
             <div class="garment-image">
-                <img src="~/images/logistic.webp" alt="Sai Sports">
+                <img src="~/images/school.jpg" alt="Round Neck T shirts">
             </div>
             <div class="garment-content">
-                <h2>Target Sectors</h2>
-                <p><em>Wide Range, Commitment , and Tailored!</em></p>
-                <p>Our company operates within both the government and private sectors. We work closely with several governmental organizations, while also catering to the private market, ensuring that we offer versatile products that meet various industry standards.</p>
-                <h4>Prominent Clients</h4>
-                <p>We take pride in our long-standing relationships with key clients, including</p>
+                <h2>School Uniforms</h2>
+                <p>Our School Uniform T-Shirts are designed to provide both comfort and durability for students. Made from a premium blend of soft cotton and performance fabric, these tees ensure long-lasting wear while offering maximum comfort throughout the school day. Available in a variety of colors and sizes, they’re the perfect choice for school events, daily wear, or extracurricular activities.</p>
+                <p>With flexibility in mind, these uniforms can be customized using various printing techniques, such as screen printing, heat transfer, and sublimation. Whether you're outfitting an entire school, creating team uniforms, or designing custom school merchandise, these tees serve as the perfect platform to showcase your school logo, motto, or custom design.</p>
+
+        </div>
+    </div>
+    </div>
+</section>
+<section class="dark-section pb-0">
+    <div data-aos="fade-up" class="section-content  gallery">
+        <div class="garment-container">
+            <div class="garment-image">
+                <img src="~/images/nagar.jpg" alt="Track Suit">
+            </div>
+            <div class="garment-content">
+                <h2>Nagar Nigam Uniforms</h2>
+                <p>Our premium Nagar Nigam Uniforms are designed to offer a perfect balance of professionalism, comfort, and durability. Crafted from high-quality, breathable fabrics, these uniforms ensure long-lasting wear while maintaining a smart and functional look. Whether for municipal workers, sanitation staff, or administrative personnel, our Nagar Nigam uniforms provide a polished appearance with a range of color and customization options. Personalization is available through embroidery, screen printing, and sublimation to effectively represent the organization’s identity.</p>
+                <p>Micro-Peach Track Suits – Soft, comfortable, and breathable fabric that provides warmth and comfort, making them ideal for training, casual wear, and corporate branding within the Nagar Nigam community.</p>
+
+            </div>
+        </div>
+        <div class="garment-container-1">
+            <div class="garment-image">
+                <img src="~/images/corporate.jpg" alt="Colorful Thread Spools">
+            </div>
+            <div class="garment-content">
+                <h2>Corporate & Govt Uniforms</h2>
+                <p>Stay warm and maintain a professional appearance with our Premium Fleece Jackets, specially designed for corporate and government uniforms. Crafted from high-quality fleece, these jackets offer superior insulation to keep you comfortable in any environment, while ensuring a sharp, polished look. Whether you're heading to the office, attending official events, or working outdoors, our fleece jackets provide the perfect blend of practicality and style.</p>
+                <p>Available in a range of designs and colors, these jackets offer versatility for various professional settings. With custom branding options, including embroidery and patches, you can easily personalize the jackets to represent your organization.</p>
+    
+            </div>
+        </div>
+    </div>
+</section>
+<section class="dark-section pb-0">
+    <div data-aos="fade-up" class="section-content  gallery">
+        <div class="garment-container">
+            <div class="garment-image">
+                <img src="~/images/railway.jpg" alt="Sports Shorts">
+            </div>
+            <div class="garment-content">
+                <h2>Railway Uniforms</h2>
+                <p>Engineered for comfort and durability, our Railway Uniform Shorts are designed to meet the demands of railway staff, ensuring maximum flexibility during their daily tasks. Made from high-quality, moisture-wicking fabric, these shorts keep you cool and dry, offering breathability and excellent sweat management, even during long shifts or outdoor work in challenging conditions.</p>
+                <p>Available in a variety of styles and sizes, these shorts are perfect for railway employees, from station staff to maintenance teams. With customization options such as embroidered logos and branding, they can be tailored to reflect your organization's identity, making them an ideal choice for railway uniforms, staff uniforms, and promotional initiatives.</p>
+
+            </div>
+        </div>
+
+        <div class="garment-container-1">
+            <div class="garment-image">
+                <img src="~/images/athlete.jpg" alt="Colorful Thread Spools">
+            </div>
+            <div class="garment-content">
+                <h2>Athletes Uniforms</h2>
+                <p>Our Athlete Uniforms are designed to offer peak performance, comfort, and durability for athletes at all levels. We provide:</p>
+
                 <ul class="target-list">
-                    <li>Sports Authority of India (SAI)</li>
-                    <li>Indian Railways</li>
-                    <li>U.P. Sports Directorate</li>
+                    <li>Performance Jerseys – Lightweight and breathable jerseys designed for comfort and flexibility during intense training or competition.</li>
+                    <li>Training Shorts – High-quality, moisture-wicking shorts that keep athletes cool and dry, ensuring maximum comfort and mobility.</li>
+                    <li>Sports Compression Gear – Compression wear that helps improve circulation, reduce muscle fatigue, and enhance recovery for athletes during and after exercise.</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="dark-section pb-0">
+    <div data-aos="fade-up" class="section-content  gallery">
+        <div class="garment-container">
+            <div class="garment-image">
+                <img src="~/images/labour.webp" alt="Labour Uniforms">
+            </div>
+            <div class="garment-content">
+                <h2>Labour Safety Uniforms</h2>
+                <p><em>High Visibility, Spark, and Tow Tone High Jacket!</em></p>
+                <p>Safety is our top priority with our Labour Safety Uniforms, specifically designed to offer protection in industrial, construction, and hazardous work environments. Constructed from durable, flame-resistant fabrics, these uniforms meet rigorous industry standards, ensuring maximum security for workers in high-risk settings.</p>
+                <p>Available in a range of sizes and styles, our safety uniforms can be fully customized with company branding, reflective stripes for enhanced visibility, and reinforced stitching to provide added durability and protection. Whether for day-to-day work or in more extreme conditions, our uniforms are designed to keep your team safe and visible, no matter the environment.</p>
+            </div>
+        </div>
+        <div class="garment-container-1">
+            <div class="garment-image">
+                <img src="~/images/Hospitality.webp" alt="Hospitality Uniforms">
+            </div>
+            <div class="garment-content">
+                <h2>Hospitality Uniforms</h2>
+                <p><em>Waistcoat, Jacket , and Gilet!</em></p>
+                <p>Our Hospitality Uniforms are crafted with professionals in mind, offering the perfect balance of comfort, elegance, and functionality for those working in hotels, restaurants, catering, and corporate environments. Designed to provide a polished, professional appearance while ensuring all-day comfort, our uniforms are ideal for service staff, management, and everyone in between.</p>
+
+                <ul class="target-list">
+                    <li>Kitchen Aprons – Durable and stylish aprons for chefs and kitchen staff.</li>
+                    <li>Formal Shirts – Professional shirts that offer a sharp and sophisticated look.</li>
+                    <li>Formal Trousers & Skirts – High-quality formal wear designed for hotel staff, corporate employees, and service professionals.</li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
-
-<!-- Stats Section -->
-<section style="background-image:url(images/state-bg.png); background-size: cover; background-attachment: fixed;">
-    <div data-aos="fade-up" class="section-content">
-        <div class="statistics">
-            <div class="stat-item">
-                <img data-aos="flip-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="1500" class="ico-img" src="~/images/state-ico (1).png" alt="Sai Sports">
-                <h2 class="counter" data-target="500">0</h2>
-                <p>Clients Served</p>
+<section class="dark-section">
+    <div data-aos="fade-up" class="section-content  gallery">
+        <div class="garment-container">
+            <div class="garment-image">
+                <img src="~/images/sports.jpg" alt="Sports Jerseys">
             </div>
-            <div class="stat-item">
-                <img data-aos="flip-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="1500" class="ico-img" src="~/images/state-ico (2).png" alt="Sai Sports">
-                <h2 class="counter" data-target="200">0</h2>
-                <p>Projects Completed</p>
-            </div>
-            <div class="stat-item">
-                <img data-aos="flip-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="1500" class="ico-img" src="~/images/state-ico (3).png" alt="Sai Sports">
-                <h2 class="counter" data-target="10">0</h2>
-                <p>Years of Experience</p>
-            </div>
-            <div class="stat-item">
-                <img data-aos="flip-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="1500" class="ico-img" src="~/images/state-ico (4).png" alt="Sai Sports">
-                <h2 class="counter" data-target="50">0</h2>
-                <p>Product Variety</p>
+            <div class="garment-content">
+                <h2>Sports Jerseys</h2>
+                <p><em>Round Neck Sublimation and Collar Sublimation T-Shirts!</em></p>
+                <p>Engineered for athletes and fitness enthusiasts, our Sports Jerseys are crafted from advanced moisture-wicking and breathable fabrics that maximize performance and comfort. These lightweight jerseys provide excellent sweat absorption, ensuring players stay cool and dry even during the most intense workouts or games.</p>
+                <p>Available in a variety of designs, colors, and styles, our jerseys are fully customizable to reflect your team’s identity. Whether you need custom team names, logos, or player numbers, our cutting-edge sublimation printing ensures crisp, vibrant details that won’t fade or peel. Perfect for sports teams, fitness clubs, or any athletic organization, our jerseys are designed to help you perform at your best while looking great.</p>
             </div>
         </div>
-    </div>
-</section>
-<!-- Director Msg Section -->
-<section class="light-section">
-    <div data-aos="fade-up" class="section-content  director">
-        <div class="director-msg">
-            <p class="green">____Director's Message</p>
-            <h2>Director of Sai Sports</h2>
-            <p class="justify">
-                The company was established in 2003 by renowned national
-                cricket player Mr. Alok Puri under the name of Sai Sports India.
-            </p>
-            <p class="justify">
-                Company has own manufacturing facility unit.
-                Company focuses on manufacturing deffierent clothing segments
-                including sports apparels and deals in all the technical
-                equipments in sports industry.
-            </p>
-            <p class="justify">
-                Company has a manufacturing capacity of 5000 tracksuits and
-                10000 tshirts per month.
-                The Company focuses on working both in government and
-                Private sector.
-            </p>
-            <p class="justify">
-                Our prominent clients are Sports Authority of India, Indian
-                Railways, U.P sports Directorate and many more.
-            </p>
-            <p class="justify"> As a forward-thinking company, we are constantly evolving to stay ahead of market trends, driven by the belief that sports inspire excellence and teamwork. We strive to be at the forefront of the sports industry, not only providing athletes with the best gear but also contributing to the growth and development of sports across the nation.</p>
-        </div>
-        <div class="img">
-            <img src="~/images/founder.jpeg"
-            alt="Sai Sports India Lucknow" srcset="">
-            <div class="d-name">
-                <p>Mr. Alok Puri</p>
+        <div class="garment-container-1">
+            <div class="garment-image">
+                <img src="~/images/cap.webp" alt="Colorful Thread Spools">
+            </div>
+            <div class="garment-content">
+                <h2>Caps Range</h2>
+                <p><em>Wide Range, Commitment , and Tailored!</em></p>
+                <p>Complete your look with our exclusive Caps Collection, designed to elevate both style and functionality for sports, casual wear, and promotional branding. Crafted from high-quality materials, these caps are built for long-lasting durability and maximum comfort, making them ideal for everyday wear or active use.</p>
+                <p>
+                    With adjustable fits and a wide range of color options, our caps are perfect for corporate giveaways, team branding, or making a personal fashion statement. Whether you’re outfitting your team, promoting your business, or just adding a stylish touch to your outfit, our caps deliver on both form and function.
+                </p>
             </div>
         </div>
     </div>
 </section>
 <!-- Why Choose us Section -->
-<section class="dark-section pb-0">
-    <div data-aos="fade-up" class="section-content ">
+<section class="light-section pb-0">
         <section class="why-choose-us">
-            <div class="image-section">
-                <img src="https://img.freepik.com/free-photo/woman-customer-looking-beautiful-fabric-drapery-shop_1157-37455.jpg?t=st=1737458231~exp=1737461831~hmac=70fc6bebb75f714c75beeef662b1b67bb76e308813bd020c64222cb3f22b8eb6&w=740"
-                alt="Why Choose Sai Sports">
-            </div>
-            <div class="content-section">
-                <p>Why Choose Us</p>
+            <div class="content-section why-cont">
+                <p class="green">Why Choose Us</p>
                 <h2>Affordable Style, Quality Craftsmanship</h2>
                 <div class="feature">
                     <div class="icon"><i class="fas fa-tools"></i></div>
@@ -223,7 +336,7 @@
                     <div class="icon"><i class="fa-solid fa-handshake"></i></div>
                     <div>
                         <h4>
-                            Our Esteemed Clients
+                            100% Client Satisfaction
                         </h4>
                         <p>
                             Our clients include the Sports Authority of India, Indian Railways, U.P. Sports Directorate, and many more
@@ -233,7 +346,7 @@
                 <div class="feature">
                     <div class="icon"><i class="fas fa-users"></i></div>
                     <div>
-                        <h4>Expert Craftsmanship</h4>
+                        <h4>Expert Team</h4>
                         <p>
                             Highly skilled team with years of experience in creating premium, durable fabrics and
                             garments.
@@ -241,14 +354,16 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+            <div class="why-img">
+                <img src="~/images/why-img.jpg"
+                     alt="Why Choose Sai Sports">
+            </div>
+        </section> 
 </section>
-
-<section class="light-section pb-0 pt-0">
+<!--<section class="dark-section pb-0 pt-0">
     <div class="section-content">
         <div class="owl-carousel owl-theme">
-            <!-- Add your images here -->
+           
             <div class="item"><img src="~/clients/sai1.webp" alt="Image 1"></div>
             <div class="item"><img src="~/clients/Railway.png" alt="Image 2"></div>
             <div class="item"><img src="~/clients/thumb.webp" alt="Image 1"></div>
@@ -259,52 +374,47 @@
             <div class="item"><img src="~/clients/nvs-faq-img-1024x576.webp" alt="Image 2"></div>
         </div>
     </div>
-</section>
-
-<!-- Blog Section -->
-<section class="light-section pb-0">
+</section>-->
+<!-- CTA Section -->
+<section style="background-image:url(images/cta-bg.jpeg); background-size: cover; background-attachment: fixed;">
+    <div class="cta-overlay">
     <div data-aos="fade-up" class="section-content">
-        <h2>Latest Blog & Article</h2>
-        <p>Check out our newest blogs, articles, and in-depth discussions</p>
-        <div class="unique-card-container">
-            @foreach (var blog in Model.tbl_blog)
-            {
-                <div class="unique-card">
-                    <div class="unique-card-image">
-                    <img src="@blog.img"
-                         alt="@blog.title">
-                </div>
-                <div class="unique-card-content">
-                        <div class="unique-card-date">@DateTime.Parse(blog.date).ToString("dd MMMM, yyyy")</div>
-                        <a href="/Home/BlogDetail/@blog.title.Replace(' ', '-')" class="unique-card-title ellipsis-2">@blog.title</a>
-                </div>
+        <div class="garment-container">
+            <div class="garment-content">
+                
             </div>
-            }
+            <div class="garment-content">
+                <h1 class="cta-heading">Let's start your project to be realize.</h1>
+                <p>Let’s bring your clothing ideas to life with our expert manufacturing, delivering high-quality, custom garments tailored to your needs and market demands.</p>
+                <a asp-action="ContactUs" class="cta-btn">Get Started</a>
+            </div>
         </div>
     </div>
+    </div>
 </section>
-<!-- Blog Section -->
 <script>
         // Function to animate the counters
     const counters = document.querySelectorAll('.counter');
-
     const countUp = () => {
       counters.forEach(counter => {
         const updateCount = () => {
           const target = +counter.getAttribute('data-target');
-          const current = +counter.innerText;
+          const current = +counter.innerText.replace('+', ''); // Remove the + if present, to get the current number
           const increment = target / 100; // Increment by 1% of the target value
 
           if (current < target) {
-            counter.innerText = Math.ceil(current + increment);
+            counter.innerText = `${Math.ceil(current + increment)}`; // Update number without + sign during animation
             setTimeout(updateCount, 1); // Update every millisecond for a smooth effect
           } else {
-            counter.innerText = target; // Set to target value once reached
+            counter.innerText = `${target}+`; // Add + sign at the end once the target is reached
           }
         };
+
+        counter.innerText = '0'; // Initialize text to 0, no + sign yet
         updateCount();
       });
     };
+
 
         // Trigger the animation once the user scrolls to the statistics section
     const section = document.querySelector('.statistics');
@@ -335,7 +445,7 @@
                     items: 1 // 1 item on small screens
                 },
                 768: {
-                    items: 2 // 2 items on medium screens
+                    items: 3 // 3 items on medium screens
                 },
                 1000: {
                     items: 5 // 5 items on larger screens

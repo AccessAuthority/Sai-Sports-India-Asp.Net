@@ -46,7 +46,7 @@
     }
 
     .card-content {
-        text-align:start;
+     text-align:start;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -77,19 +77,35 @@
     }
 
     .section-content{
-    margin-top: 20px;
-    padding:0;
+        gap: 10px;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 20px;
+        padding-bottom:0px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width:100%;
     }
-    nav{
-    background-color: #0b0c10;
+
+    .blog-sec{
+        display:flex;
+        flex-direction:column;
     }
 
     .footer-container{
     padding: 40px 40px;
     }
+    /* Responsive Styles */
+    @@media (max-width: 1024px) {
+        .breadcrumb {
+            margin-top: 40px !important;
+        }
+    }
     @@media (max-width: 768px) {
     .breadcrumb {
-    margin-top: 40px;
+    margin-top: 40px !important;
     }
 
     .footer-container {
@@ -100,13 +116,13 @@
 
 <!-- Blog Section -->
 <section class="light-section blog-sec">
+    <div class="section-content">
+    <div class="breadcrumb">
+        <h2>Latest Blogs & Articles</h2>
+        <a asp-action="Index">Home</a> <span>></span> <a>Blog</a>
+    </div>
+    </div>
     <div data-aos="fade-up" class="section-content">
-        <div class="breadcrumb">
-            <h2>Latest Blogs & Articles</h2>
-            <a asp-action="Index">Home</a> <span>></span> <a>Blog</a>
-        </div>
-        @* <h2>Latest Blog & Article</h2> *@
-        @* <p>Check out our newest blogs, articles, and in-depth discussions</p> *@
         <div class="unique-card-container">
             @foreach (var data in Model)
             {

@@ -277,6 +277,8 @@
                         @* <button class="cta-link-dark quote-btn" onclick="openModal()">Get Quote</button> *@
                     </div>
                 }
+                <div id="notFoundMessage" style="display: none;">No products found.</div>
+
             </div>
             <!-- The Modal -->
             <div id="quoteModal" class="modal">
@@ -341,8 +343,7 @@
         }, 300); // Simulated delay, replace with actual server-side handling
     });
 
-            // Filter And Search
-    function searchAndFilter() {
+       function searchAndFilter() {
         // Get the search query value
         const searchQuery = document.getElementById('searchInput').value.toLowerCase();
 
@@ -367,6 +368,8 @@
 
         // Get all product cards
         const productCards = document.querySelectorAll('.p-card');
+
+        let anyProductVisible = false; // Flag to check if any product is visible
 
         // Loop through each product card and apply search and filter logic
         productCards.forEach(card => {
@@ -397,10 +400,20 @@
             // Show or hide the product card based on matches
             if (matchesSearch && matchesCategory && matchesFabric) {
                 card.style.display = ''; // Show card
+                anyProductVisible = true; // A product is visible
             } else {
                 card.style.display = 'none'; // Hide card
             }
         });
+
+        // Show or hide the "No products found" message based on visibility of product cards
+        const notFoundMessage = document.getElementById('notFoundMessage');
+        if (anyProductVisible) {
+            notFoundMessage.style.display = 'none'; // Hide "Not Found" message
+        } else {
+            notFoundMessage.style.display = ''; // Show "Not Found" message
+        }
     }
+
 
 </script>

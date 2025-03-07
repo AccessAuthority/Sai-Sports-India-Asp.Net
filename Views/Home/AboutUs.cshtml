@@ -24,6 +24,10 @@
     .section-content {
         overflow: hidden; /* Hide any overflow from the images */
     }
+    .abt{
+        text-align:justify;
+       align-items:start;
+    }
 
 </style>
 <!-- About Section -->
@@ -34,15 +38,16 @@
             <a asp-action="Index">Home</a> <span>></span> <a>About Sai Sports</a>
         </div>
     </div>
-    <div data-aos="fade-up" class="section-content  about">
-        <h2>Trusted Manufacturer of Premium Sportswear</h2>
-        <p class="justify">
-            Sai Sports for every individual is the urge to complete their vocation because it's the duty and responsibility for an individual entity to respond to their vocation.
-            We, as a company, help every individual person to realize their dreams, which we are passionate about.
-        </p>
-        <p class="justify">
-            We will be, and we should be, passionate to achieve nature’s calling.
-            The organization is for the vocation, from the vocation, and by the vocation of every soul on this planet.
+    <div data-aos="fade-up" class="section-content abt">
+        <p class="green">About Sai Sports</p>
+        <h2>Manufacturers of Premium Sports and Uniform Wear</h2>
+        <p>
+            Sai Sports believes that for every individual, pursuing their vocation is essential, as it is both a duty and responsibility. We, as a company, help individuals realize their dreams, which we are deeply passionate about. Our organization exists for the vocation, from the vocation, and by the vocation of every soul on this planet.
+            As a leading manufacturer of high-quality sportswear and uniforms, we serve sports teams, schools, corporate businesses, and industries. We provide durable, stylish, and performance-enhancing apparel customized to meet our clients' specific needs. Our product range includes team jerseys, training gear, corporate uniforms, industrial safety workwear, and hospitality apparel.
+            <br />
+            <br />
+            With advanced manufacturing facilities and eco-friendly processes, we ensure top-tier craftsmanship, innovative designs, and sustainable production. We offer custom branding solutions, including embroidery, screen printing, and sublimation, to enhance brand identity. Our commitment to quality, competitive pricing, and timely delivery makes us a trusted choice in the industry.
+            Partner with Sai Sports for premium sports and uniform wear tailored to your brand's requirements. Contact us today to discuss your needs.
         </p>
         <h3 class="green">Brand Story</h3>
         <p class="justify">
@@ -59,6 +64,21 @@
             & will be there for people.
 
         </p>
+    </div>
+</section>
+<!-- Mission Vision Section -->
+<section class="light-section">
+    <div data-aos="fade-up" class="section-content mv">
+        <div class="mission">
+            <img src="~/images/targeting.png" alt="Vision" />
+            <h2>Our Mission</h2>
+            <p>Our mission at Sai Sports is to deliver exceptional sportswear and activewear products that meet the diverse needs of athletes. we believe in forging strong connections with our customers, listening to their needs, and continuously improving our products based on their feedback. Our goal is to become a trusted partner in every athlete's journey, providing them with the gear they need to excel, while upholding a legacy of integrity, innovation, and excellence in every stitch.</p>
+        </div>
+        <div class="vision">
+            <img src="~/images/vision.png" alt="Mission" />
+            <h2>Our Vision</h2>
+            <p>At Sai Sports, our vision is to become a global leader in innovative and sustainable sportswear manufacturing. We aim to empower athletes, enthusiasts, and everyday individuals by providing high-quality, durable, and stylish clothing solutions that enhance performance and inspire confidence. We strive to build a future where our products are synonymous with excellence, innovation, and environmental responsibility in the sportswear industry.</p>
+        </div>
     </div>
 </section>
 <section class="dark-section">
@@ -94,44 +114,16 @@
     </div>
 </section>
 
-<!-- Stats Section -->
-<section style="background-image:url('@Url.Content("~/images/state-bg.png")'); background-size: cover; background-attachment: fixed;">
-    <div data-aos="fade-up" class="section-content">
-        <div class="statistics">
-            <div class="stat-item">
-                <img data-aos="flip-left"
-                     data-aos-easing="ease-out-cubic"
-                     data-aos-duration="1500" class="ico-img" src="~/images/state-ico (1).png" alt="Sai Sports">
-                <h2 class="counter" data-target="500">0</h2>
-                <p>Clients Served</p>
-            </div>
-            <div class="stat-item">
-                <img data-aos="flip-left"
-                     data-aos-easing="ease-out-cubic"
-                     data-aos-duration="1500" class="ico-img" src="~/images/state-ico (2).png" alt="Sai Sports">
-                <h2 class="counter" data-target="200">0</h2>
-                <p>Projects Completed</p>
-            </div>
-            <div class="stat-item">
-                <img data-aos="flip-left"
-                     data-aos-easing="ease-out-cubic"
-                     data-aos-duration="1500" class="ico-img" src="~/images/state-ico (3).png" alt="Sai Sports">
-                <h2 class="counter" data-target="10">0</h2>
-                <p>Years of Experience</p>
-            </div>
-            <div class="stat-item">
-                <img data-aos="flip-left"
-                     data-aos-easing="ease-out-cubic"
-                     data-aos-duration="1500" class="ico-img" src="~/images/state-ico (4).png" alt="Sai Sports">
-                <h2 class="counter" data-target="50">0</h2>
-                <p>Product Variety</p>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Director Msg Section -->
+<!-- Director Msg Section 
 <section class="light-section">
     <div data-aos="fade-up" class="section-content  director">
+        <div class="img">
+            <img src="~/images/founder.jpeg"
+                 alt="Sai Sports India Lucknow" srcset="">
+            <div class="d-name">
+                <p>Mr. Alok Puri</p>
+            </div>
+        </div>
         <div class="director-msg">
             <p class="green">____Director's Message</p>
             <h2>Director of Sai Sports</h2>
@@ -157,86 +149,5 @@
             </p>
             <p class="justify"> As a forward-thinking company, we are constantly evolving to stay ahead of market trends, driven by the belief that sports inspire excellence and teamwork. We strive to be at the forefront of the sports industry, not only providing athletes with the best gear but also contributing to the growth and development of sports across the nation.</p>
         </div>
-        <div class="img">
-            <img src="~/images/founder.jpeg"
-                 alt="Sai Sports India Lucknow" srcset="">
-            <div class="d-name">
-                <p>Mr. Alok Puri</p>
-            </div>
-        </div>
     </div>
-</section>
-<section class="light-section pb-0 pt-0">
-    <div class="section-content">
-        <div class="owl-carousel owl-theme">
-            <!-- Add your images here -->
-            <div class="item"><img src="~/clients/sai1.webp" alt="Image 1"></div>
-            <div class="item"><img src="~/clients/Railway.png" alt="Image 2"></div>
-            <div class="item"><img src="~/clients/thumb.webp" alt="Image 1"></div>
-            <div class="item"><img src="~/clients/UP Govt.png" alt="Image 2"></div>
-            <div class="item"><img src="~/clients/Election-Commision.png" alt="Image 1"></div>
-            <div class="item"><img src="~/clients/Indian-Armt.png" alt="Image 2"></div>
-            <div class="item"><img src="~/clients/Ncc.png" alt="Image 1"></div>
-            <div class="item"><img src="~/clients/nvs-faq-img-1024x576.webp" alt="Image 2"></div>
-        </div>
-    </div>
-</section>
-
-<script>
-            document.addEventListener('DOMContentLoaded', () => {
-      const counters = document.querySelectorAll('.counter');
-
-      const updateCounters = () => {
-        counters.forEach(counter => {
-          const target = +counter.getAttribute('data-target');
-          const count = +counter.innerText;
-          const speed = 1000;
-
-          const increment = target / speed;
-
-          if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCounters, 1);
-          } else {
-            counter.innerText = target;
-          }
-        });
-      };
-
-      const onScroll = () => {
-        counters.forEach(counter => {
-          const rect = counter.getBoundingClientRect();
-          if (rect.top < window.innerHeight) {
-            updateCounters();
-          }
-        });
-      };
-
-      window.addEventListener('scroll', onScroll);
-      onScroll(); // Call once when the page loads
-    });
-
-    // Owl Carousel for Partenrs
-        $(document).ready(function(){
-        $(".owl-carousel").owlCarousel({
-            items: 5, // Number of items to display (adjust as needed)
-            loop: true, // Enable infinite loop
-            margin: 10, // Space between items
-            autoplay: true, // Enable autoplay
-            autoplayTimeout: 2000, // Time between slides
-            autoplayHoverPause: true, // Pause on hover
-            responsive: {
-                0: {
-                    items: 1 // 1 item on small screens
-                },
-                768: {
-                    items: 2 // 2 items on medium screens
-                },
-                1000: {
-                    items: 5 // 5 items on larger screens
-                }
-            }
-        });
-    });
-
-</script>
+</section> -->
