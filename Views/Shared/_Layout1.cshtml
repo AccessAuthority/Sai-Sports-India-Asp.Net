@@ -1,53 +1,66 @@
 ﻿<style>
-    /* General styles for the navigation */
-    #nav-links {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+   /* General styles for the navigation */
+#nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-    /* Styling for the dropdown container */
-    .dropdown {
-        position: relative; /* Ensures the submenu is positioned relative to this container */
-    }
+/* Styling for the dropdown container */
+.dropdown {
+    position: relative; /* Ensures the submenu is positioned relative to this container */
+}
 
-    /* Initially hide the submenu */
-    .submenu {
-        border-radius:5px;
-        width:200px;
-        border:1px solid white;
-        display: none;
-        position: absolute; /* Positions the submenu below the About Us link */
-        left: -50px;
-        top:50px;
-        background-color: rgba(0, 0, 0, 0.5); /* White background for the submenu */
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        z-index: 10; /* Ensures the submenu is above other elements */
-    }
+/* Initially hide the submenu */
+.submenu {
+    transition:1s;
+    border-radius: 5px;
+    width: 200px;
+    border: 1px solid white;
+    display: none; /* Hide the submenu by default */
+    position: absolute; /* Positions the submenu below the About Us link */
+    left:0;
+    top: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Background color */
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+    z-index: 10; /* Ensures the submenu is above other elements */
+}
 
-        /* Styling for submenu items */
-        .submenu li a {
-            display: block;
-            text-decoration: none;
-            color: white; /* Optional: Change color for submenu links */
-        }
+/* Styling for submenu items */
+.submenu a {
+    text-align:start;
+    padding:0;
+    margin:0;
+    display: block;
+    text-decoration: none;
+    color: white;
+    transition:1s;
+}
 
-    /* Display submenu when the parent dropdown is clicked */
-    .dropdown.show .submenu {
-        display: block; /* Show the submenu when the parent has the 'show' class */
-    }
+/* Show the submenu when hovering over the dropdown */
+.dropdown:hover .submenu {
+    display: block; /* Show the submenu when hovering over the parent */
+}
 
-    /* Dropdown icon rotation */
-    .dropdown-icon {
-        margin-left: 5px;
-        transition: transform 0.3s ease;
-    }
+/* Dropdown icon rotation */
+.dropdown-icon {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
 
-    /* Rotate the icon when the submenu is shown */
-    .dropdown.show .dropdown-icon {
-        transform: rotate(180deg);
+/* Rotate the icon when the submenu is shown (on hover) */
+.dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+.pb-5{
+    border-bottom:1px solid white;
+    padding-bottom:8px !important;
+}
+
+    .pt-5 {
+        padding-top: 8px !important;
     }
 
 </style>
@@ -63,28 +76,18 @@
     <ul id="nav-links">
         <li><a asp-action="Index">Home</a></li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="about-us" onclick="toggleSubMenu()">About Us <span class="dropdown-icon">▼</span></a>
+            <a href="javascript:void(0);" class="dropdown-toggle" id="about-us">About Us <span class="dropdown-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
             <ul class="submenu" id="about-us-submenu">
-                <li><a asp-action="Director">Director's Message</a></li>
-                <li><a asp-action="AboutUs">About Us</a></li>
+                 <a class="pb-5" asp-action="AboutUs">About Sai Sports</a>
+                <a class="pt-5" asp-action="Director">Director's Message</a>
             </ul>
         </li>
-        <li><a asp-action="Services">Products Overview</a></li>
+        <li><a asp-action="Services">Overview</a></li>
         <li><a asp-action="Products">Products</a></li>
+        <li><a asp-action="Clients">Clients</a></li>
         <li><a asp-action="Blog">Blog</a></li>
         <li><a asp-action="Career">Career</a></li>
         <li><a asp-action="ContactUs">Contact Us</a></li>
     </ul>
 </nav>
-<script>
-        function toggleSubMenu() {
-        const submenu = document.getElementById('about-us-submenu');
-        const dropdown = document.getElementById('about-us');
 
-        // Toggle the submenu visibility
-        submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
-
-        // Toggle the dropdown icon rotation
-        dropdown.classList.toggle('show');
-    }
-</script>

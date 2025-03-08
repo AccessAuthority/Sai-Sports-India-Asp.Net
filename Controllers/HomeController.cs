@@ -383,6 +383,10 @@ namespace SaiSports.Controllers
             return View(data);
         }
 
+        public IActionResult Clients()
+        {
+            return View();
+        }
         public IActionResult Blog()
         {
             var data = _context.tbl_blog.ToList();

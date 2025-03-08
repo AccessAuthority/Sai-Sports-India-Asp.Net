@@ -32,9 +32,10 @@
     }
     /* Container for the whole page */
     .container {
+        margin-top:10px !important;
         padding-top:20px;
         padding-bottom: 50px;
-        width: 93%;
+        width: 100%;
         margin: 0 auto;
     }
 
@@ -111,11 +112,6 @@
         margin-bottom: 10px;
     }
 
-    .content {
-        font-size: 1.1em;
-        line-height: 1.6;
-    }
-
     /* Responsive Styles */
     @@media (max-width: 1024px) {
         .breadcrumb {
@@ -142,9 +138,6 @@
             height: auto;
             margin-bottom: 20px;
         }
-    .content {
-        font-size: 1em;
-    }
 
     .comments h3 {
         font-size: 1.5em;
@@ -189,11 +182,6 @@
     .blog-content h1 {
         font-size: 1.8em;
     }
-
-    .content {
-        font-size: 0.9em;
-    }
-
     .comments h3 {
         font-size: 1.3em;
     }
@@ -212,23 +200,19 @@
         font-size: 0.9em;
     }
 
-    .content {
-        font-size: 0.9em;
-    }
-
     .sidebar {
         display: none; /* Hide sidebar on very small screens */
     }
 
     }
 </style>
-<section class="section-content">
+<section class="section-content pb-0">
     <div class="breadcrumb">
         <h2>@blog.title</h2>
         <a asp-action="Index">Home</a> <span>></span> <a asp-action="Blog">Blog</a>  <span>></span> <a>@blog.title</a>
     </div>
 </section>
-<div class="container">
+<div class="container section-content mt-0">
     <div class="main-content">
         <!-- Blog Content -->
         <div class="blog-content">
@@ -239,9 +223,7 @@
                 <h1>@blog.title</h1>
                 <p class="date">Published on @DateTime.Parse(blog.date).ToString("MMMM dd, yyyy") | By @blog.author | Category: @blog.category</p>
             </div>
-            <div class="content">
                 @Html.Raw(blog.blog_content)
-            </div>
         </div>
         <div class="sidebar">
             <h3>Recent Blogs</h3>

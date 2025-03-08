@@ -204,3 +204,44 @@
         });
     </script>
 }
+<script>
+    // Form submission validation
+    document.getElementById("rform").addEventListener("submit", function(event) {
+        var isValid = true;
+
+        // Validate Name (not empty)
+        var name = document.getElementById("name").value;
+        if (name.trim() === "") {
+            alert("Please enter your full name.");
+            isValid = false;
+        }
+
+        // Validate Email (basic format check)
+        var email = document.getElementById("email").value;
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address.");
+            isValid = false;
+        }
+
+        // Validate Phone Number (only numbers and max 10 digits)
+        var phone = document.getElementById("tel").value;
+        var phoneRegex = /^[0-9]{10}$/;
+        if (!phoneRegex.test(phone)) {
+            alert("Please enter a valid phone number (10 digits).");
+            isValid = false;
+        }
+
+        // Validate Message (not empty)
+        var msg = document.getElementById("msg").value;
+        if (msg.trim() === "") {
+            alert("Please enter your message.");
+            isValid = false;
+        }
+
+        // If any field is invalid, prevent form submission
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+</script>
