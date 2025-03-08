@@ -40,6 +40,9 @@
 .pt-0 {
     padding-top: 0 !important;
 }
+.pt-10 {
+    padding-top: 10px !important;
+}
 .ellipsis-7 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -957,13 +960,28 @@ nav a:hover {
     color: white;
     font-size: 50px;
 }
-.client{
+.sec-img {
+    border-radius: 5px;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    height: 300px;
+    width: 380px;
+}
+.sec-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.client {
     padding-bottom: 40px;
-    flex-direction:row;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .client-img {
     border-radius:5px;
