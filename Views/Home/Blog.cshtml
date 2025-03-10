@@ -105,7 +105,10 @@
     }
     @@media (max-width: 768px) {
         .section-content{
-         padding-bottom:0px;
+         padding:0px;
+        }
+        .p-10{
+            padding:20px 10px 10px 10px !important;
         }
     .breadcrumb {
     margin-top: 40px !important;
@@ -119,9 +122,9 @@
 
 <!-- Blog Section -->
 <section class="light-section blog-sec">
-    <div class="section-content">
+    <div class="section-content p-10">
     <div class="breadcrumb">
-        <h2>Latest Blogs & Articles</h2>
+        <h2>Blogs & Articles</h2>
         <a asp-action="Index">Home</a> <span>></span> <a>Blog</a>
     </div>
     </div>

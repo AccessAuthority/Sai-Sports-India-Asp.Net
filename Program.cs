@@ -39,11 +39,17 @@ app.UseRouting();
 
 app.UseSession();
 
-app.UseAuthorization();  
+app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "home",
+    pattern: "{action=Index}/{id?}",
+    defaults: new { controller = "Home" });
+
+app.MapControllerRoute(
+    name: "admin",
+    pattern: "Admin/{action=Index}/{id?}",
+    defaults: new { controller = "Admin" });
 
 app.Run();
 
