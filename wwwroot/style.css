@@ -761,16 +761,26 @@ nav a:hover {
     display: flex;
     align-items: center;
     justify-content:center;
-    max-width: 1300px;
+    width: 100%;
     margin: auto;
     gap: 20px;
-    padding:0 20px;
+/*    padding:0 20px;*/
 }
-.why-cont{
+.left-why, .right-why{
     width:50%;
+    display:flex;
+    justify-content:end;
+}
+.why-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: start;
+    justify-content:end ;
+    width: 600px !important;
 }
 .why-img {
-    width: 50%;
+    width: 600px;
     height: 500px;
 }
 .why-img img{

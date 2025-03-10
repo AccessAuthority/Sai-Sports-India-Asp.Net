@@ -492,7 +492,7 @@ namespace SaiSports.Controllers
 
             TempData["Message"] = $"Your Form Submitted Successfully!";
 
-            return RedirectToAction("Career"); // Redirect to a thank you page
+            return RedirectToAction("Career", "Home"); // Redirect to a thank you page
         }
 
         // Utility method to save file

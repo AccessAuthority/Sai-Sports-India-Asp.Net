@@ -20,11 +20,10 @@
         padding: 20px 0px;
     }
 
-    .ser-con, .ser-img {
+    .ser-con {
         width: 100%;
         padding: 0;
     }
-
     .service-title {
         font-size: 25px;
         margin-top: 10px;
@@ -33,7 +32,7 @@
     .topbar {
         display: none;
     }
-
+  
     /* Hide sections for tablet view */
     .service-ab {
         display: none;
@@ -288,7 +287,23 @@
 /* Mobile Screens */
 @media (max-width: 768px) {
     /* Similar styles for smaller devices like phones */
-    garment-content p{
+    .ser-img {
+        width: 100%;
+        padding: 0;
+        height: 300px;
+    }
+    .d-none {
+        display: none !important;
+    }
+    .left-why, .right-why {
+        width:100%;
+    }
+    .left-why >h2 {
+        font-size: 20px;
+        font-weight: 100;
+        text-align: center;
+    }
+        garment-content p{
         text-align:justify;
     }
     .garment-content em {
@@ -578,6 +593,13 @@
     .b-footer {
         padding: 5px 0;
         flex-direction: column;
+    }
+    .why-cont >h2{
+        font-weight:100;
+        text-align:center;
+    }
+    .why-img{
+        height:300px;
     }
 }
 @media (max-width: 480px) {
