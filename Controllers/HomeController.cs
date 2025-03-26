@@ -456,7 +456,7 @@ namespace SaiSports.Controllers
             await _context.SaveChangesAsync();
 
             // Send email to admin
-            string adminEmail = "accessauthority.business@gmail.com"; // Replace with admin email address
+            string adminEmail = "puri.saisports@gmail.com"; // Replace with admin email address
             string subject = "New Career Application";
 
             string body = $@"
@@ -558,7 +558,7 @@ namespace SaiSports.Controllers
     </div>";
 
             // Send the email
-            _emailSender.SendEmailAsync("accessauthority.business@gmail.com", subject, body);
+            _emailSender.SendEmailAsync("puri.saisports@gmail.com", subject, body);
 
             // Set a success message to display to the user
             TempData["message"] = "Your form was submitted successfully!";
