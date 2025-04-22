@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - SaiSports</title>
+    <meta name="google-site-verification" content="sV3SBXKSByxLntFEhMj3GGE1KINOVKMyCQy6pOGmQsw" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -22,20 +23,7 @@
     <link rel="stylesheet" href="~/owl.theme.default.min.css">
 </head>
 <body>
-    <div class="mouse-follower"></div>
-    <div class="topbar">
-        <div class="left-top">
-             <a href="mailto:puri.saisports@gmail.com"
-               style="color: #fff;"><i class="fa-solid fa-envelope"></i> puri.saisports@gmail.com</a>
-            <a href="tel:9335907252"><i class="fa-solid fa-phone"></i> +91 9335907252</a>
-        </div>
-        <div class="right-top">
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        </div>
-    </div>
+    @* <div class="mouse-follower"></div> *@
     @Html.Partial("_Layout1")
     <!-- Header -->
             @RenderBody()

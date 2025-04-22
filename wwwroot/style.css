@@ -271,35 +271,6 @@ header h1 {
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 0;
 }
-
-/* Navigation */
-.topbar {
-    border-bottom: 1px solid #4e4c4c;
-    position: absolute;
-    top: 0;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    display: flex;
-    z-index: 999 !important;
-    padding: 12px 40px;
-}
-.left-top{
-    height:100%;
-    width:50%;
-    display:flex;
-    align-items:center;
-    justify-content:start;
-    gap:10px;
-}
-.right-top {
-    height: 100%;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content:end;
-    gap: 20px;
-}
 /* Basic Styling for Navigation */
 nav {
     align-items: center;
@@ -308,7 +279,7 @@ nav {
     display: flex;
     width: 100%;
     position: fixed;
-    top: 50px;
+/*    top: 50px;*/
     z-index: 999 !important;
     padding: 10px 40px;
     background-color: transparent;
@@ -357,7 +328,7 @@ nav a:hover {
     padding: 20px;
     text-align: start;
     border-radius: 8px;
-    margin-top: 110px;
+    margin-top: 60px;
     border: 1px solid #4e4c4c;
     height: auto;
     width: 100%;
