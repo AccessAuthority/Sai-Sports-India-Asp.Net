@@ -22,7 +22,7 @@ Corporate website for Sai Sports India - Built with ASP.NET Core MVC.
 
 1. **Clone and Setup**
 ```bash
-git clone https://github.com/saisportsindia/website.git
+git clone https://github.com/saisportsindia/Sai-Sports-India-Asp.Net.git
 cd SaiSportsIndia
 dotnet restore
 ```
