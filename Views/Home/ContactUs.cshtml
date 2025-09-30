@@ -1,7 +1,8 @@
 ﻿@model SaiSports.Models.tbl_enquiries
 
 @{
-    ViewData["Title"] = "Contact Us";
+    ViewData["Title"] = "Contact Sai Sports India | Lucknow Office & Inquiries";
+    ViewBag.Description = "Reach out for bulk uniform orders, custom design requests, or general info. Located in Hazratganj, Lucknow. Call +91 93359 07252.";
     Layout = "_Layout";
 }
 <style>
@@ -171,7 +172,8 @@
                     <div>
                         <textarea class="form-control" id="msg" name="msg" placeholder="Type your message here" required></textarea>
                     </div>
-
+                    <!-- Google reCAPTCHA widget -->
+                    <div class="g-recaptcha form-control" data-sitekey="6LdVSmYrAAAAAPExp-Q3je-y7J808-zEXG-I4CEI"></div>
                     <div>
                         <button type="submit" class="btn">Send Message</button>
                     </div>
@@ -180,18 +182,20 @@
 
             <!-- Address Section -->
             <div class="map-container">
-                <a href="tel:+919335907252" target="_blank"><i class="fa-solid fa-phone c-icon"></i> +91 9335907252</a>
+                <a href="tel:+91 93359 07252" target="_blank"><i class="fa-solid fa-phone c-icon"></i> +91 93359 07252</a>
                 <a href="mailto:puri.saisports@gmail.com" target="_blank"><i class="fa-solid fa-envelope c-icon"></i> puri.saisports@gmail.com</a>
-                    <a href="https://maps.app.goo.gl/DMd37f3hruesF6yf9" target="_blank">
+                <a href="https://maps.app.goo.gl/VqVqaFqZJZaNs6J59" target="_blank">
                     <i class="fa-solid fa-location-crosshairs c-icon"></i> 2nd floor, K.B. Plaza, Love Lane,
         Hazratganj, Lucknow, 226001
                     </a>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28476.373582731787!2d80.94906060321047!3d26.854366546357078!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd09eaaaaaab%3A0xa9ed2493543f497!2sSai%20Sports!5e0!3m2!1sen!2sin!4v1737976074364!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2776.3841852059045!2d80.9437114!3d26.849346399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd1321d22115%3A0x53edcb4a3c32f787!2sSai%20Sports%20India%20-%20Best%20Sports%20Manufacturer%20in%20Lucknow%20%7C%20Readymade%20Garment%20Manufacturers!5e1!3m2!1sen!2sin!4v1755779916691!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
        </div>
     </div>
 </section>
 <!--End  Section -->
+<!-- reCAPTCHA JS -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <!-- Display SweetAlert if TempData has a message -->
 @if (TempData["message"] != null)
 {
@@ -200,6 +204,17 @@
             title: 'Notification',
             text: '@TempData["message"]',
             icon: 'success',
+            confirmButtonText: 'Ok'
+        });
+    </script>
+}
+@if (TempData["error"] != null)
+{
+    <script>
+        Swal.fire({
+            title: 'Notification',
+            text: '@TempData["error"]',
+            icon: 'error',
             confirmButtonText: 'Ok'
         });
     </script>

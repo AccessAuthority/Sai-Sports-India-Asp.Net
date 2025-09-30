@@ -13,17 +13,6 @@ window.onscroll = function() {
     }
 };
 
-const mouseFollower = document.querySelector('.mouse-follower');
-
-document.addEventListener('mousemove', (e) => {
-  const mouseX = e.pageX;
-  const mouseY = e.pageY;
-
-  // Move the follower to the mouse position with a slight delay
-  mouseFollower.style.transform = `translate3d(${mouseX - 15}px, ${mouseY - 15}px, 0)`;
-});
-
-
 
 // Navigation Menu 
 // JavaScript for toggling the menu visibility on mobile

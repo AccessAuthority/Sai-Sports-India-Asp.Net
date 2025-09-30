@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using SaiSports.Models;
 using System.Reflection.Metadata;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace SaiSports.Controllers
 {
@@ -519,8 +521,33 @@ namespace SaiSports.Controllers
         }
 
         [HttpPost]
-        public IActionResult EnquiryForm(tbl_enquiries e)
+        public async Task<IActionResult> EnquiryForm(tbl_enquiries e)
         {
+            // 1. Get reCAPTCHA response from form
+            var recaptchaResponse = Request.Form["g-recaptcha-response"];
+            var secretKey = "6LdVSmYrAAAAAPqyfCAqHlRhwfjZoPJO_bnpHahW"; // Replace with your secret key
+
+            using (var client = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+        {
+            { "secret", secretKey },
+            { "response", recaptchaResponse }
+        };
+
+                var content = new FormUrlEncodedContent(values);
+                var response = await client.PostAsync("https://www.google.com/recaptcha/api/siteverify", content);
+                var result = await response.Content.ReadAsStringAsync();
+
+                var captchaResult = JsonSerializer.Deserialize<RecaptchaResponse>(result);
+
+                if (!captchaResult.success)
+                {
+                    TempData["error"] = "reCAPTCHA verification failed. Please try again.";
+                    return RedirectToAction("ContactUs");
+                }
+            }
+
             // Add the enquiry to the database
             _context.tbl_enquiries.Add(e);
             _context.SaveChanges();
@@ -528,44 +555,39 @@ namespace SaiSports.Controllers
             // Compose the email content after saving the form
             string subject = $"New Form Submission from {e.name} - Sai Sports India";
             string body = $@"
-    <div style='font-family: Arial, sans-serif; color: #333; line-height: 1.6;'>
-        <h2 style='color: #007BFF;'>Sai Sports India, Lucknow</h2>
-        <p>Dear Team,</p>
-        <p>You have received a new Contact Form submission. Here are the details:</p>
-        <table style='border-collapse: collapse; width: 100%;'>
-            <tr>
-                <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Subject</td>
-                <td style='border: 1px solid #ddd; padding: 8px;'>{e.subject}</td>
-            </tr>
-            <tr>
-                <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Name</td>
-                <td style='border: 1px solid #ddd; padding: 8px;'>{e.name}</td>
-            </tr>
-            <tr>
-                <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Phone</td>
-                <td style='border: 1px solid #ddd; padding: 8px;'>{e.phone}</td>
-            </tr>
-            <tr>
-                <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Email</td>
-                <td style='border: 1px solid #ddd; padding: 8px;'>{e.email}</td>
-            </tr>
-            <tr>
-                <td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Message</td>
-                <td style='border: 1px solid #ddd; padding: 8px;'>{e.msg}</td>
-            </tr>
-        </table>
-        <p style='margin-top: 20px;'>Best Regards,<br/>Sai Sports India, Lucknow<br/><a href='mailto:support@saisportsindia.com'>support@saisportsindia.com</a></p>
-    </div>";
+<div style='font-family: Arial, sans-serif; color: #333; line-height: 1.6;'>
+    <h2 style='color: #007BFF;'>Sai Sports India, Lucknow</h2>
+    <p>Dear Team,</p>
+    <p>You have received a new Contact Form submission. Here are the details:</p>
+    <table style='border-collapse: collapse; width: 100%;'>
+        <tr><td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Subject</td><td style='border: 1px solid #ddd; padding: 8px;'>{e.subject}</td></tr>
+        <tr><td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Name</td><td style='border: 1px solid #ddd; padding: 8px;'>{e.name}</td></tr>
+        <tr><td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Phone</td><td style='border: 1px solid #ddd; padding: 8px;'>{e.phone}</td></tr>
+        <tr><td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Email</td><td style='border: 1px solid #ddd; padding: 8px;'>{e.email}</td></tr>
+        <tr><td style='border: 1px solid #ddd; padding: 8px; font-weight: bold;'>Message</td><td style='border: 1px solid #ddd; padding: 8px;'>{e.msg}</td></tr>
+    </table>
+    <p style='margin-top: 20px;'>Best Regards,<br/>Sai Sports India, Lucknow<br/><a href='mailto:support@saisportsindia.com'>support@saisportsindia.com</a></p>
+</div>";
 
             // Send the email
             _emailSender.SendEmailAsync("puri.saisports@gmail.com", subject, body);
 
-            // Set a success message to display to the user
             TempData["message"] = "Your form was submitted successfully!";
-
-            // Redirect to the Index page (or the desired page)
             return RedirectToAction("ContactUs");
         }
+
+        public class RecaptchaResponse
+        {
+            public bool success { get; set; }
+
+            public DateTime challenge_ts { get; set; }
+
+            public string hostname { get; set; }
+
+            [JsonPropertyName("error-codes")]
+            public List<string> error_codes { get; set; }
+        }
+
 
         public IActionResult SSAdmin()
         {

@@ -286,6 +286,13 @@
 
 /* Mobile Screens */
 @media (max-width: 768px) {
+    .celebration {
+        top: 17px;
+        height: 50px;
+        width: 50px;
+        right: 50px;
+        position: absolute;
+    }
     /* Similar styles for smaller devices like phones */
     .ser-img {
         width: 100%;
